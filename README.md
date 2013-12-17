@@ -1,4 +1,4 @@
 Markv12.github.io
 =================
 
-For the site
+This is the working version of a game I'm currently developing. 
