@@ -13,6 +13,10 @@
         var playerSpriteName = "pShip.png";
         //var playerSpriteName = "spaceship.png";
         
+        var viewportNarrow = 1;
+        var viewportWide = 0.1;
+        
+        
         var tileMapName = "tiles_mapBW.png";       
         var player, thruster;
         var speedLabel;
@@ -79,7 +83,7 @@
 
                 } 
                 else if(Q.inputs['down']) {
-                    this.p.vx = 0;                 
+                    this.accelY = -6;                 
                 }
                 if(Q.inputs['fire']) {
                 	if(this.p.flip){
@@ -91,7 +95,7 @@
                     	this.accelY = -this.thrust*Math.sin(this.p.angle*0.0174532925);
                     }
                     if(!this.soundPlaying){
-                    	Q.audio.play('rocket.mp3');
+                    	Q.audio.play('rocket.mp3', { loop: true });
                     	thruster.play("thrust");
                     	this.soundPlaying=true;
                     }
@@ -122,13 +126,13 @@
                 	 scaleFactor = Math.abs(1/(Math.sqrt(this.p.vx*this.p.vx+this.p.vy*this.p.vy)/800));
                 }
                 else{ 	
-                	 scaleFactor = 0.8;
+                	 scaleFactor = viewportNarrow;
                 }
-                if(scaleFactor > 0.8){
-                	scaleFactor=0.8;
+                if(scaleFactor > viewportNarrow){
+                	scaleFactor=viewportNarrow;
                 }
-                else if(scaleFactor < 0.1){
-                	scaleFactor=0.1;
+                else if(scaleFactor < viewportWide){
+                	scaleFactor=viewportWide;
                 }	
                 if(Math.abs(scaleFactor-currentFactor)<0.01){
             		mainViewport.scale=scaleFactor;
@@ -210,7 +214,7 @@
             
             stage.collisionLayer(new Q.TileLayer({ dataAsset: levelFileName, layerIndex:1,  sheet: 'tiles', tileW: 70, tileH: 70 }));
             thruster = new Q.thruster({x:550, y:-20, z:2, scale:2.5, angle:90, type:0, gravity:0});
-            player = new Q.Player({x:560, y:400, z:1, scale:0.25});
+            player = new Q.Player({x:560, y:400, z:1, scale:0.15});
             thruster.play("off"); 
             stage.insert(thruster,player); 
             stage.insert(player);
@@ -249,6 +253,10 @@
           Q.sheet("tiles",tileMapName, { tilew: 70, tileh: 70});          
           Q.stageScene("levelX");
           //Q.stageScene("HUD",1);
+          
+          //pre-load rocket audio
+          Q.audio.play('rocket.mp3');
+          Q.audio.stop('rocket.mp3');
         });
         
         
