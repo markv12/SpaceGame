@@ -7,6 +7,7 @@
         <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
     </head>
     <body>
+    <div>
         <script>
         //var levelFileName = "levelX.tmx";
         var levelFileName = "uncompressed.tmx";
@@ -15,7 +16,7 @@
         //var playerSpriteName = "spaceship.png";
         
         var viewportNarrow = 1;
-        var viewportWide = 0.1;
+        var viewportWide = 0.35;
         
         
         var tileMapName = "tiles_mapBW.png";       
@@ -38,7 +39,8 @@
             accelY:0,
             angleVelocity:0, 
             thrust:20,
-            thrusting:false,           
+            thrusting:false,
+            everyOther:1,           
             init: function(p) {
               	this._super(p, { asset: playerSpriteName, x: 160, y: 50, jumpSpeed: -380, gravity:0.2});
               	this.add('2d');    
@@ -97,7 +99,8 @@
                     this.flip();
                     this.p.angle=-90;
                 } 
-                 
+                  
+                
                 if(Q.inputs['up']) {
                     this.accelY = -2; 
 
@@ -114,6 +117,17 @@
                     	this.accelX = -this.thrust*Math.cos(this.p.angle*0.0174532925);
                     	this.accelY = -this.thrust*Math.sin(this.p.angle*0.0174532925);
                     }
+                    
+                    /*this.p.x +=this.everyOther*Math.cos(this.p.angle*0.0174532925);
+                    if(this.everyOther<=0){
+                    	this.everyOther = Math.random()*10;
+                    }
+                    else{
+                    	this.everyOther = -this.everyOther;
+                    }
+                    this.p.y +=this.everyOther*Math.sin(this.p.angle*0.0174532925);
+                    this.p.angle +=this.everyOther/5;*/
+                    
                     if(!this.thrusting){
                     	Q.audio.play('rocket.mp3', { loop: true });
                     	thruster.play("thrust");
@@ -283,6 +297,7 @@
         
         
         </script>
-        <p>v0.0.1b12</p>
+    </div>
+        <p>v0.0.1b13</p>
     </body>
 </html>
