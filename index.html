@@ -21,6 +21,7 @@
         var player, thruster;
         var speedLabel;
         var mainViewport;
+        var background;
         
         var Q = Quintus({ audioSupported: ['mp3', 'ogg'] })
             .include("Sprites, Scenes, Input, 2D, Touch, UI, Audio, Anim")
@@ -36,7 +37,7 @@
             accelY:0,
             angleVelocity:0, 
             thrust:20,
-            soundPlaying:false,           
+            thrusting:false,           
             init: function(p) {
               	this._super(p, { asset: playerSpriteName, x: 160, y: 50, jumpSpeed: -380, gravity:0.2});
               	this.add('2d');    
@@ -60,10 +61,28 @@
             
             step: function(dt) { 
             	//console.log(dt);
-                //console.log(this.p.angle);          	
+                //console.log(this.p.angle);
+                
+                //This catches when the player goes too fast and escapes the bounds of the level
+                if(this.p.x > background.p.w-150){
+                	this.p.x = background.p.w -250;
+                	this.p.vx = 0;
+                }
+                else if(this.p.x <0){
+                	this.p.x = 250;
+                	this.p.vx = 0;
+                }    
+                if(this.p.y > background.p.h){
+                	this.p.y = background.p.h -300;
+                	this.p.vy = 0;
+                }
+                else if(this.p.y <0){
+                	this.p.y = 300;
+                	this.p.vy = 0;
+                }
+                          	
                 if(Q.inputs['left']) {
                     this.angleVelocity=-2;
-
                 } 
                 else if(Q.inputs['right']) {
                     this.angleVelocity=2;              
@@ -94,17 +113,19 @@
                     	this.accelX = -this.thrust*Math.cos(this.p.angle*0.0174532925);
                     	this.accelY = -this.thrust*Math.sin(this.p.angle*0.0174532925);
                     }
-                    if(!this.soundPlaying){
+                    if(!this.thrusting){
                     	Q.audio.play('rocket.mp3', { loop: true });
                     	thruster.play("thrust");
-                    	this.soundPlaying=true;
+                    	this.thrusting=true;
+                    	this.accelX*=12;
+                    	this.accelY*=12;
                     }
                 } 
                 else{
-                	if(this.soundPlaying){
+                	if(this.thrusting){
                     	Q.audio.stop('rocket.mp3');
                     	thruster.play("off");
-                		this.soundPlaying=false;
+                		this.thrusting=false;
                     }
                 }
                 
@@ -208,7 +229,7 @@
         
         Q.scene("levelX",function(stage) {
           
-            var background = new Q.TileLayer({ dataAsset: levelFileName, layerIndex: 0, sheet: 'tiles', tileW: 70, tileH: 70, type: Q.SPRITE_NONE });
+            background = new Q.TileLayer({ dataAsset: levelFileName, layerIndex: 0, sheet: 'tiles', tileW: 70, tileH: 70, type: Q.SPRITE_NONE });
             stage.insert(background);
             stage.sort=true;
             
@@ -248,7 +269,7 @@
         
         //load assets
         Q.enableSound();
-        Q.load(tileMapName+ ", " + playerSpriteName + ", player.png, rocket.mp3, fire.png, fire.json, "+levelFileName, function() {
+        Q.load(tileMapName+ ", " + playerSpriteName + ", rocket.mp3, fire.png, fire.json, "+levelFileName, function() {
           Q.compileSheets("fire.png", "fire.json");
           Q.sheet("tiles",tileMapName, { tilew: 70, tileh: 70});          
           Q.stageScene("levelX");
