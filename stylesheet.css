@@ -15,12 +15,18 @@ body{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#000000',GradientType=0 ); /* IE6-9 */  
 }
 
-p {
+#version{
 	color: #888888;
-	font-family: verdana;
-	text-align: right;
+	font-family:verdana;
+	text-align:right;
+	margin-right:3em;
+}
+
+#controls{
+	color: #888888;
+	text-align:center;
 }
 
 div {
-	margin-top: 2em;
+	margin-top: 3em;
 }
