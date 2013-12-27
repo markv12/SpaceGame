@@ -1,20 +1,34 @@
-//var levelFileName = "levelX.tmx";
-//var levelFileName = "uncompressed.tmx";
-//var levelFileName = "OpenPlane.tmx";
-var levelFileName = "SquareLevel.tmx";
+//var LEVELFILENAME = "levelX.tmx";
+//var LEVELFILENAME = "uncompressed.tmx";
+//var LEVELFILENAME = "OpenPlane.tmx";
+var LEVELFILENAME = "SquareLevel.tmx";
+var TILEMAPNAME = "tiles_mapBW.png";
 
-var playerSpriteName = "pShip.png";
-//var playerSpriteName = "spaceship.png";
+var PLAYERSPRITENAME = "pShip.png";
+//var PLAYERSPRITENAME = "spaceship.png";
+var PLAYERSCALE = 0.1;
+var VIEWPORTNARROW = 0.45;
+var VIEWPORTWIDE = 0.45;
+var VIEWPORTRESIZESMOOTH = 0.035;
 
-var viewportNarrow = 2;
-var viewportWide = 0.35;
-
-
-var tileMapName = "tiles_mapBW.png";       
-var player, thruster;
+var NORMALIZEDDTADUJSTMENT = 0.01950799999999;
+var ANGLETORADIANS = 0.0174532925;    
+    
+var player, thruster, planet;
 var speedLabel;
 var mainViewport;
 var background;
+
+var generateCirclePoints = function(radius, numPoints){
+	var pointArray = new Array();
+	var increment = (Math.PI*2)/numPoints;
+	for(var i = 0; i<numPoints; i++){
+		var x = radius*Math.cos(increment*i);
+		var y = radius*Math.sin(increment*i);
+		pointArray[i]=[x,y];
+	}
+	return pointArray;
+}
 
 var Q = Quintus({ audioSupported: ['mp3', 'ogg'] })
 	.include("Sprites, Scenes, Input, 2D, Touch, UI, Audio, Anim")
@@ -24,23 +38,27 @@ var Q = Quintus({ audioSupported: ['mp3', 'ogg'] })
 		development: true
 	}).controls().touch();            
 
+
+
 Q.input.keyboardControls({
 	88: "flip",
 	65: "left",
 	68: "right"
-});﻿
+});
 
 //player
 Q.Sprite.extend("Player",{
 	accelX:0,
 	accelY:0,
 	angleVelocity:0, 
-	thrust:20,
+	thrust:10,
 	thrusting:false,
 	cyclesSinceLastBurst:100,
-	everyOther:1,           
+	everyOther:1, 
+	averageCounter:0,
+	counterSum:0,
 	init: function(p) {
-		this._super(p, { asset: playerSpriteName, x: 160, y: 50, jumpSpeed: -380, gravity:0.2});
+		this._super(p, { asset: PLAYERSPRITENAME, x: 160, y: 50, jumpSpeed: -380, gravity:0});
 		this.add('2d');    
 		this.p.flip=false;
 
@@ -61,9 +79,17 @@ Q.Sprite.extend("Player",{
 	},
 
 	step: function(dt) { 
-		//console.log(dt);
-		//console.log(this.p.angle);
-
+		/* 
+		//This calculates the average DT over 1000 frames, used for game speed adjustments. 
+		  
+		this.averageCounter++;
+		this.counterSum+=dt;
+		if(this.averageCounter>=1000){
+			console.log('Average of DT: ' + this.counterSum/1000);
+			console.log('DT: ' + dt);
+			this.counterSum = 0;
+			this.averageCounter=0;
+		}*/
 		//This catches when the player goes too fast and escapes the bounds of the level
 		if(this.p.x > background.p.w-75){
 			this.p.x = background.p.w -150;
@@ -107,13 +133,15 @@ Q.Sprite.extend("Player",{
 			this.accelY = -6;                 
 		}
 		if(Q.inputs['fire']) {
+			var xThrust = this.thrust*Math.cos(this.p.angle*ANGLETORADIANS)*(dt/NORMALIZEDDTADUJSTMENT);
+			var yThrust = this.thrust*Math.sin(this.p.angle*ANGLETORADIANS)*(dt/NORMALIZEDDTADUJSTMENT);
 			if(this.p.flip){
-				this.accelX = this.thrust*Math.cos(this.p.angle*0.0174532925);
-				this.accelY = this.thrust*Math.sin(this.p.angle*0.0174532925);
+				this.accelX += xThrust;
+				this.accelY += yThrust;
 			}
 			else{
-				this.accelX = -this.thrust*Math.cos(this.p.angle*0.0174532925);
-				this.accelY = -this.thrust*Math.sin(this.p.angle*0.0174532925);
+				this.accelX -= xThrust;
+				this.accelY -= yThrust;
 			}
 	
 			/*this.p.x +=this.everyOther*Math.cos(this.p.angle*0.0174532925);
@@ -131,8 +159,8 @@ Q.Sprite.extend("Player",{
 				thruster.play("thrust");
 				this.thrusting=true;
 				if(this.cyclesSinceLastBurst>100){
-					this.accelX*=40;
-					this.accelY*=40;
+					//this.accelX*=40;
+					//this.accelY*=40;
 					this.cyclesSinceLastBurst=0;
 				}
 				else{
@@ -168,23 +196,23 @@ Q.Sprite.extend("Player",{
 			 scaleFactor = Math.abs(1/(Math.sqrt(this.p.vx*this.p.vx+this.p.vy*this.p.vy)/800));
 		}
 		else{ 	
-			 scaleFactor = viewportNarrow;
+			 scaleFactor = VIEWPORTNARROW;
 		}
-		if(scaleFactor > viewportNarrow){
-			scaleFactor=viewportNarrow;
+		if(scaleFactor > VIEWPORTNARROW){
+			scaleFactor=VIEWPORTNARROW;
 		}
-		else if(scaleFactor < viewportWide){
-			scaleFactor=viewportWide;
+		else if(scaleFactor < VIEWPORTWIDE){
+			scaleFactor=VIEWPORTWIDE;
 		}	
-		if(Math.abs(scaleFactor-currentFactor)<0.01){
+		if(Math.abs(scaleFactor-currentFactor)<VIEWPORTRESIZESMOOTH){
 			mainViewport.scale=scaleFactor;
 		}
 		else{
 			if(scaleFactor>currentFactor){
-				mainViewport.scale+=0.01; 
+				mainViewport.scale+=VIEWPORTRESIZESMOOTH; 
 			}
 			else if(scaleFactor<currentFactor){
-				mainViewport.scale-=0.01; 
+				mainViewport.scale-=VIEWPORTRESIZESMOOTH; 
 			}
 		}
 
@@ -214,52 +242,65 @@ Q.Sprite.extend("VerticalEnemy", {
 	init: function(p) {
 		this._super(p, {vy: -100, rangeY: 200, gravity: 0 });
 		this.add("2d");
+	
+		this.p.initialY = this.p.y;
+	
+		this.on("bump.left,bump.right,bump.bottom",function(collision) {
+			 if(collision.obj.isA("Player")) { 
+				Q.stageScene("endGame",1, { label: "Game Over" }); 
+					collision.obj.destroy();
+				}
+		});
+		this.on("bump.top",function(collision) {
+			if(collision.obj.isA("Player")) { 
+				collision.obj.p.vy = -100;
+				this.destroy();
+			}		
+		});
+	}
+});
 
-	this.p.initialY = this.p.y;
-
-	this.on("bump.left,bump.right,bump.bottom",function(collision) {
-		 if(collision.obj.isA("Player")) { 
-			Q.stageScene("endGame",1, { label: "Game Over" }); 
-				collision.obj.destroy();
-			}
-	});
-	this.on("bump.top",function(collision) {
-		if(collision.obj.isA("Player")) { 
-			collision.obj.p.vy = -100;
-			this.destroy();
-		}		
-	});
-
+Q.Sprite.extend("Planet", {
+	init: function(p) {
+		this._super(p, {asset:"planet.png", gravity: 0, points:generateCirclePoints(100,50)});
+		this.add("2d");
 	},
 	step: function(dt) {                
-		if(this.p.y - this.p.initialY >= this.p.rangeY && this.p.vy > 0) {
-			this.p.vy = -this.p.vy;
-		} 
-		else if(-this.p.y + this.p.initialY >= this.p.rangeY && this.p.vy < 0) {
-		  this.p.vy = -this.p.vy;
-		} 
+
 	}
 });   
 	   
 
 Q.scene("levelX",function(stage) {
 
-	background = new Q.TileLayer({ dataAsset: levelFileName, layerIndex: 0, sheet: 'tiles', tileW: 70, tileH: 70, type: Q.SPRITE_NONE });
+	background = new Q.TileLayer({ dataAsset: LEVELFILENAME, layerIndex: 0, sheet: 'tiles', tileW: 70, tileH: 70, type: Q.SPRITE_NONE });
 	stage.insert(background);
 	stage.sort=true;
 
-	stage.collisionLayer(new Q.TileLayer({ dataAsset: levelFileName, layerIndex:1,  sheet: 'tiles', tileW: 70, tileH: 70 }));
+	stage.collisionLayer(new Q.TileLayer({ dataAsset: LEVELFILENAME, layerIndex:1,  sheet: 'tiles', tileW: 70, tileH: 70 }));
 	thruster = new Q.thruster({x:420, y:-20, z:2, scale:2, angle:90, type:0, gravity:0});
-	player = new Q.Player({x:560, y:400, z:1, scale:0.15});
+	player = new Q.Player({x:560, y:400, z:1, scale:PLAYERSCALE});
+	planet = new Q.Planet({y:3200, x:3200, scale:13});
 	thruster.play("off"); 
 	stage.insert(thruster,player); 
 	stage.insert(player);
+	stage.insert(planet);
 
 	//var enemy = stage.insert(new Q.VerticalEnemy({x: 800, y: 550, scale:0.2, rangeY: 170, asset: "spaceship.png" }));
 	stage.add("viewport").follow(player,{x: true, y: true},{/*minX: 0, maxX: background.p.w, minY: 0, maxY: background.p.h*/});
 	stage.viewport.offsetX = 480;
-	stage.viewport.scale = 0.8;
+	stage.viewport.scale = VIEWPORTNARROW;
 	mainViewport = stage.viewport;
+	
+	stage.on("step",function(dt) {
+		 
+		var diffX = planet.p.x - player.p.x; 
+		var diffY = planet.p.y - player.p.y;
+		var diffStraight = Math.sqrt((diffX*diffX)+(diffY*diffY));
+		player.accelX += (20000000*diffX)/(diffStraight*diffStraight*diffStraight);
+		player.accelY += (20000000*diffY)/(diffStraight*diffStraight*diffStraight); 
+		//console.log("gravX: " + (10000000*diffX)/(diffStraight*diffStraight*diffStraight) + " gravY: " + (10000000*diffY)/(diffStraight*diffStraight*diffStraight));  
+	});﻿
 });
 Q.scene("HUD",function(stage) {
 	speedLabel = new Q.UI.Text({x:140, y: 110, label:"XSpeed: " + Math.floor(player.p.vx) + " YSpeed: " + Math.floor(player.p.vy)});
@@ -284,9 +325,9 @@ Q.scene('endGame',function(stage) {
 
 //load assets
 Q.enableSound();
-Q.load(tileMapName+ ", " + playerSpriteName + ", rocket.mp3, fire.png, fire.json, "+levelFileName, function() {
+Q.load(TILEMAPNAME+ ", " + PLAYERSPRITENAME + ", rocket.mp3, fire.png, fire.json, planet.png, "+LEVELFILENAME, function() {
   Q.compileSheets("fire.png", "fire.json");
-  Q.sheet("tiles",tileMapName, { tilew: 70, tileh: 70});          
+  Q.sheet("tiles",TILEMAPNAME, { tilew: 70, tileh: 70});          
   Q.stageScene("levelX");
   //Q.stageScene("HUD",1);
 
