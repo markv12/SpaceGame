@@ -2,7 +2,10 @@ html {
 	height: 100%;
 }
 
-body{
+body {
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	color: white;
+	text-align: center;
 	height: 100%;
 
     background: #000000; /* Old browsers */
@@ -12,7 +15,54 @@ body{
 	background: -o-linear-gradient(top, #333333 0%,#000000 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top, #333333 0%,#000000 100%); /* IE10+ */
 	background: linear-gradient(to bottom, #333333 0%,#000000 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#000000',GradientType=0 ); /* IE6-9 */  
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#000000',GradientType=0 ); /* IE6-9 */ 
+}
+a:link, a:visited {
+	color: #bfbfbf;
+}
+a:active, a:hover {
+	color: #bfbfbf;
+}
+p.header {
+	font-size: small;
+}
+p.header span {
+	font-weight: bold;
+}
+p.footer {
+	font-size: x-small;
+}
+div.content {
+	margin: auto;
+	width: 960px;
+}
+div.broken,
+div.missing {
+	margin: auto;
+	position: relative;
+	top: 50%;
+	width: 193px;
+}
+div.broken a,
+div.missing a {
+	height: 63px;
+	position: relative;
+	top: -31px;
+}
+div.broken img,
+div.missing img {
+	border-width: 0px;
+}
+div.broken {
+	display: none;
+}
+div#unityPlayer {
+	cursor: default;
+	height: 600px;
+	width: 960px;
+}
+
+body{ 
 }
 
 #version{
