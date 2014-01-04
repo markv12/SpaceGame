@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{D2CF5C5A-9022-7AD0-A0BD-CCA30B399847}</ProjectGuid>
+	<ProjectGuid>{F2E7B920-2CE6-06EA-EFA7-EEAEF009828D}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-CSharp-Editor</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,31 +46,23 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AudioButton.cs" />
-     <Compile Include="Assets\Scripts\CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\CameraSpeedZoom.cs" />
-     <Compile Include="Assets\Scripts\MovementPrediction.cs" />
-     <Compile Include="Assets\Scripts\PlanetGravity.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\AnimatedTextureExtendedUV.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\BackgroundParallax.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\BackgroundPropSpawner.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\Destroyer.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\Enemy.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\FollowPlayer.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\Gun.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\HealthPickup.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\LayBombs.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\Pauser.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\PickupSpawner.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\PlayerControl.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\PlayerHealth.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\Remover.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\Score.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\ScoreShadow.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\SetParticleSortingLayer.cs" />
-     <Compile Include="Assets\Scripts\ReferenceScripts\Spawner.cs" />
-     <Compile Include="Assets\Scripts\ShipControls.cs" />
-     <Compile Include="Assets\Scripts\SoundEffectsHelper.cs" />
+     <Compile Include="Assets\editor\FindMissingScriptsRecursively.cs" />
+ <Reference Include="\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.Graphs">
+ <HintPath>\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="\Applications\Unity\Unity.app\Contents\PlaybackEngines\iPhonePlayer\EditorExtensions\UnityEditor.iOS.Extensions">
+ <HintPath>\Applications\Unity\Unity.app\Contents\PlaybackEngines\iPhonePlayer\EditorExtensions\UnityEditor.iOS.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="\Applications\Unity\Unity.app\Contents\PlaybackEngines\BB10Player\EditorExtensions\UnityEditor.BB10.Extensions">
+ <HintPath>\Applications\Unity\Unity.app\Contents\PlaybackEngines\BB10Player\EditorExtensions\UnityEditor.BB10.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="\Applications\Unity\Unity.app\Contents\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions">
+ <HintPath>\Applications\Unity\Unity.app\Contents\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{D2CF5C5A-9022-7AD0-A0BD-CCA30B399847}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

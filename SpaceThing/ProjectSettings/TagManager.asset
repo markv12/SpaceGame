@@ -5,6 +5,8 @@ TagManager:
   tags:
   - Planet
   - Thruster
+  - MusicSource
+  - Foreground
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

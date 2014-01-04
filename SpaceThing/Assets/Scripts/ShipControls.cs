@@ -6,7 +6,7 @@ public class ShipControls : MonoBehaviour {
 	private const float ANGLETORADIANS = 0.0174532925f;
 	private const float AVERAGEFRAMERATE = 0.02f;
 
-	private float thrust = 0.3f;
+	private float thrust = 0.35f;
 	private float maxAngleSpeed = 140f;
 
 	private Vector2 movement;
@@ -14,8 +14,6 @@ public class ShipControls : MonoBehaviour {
 
 	public float XAccel { get; set;}
 	public float YAccel { get; set;}
-	private float XSpeed = 0;
-	private float YSpeed = 0;
 	
 	private float angleSpeed=0;
 

@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 public class MovementPrediction : MonoBehaviour {
 
-	public Transform dotSprite;
+	public GameObject dotSprite;
 	public int numDots = 16;
 
 	private List<GameObject> dots;
@@ -39,7 +39,7 @@ public class MovementPrediction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		Vector2 pVelocity = player.rigidbody2D.velocity/14;
+		Vector2 pVelocity = player.rigidbody2D.velocity/9;
 		Vector3 pVelocity3D = new Vector3 (pVelocity.x, pVelocity.y,0);
 		for (int i=0; i < dots.Count; i++){
 			dots[i].transform.position = calculateFuturePosition (player.transform.position, pVelocity3D, i+1);
@@ -49,6 +49,7 @@ public class MovementPrediction : MonoBehaviour {
 
 	private Vector3 calculateFuturePosition(Vector3 position, Vector3 velocity, int stepNum){
 		if(stepNum == 0){
+			position.z=1f;
 			return position;
 		}
 		else{
