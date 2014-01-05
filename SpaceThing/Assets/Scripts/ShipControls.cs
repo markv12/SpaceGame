@@ -40,12 +40,20 @@ public class ShipControls : MonoBehaviour {
 				this.XAccel = xThrust;
 				this.YAccel = yThrust;
 			}
+			this.XAccel-= (rigidbody2D.velocity.x/90f);
+			this.YAccel-= (rigidbody2D.velocity.y/90f);
+			Debug.Log(XAccel);
+			if(rigidbody2D.velocity.magnitude < 5){
+				this.XAccel*=2;
+				this.YAccel*=2;
+			}
 
 		}
 		else{
 			XAccel = 0;
 			YAccel = 0;
 		}
+
 		if(Input.GetButtonDown("Jump")){
 			thrusterAnimator.SetBool("thrusting", true);
 			thrusterAudioSource.Play();
@@ -64,7 +72,9 @@ public class ShipControls : MonoBehaviour {
 	{
 		float frameAdjustment = Time.fixedDeltaTime / AVERAGEFRAMERATE;
 
-		rigidbody2D.velocity += new Vector2 (XAccel,YAccel)*(frameAdjustment);
+		Vector2 thrustVector = new Vector2 (XAccel, YAccel) * (frameAdjustment);
+
+		rigidbody2D.velocity += thrustVector;
 
 		float hArrowKeyInput = Input.GetAxis("Horizontal");
 		if(hArrowKeyInput > 0){
