@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\AudioButton.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\CameraSpeedZoom.cs" />
+     <Compile Include="Assets\Scripts\MiniMapBorder.cs" />
      <Compile Include="Assets\Scripts\MovementPrediction.cs" />
      <Compile Include="Assets\Scripts\PlanetGravity.cs" />
      <Compile Include="Assets\Scripts\ReferenceScripts\AnimatedTextureExtendedUV.cs" />

@@ -42,7 +42,7 @@ public class ShipControls : MonoBehaviour {
 			}
 			this.XAccel-= (rigidbody2D.velocity.x/90f);
 			this.YAccel-= (rigidbody2D.velocity.y/90f);
-			Debug.Log(XAccel);
+
 			if(rigidbody2D.velocity.magnitude < 5){
 				this.XAccel*=2;
 				this.YAccel*=2;

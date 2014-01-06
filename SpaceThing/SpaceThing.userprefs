@@ -1,8 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ShipControls.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MiniMapBorder.cs">
     <Files>
+      <File FileName="Assets/Scripts/MiniMapBorder.cs" Line="1" Column="19" />
       <File FileName="Assets/Scripts/ShipControls.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlanetGravity.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MovementPrediction.cs" Line="1" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

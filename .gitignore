@@ -53,6 +53,7 @@ Temp/
 Obj/
 UnityGenerated/
 Library/
+SpaceThing/Library/
  
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
@@ -67,24 +68,7 @@ ExportedObj/
 *.user
 *.unityproj
 *.booproj
-SpaceThing/Library/CurrentLayout.dwlt
 
-SpaceThing/Library/CurrentLayout.dwlt
+SpaceThing/Library/metadata/d0/d0fc7546a47fc44ccac0ae60fb2b8282
 
-SpaceThing/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
-
-SpaceThing/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll.mdb
-
-SpaceThing/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll.mdb
-
-SpaceThing/Library/ScriptAssemblies/Assembly-CSharp.dll
-
-SpaceThing/Library/ScriptAssemblies/Assembly-CSharp.dll
-
-SpaceThing/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
-
-SpaceThing/Library/assetDatabase3
-
-SpaceThing/Library/metadata/d0/d0493075e994c4705b89796d7e7e2dc0
-
-SpaceThing/Library/metadata/d0/d0493075e994c4705b89796d7e7e2dc0
+SpaceThing/Library/metadata/d8/d83664bed843e43358ef00d7408c0960
