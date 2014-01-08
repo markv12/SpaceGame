@@ -17,18 +17,31 @@ public class ShipControls : MonoBehaviour {
 	
 	private float angleSpeed=0;
 
-	private Animator thrusterAnimator;
-	private AudioSource thrusterAudioSource;
+	private ThrusterAnimation thrusterAnimation;
 
 	void Start () {
 		XAccel = 0;
 		YAccel = 0;
-		thrusterAnimator = GameObject.FindGameObjectWithTag ("Thruster").GetComponent<Animator> ();
-		thrusterAudioSource = GetComponent<AudioSource> ();
+		thrusterAnimation = GameObject.FindGameObjectWithTag ("Thruster").GetComponent<ThrusterAnimation> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		calculateAcceleration ();
+
+		if(Input.GetButtonDown("Jump")){
+			thrusterAnimation.startThrusting();
+		}
+		if(Input.GetButtonUp("Jump")){
+			thrusterAnimation.stopThrusting();
+		}
+
+		if(Input.GetKeyDown ("x")){
+			flip();
+		}
+	}
+
+	private void calculateAcceleration(){
 		if(Input.GetButton ("Jump")){
 			float xThrust = this.thrust*Mathf.Cos(transform.rotation.eulerAngles.z*ANGLETORADIANS);
 			float yThrust = this.thrust*Mathf.Sin(transform.rotation.eulerAngles.z*ANGLETORADIANS);
@@ -42,54 +55,46 @@ public class ShipControls : MonoBehaviour {
 			}
 			this.XAccel-= (rigidbody2D.velocity.x/90f);
 			this.YAccel-= (rigidbody2D.velocity.y/90f);
-
-			if(rigidbody2D.velocity.magnitude < 5){
+			
+			if(rigidbody2D.velocity.magnitude < 6){
 				this.XAccel*=2;
 				this.YAccel*=2;
 			}
-
 		}
 		else{
 			XAccel = 0;
 			YAccel = 0;
 		}
-
-		if(Input.GetButtonDown("Jump")){
-			thrusterAnimator.SetBool("thrusting", true);
-			thrusterAudioSource.Play();
-		}
-		if(Input.GetButtonUp("Jump")){
-			thrusterAnimator.SetBool("thrusting", false);
-			thrusterAudioSource.Stop();
-		}
-
-		if(Input.GetKeyDown ("x")){
-			flip();
-		}
 	}
 
 	void FixedUpdate ()
 	{
-		float frameAdjustment = Time.fixedDeltaTime / AVERAGEFRAMERATE;
+		float frameRateAdjustment = Time.fixedDeltaTime / AVERAGEFRAMERATE;
 
-		Vector2 thrustVector = new Vector2 (XAccel, YAccel) * (frameAdjustment);
-
-		rigidbody2D.velocity += thrustVector;
+		applyAcceleration (frameRateAdjustment);
 
 		float hArrowKeyInput = Input.GetAxis("Horizontal");
 		if(hArrowKeyInput > 0){
 			angleSpeed = -maxAngleSpeed;
-			rigidbody2D.angularVelocity = angleSpeed * frameAdjustment;
+			rigidbody2D.angularVelocity = angleSpeed * frameRateAdjustment;
 		}
 		else if(hArrowKeyInput < 0){
 			angleSpeed = maxAngleSpeed;
-			rigidbody2D.angularVelocity = angleSpeed * frameAdjustment;
+			rigidbody2D.angularVelocity = angleSpeed * frameRateAdjustment;
 		}
-
 		rigidbody2D.angularVelocity *= 0.92f;
 
 
+		checkForNeedToFlip ();
+	}
 
+	private void applyAcceleration(float frameRateAdjustment){
+		Vector2 thrustVector = new Vector2 (XAccel, YAccel) * (frameRateAdjustment);
+		
+		rigidbody2D.velocity += thrustVector;
+	}
+
+	private void checkForNeedToFlip(){
 		float currentAngle = transform.rotation.eulerAngles.z;
 		if(currentAngle > 180){
 			currentAngle = currentAngle-360;
@@ -104,11 +109,11 @@ public class ShipControls : MonoBehaviour {
 		}
 	}
 
-	void flip(){
+	private void flip(){
 		transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y,0);
 	}
 
-	bool flipped{
+	private bool flipped{
 		get{
 			return transform.localScale.x < 0; 
 		}
