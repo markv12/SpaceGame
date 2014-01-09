@@ -762,6 +762,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 691208979}
+  - {fileID: 1329199444}
+  - {fileID: 1580791019}
   - {fileID: 1101434817}
   - {fileID: 514332714}
   - {fileID: 1214021681}
@@ -1267,10 +1269,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1329199439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.6932659, y: 32.6801147, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 66.7730637, y: 130.720459, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 826374335}
 --- !u!114 &1329199445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1352,10 +1354,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1580791015}
   m_LocalRotation: {x: 0, y: 0, z: .173648208, w: .984807789}
-  m_LocalPosition: {x: 10.2056026, y: 2.04563141, z: 0}
-  m_LocalScale: {x: 1.39999998, y: 1.39999998, z: 1}
+  m_LocalPosition: {x: 40.8224106, y: 8.18252563, z: 0}
+  m_LocalScale: {x: 5.59999943, y: 5.59999943, z: 4}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 826374335}
 --- !u!1 &1746869983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,15 +1408,15 @@ Camera:
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .800000012
-    y: .699999988
-    width: .200000003
-    height: .300000012
+    x: .730000019
+    y: .579999983
+    width: .25
+    height: .400000006
   near clip plane: .300000012
   far clip plane: 1100
   field of view: 10
   orthographic: 1
-  orthographic size: 23
+  orthographic size: 25
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1640,6 +1642,7 @@ GameObject:
   - 50: {fileID: 1888466334}
   - 61: {fileID: 1888466333}
   - 114: {fileID: 1888466332}
+  - 114: {fileID: 1888466337}
   - 81: {fileID: 1888466336}
   m_Layer: 0
   m_Name: Player
@@ -1730,6 +1733,17 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1888466330}
   m_Enabled: 1
+--- !u!114 &1888466337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1888466330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771ff83832c2540fa8d0f12fab6d6de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1944773649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1986,6 +2000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameCollisionEffect: {fileID: 19800000, guid: 01d8b78cda31042cb8c1c1cc73f39003,
+    type: 2}
+  shipExplosionEffect: {fileID: 19800000, guid: ec1c2c6586a084d54bd7a80efc5efc88,
     type: 2}
 --- !u!114 &2145976669
 MonoBehaviour:

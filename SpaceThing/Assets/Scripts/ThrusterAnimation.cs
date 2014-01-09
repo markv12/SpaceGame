@@ -37,7 +37,7 @@ public class ThrusterAnimation : MonoBehaviour {
 	private void spawnParticleEffect(Vector3 position){
 		if(thrusting){
 			if(everyOther){
-				SpecialEffectsHelper.Instance.Explosion(position);
+				SpecialEffectsHelper.Instance.ThrusterCollision(position);
 				everyOther = false;
 			}
 			else{

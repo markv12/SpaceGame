@@ -11,7 +11,10 @@ public class SpecialEffectsHelper : MonoBehaviour
 	/// </summary>
 	public static SpecialEffectsHelper Instance;
 	
+
 	public ParticleSystem flameCollisionEffect;
+
+	public ParticleSystem shipExplosionEffect;
 	
 	void Awake()
 	{
@@ -28,9 +31,14 @@ public class SpecialEffectsHelper : MonoBehaviour
 	/// Create an explosion at the given location
 	/// </summary>
 	/// <param name="position"></param>
-	public void Explosion(Vector3 position)
+	public void ThrusterCollision(Vector3 position)
 	{
 		instantiate(flameCollisionEffect, position);
+	}
+
+	public void ShipExplosion(Vector3 position)
+	{
+		instantiate(shipExplosionEffect, position);
 	}
 	
 	/// <summary>
