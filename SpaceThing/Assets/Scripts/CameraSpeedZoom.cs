@@ -16,7 +16,12 @@ public class CameraSpeedZoom : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(player != null){
+			zoomWithPlayer();
+		}
+	}
 
+	private void zoomWithPlayer(){
 		float currentFOV = -transform.position.z;
 		float propsedView;
 		float newView = 0;
@@ -45,4 +50,5 @@ public class CameraSpeedZoom : MonoBehaviour {
 		}
 		transform.position = new Vector3 (transform.position.x,transform.position.y, -newView);
 	}
+
 }

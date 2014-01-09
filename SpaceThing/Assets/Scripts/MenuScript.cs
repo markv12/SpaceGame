@@ -21,7 +21,7 @@ public class MenuScript : MonoBehaviour
 	void OnGUI()
 	{
 		GUI.skin = skin;
-		if (Application.CanStreamedLevelBeLoaded("GravityGame")){
+		if (Application.CanStreamedLevelBeLoaded("Level1")){
 
 			// Draw a button to start the game
 			if (
@@ -37,7 +37,7 @@ public class MenuScript : MonoBehaviour
 				)
 			{
 				// On Click, load the first level.
-				Application.LoadLevel("GravityGame");
+				Application.LoadLevel("Level1");
 			}
 		}
 		else{
@@ -45,7 +45,7 @@ public class MenuScript : MonoBehaviour
 					new Rect(
 					Screen.width / 2 - (buttonWidth / 2),
 					(Screen.height*0.75f) - (buttonHeight / 2),
-					buttonWidth* Application.GetStreamProgressForLevel("GravityGame"),
+					buttonWidth* Application.GetStreamProgressForLevel("Level1"),
 					buttonHeight
 					),
 					"Loading..."

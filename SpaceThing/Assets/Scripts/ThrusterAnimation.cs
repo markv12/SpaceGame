@@ -14,12 +14,6 @@ public class ThrusterAnimation : MonoBehaviour {
 		thrusterAudioSource = GetComponent<AudioSource>();
 	}
 
-
-	// Update is called once per frame
-	void Update () {
-	    
-	}
-
 	public void startThrusting(){
 		thrusterAnimator.SetBool("thrusting", true);
 		thrusterAudioSource.Play();

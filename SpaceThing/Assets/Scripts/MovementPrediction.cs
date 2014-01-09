@@ -33,11 +33,16 @@ public class MovementPrediction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		if(player.rigidbody2D != null){
+			makePredictions();
+		}
+	}
+
+	private void makePredictions(){
 		Vector2 pVelocity = player.rigidbody2D.velocity/3.5f;
 		Vector3 pVelocity3D = new Vector3 (pVelocity.x, pVelocity.y,0);
-
+		
 		List<Vector3> predictions = calculateFuturePositions(player.transform.position, pVelocity3D, dots.Count);
-
 		for (int i=0; i < dots.Count; i++){
 			dots[i].transform.position = predictions[i];
 		}

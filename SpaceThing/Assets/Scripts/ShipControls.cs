@@ -6,8 +6,8 @@ public class ShipControls : MonoBehaviour {
 	private const float ANGLETORADIANS = 0.0174532925f;
 	private const float AVERAGEFRAMERATE = 0.02f;
 
-	private float thrust = 0.35f;
-	private float maxAngleSpeed = 140f;
+	public float thrust = 0.35f;
+	public float maxAngleSpeed = 140f;
 
 	private Vector2 movement;
 	private Vector3 rotation;
@@ -27,17 +27,19 @@ public class ShipControls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		calculateAcceleration ();
+		if(rigidbody2D != null){
+			calculateAcceleration ();
 
-		if(Input.GetButtonDown("Jump")){
-			thrusterAnimation.startThrusting();
-		}
-		if(Input.GetButtonUp("Jump")){
-			thrusterAnimation.stopThrusting();
-		}
+			if(Input.GetButtonDown("Jump")){
+				thrusterAnimation.startThrusting();
+			}
+			if(Input.GetButtonUp("Jump")){
+				thrusterAnimation.stopThrusting();
+			}
 
-		if(Input.GetKeyDown ("x")){
-			flip();
+			if(Input.GetKeyDown ("x")){
+				flip();
+			}
 		}
 	}
 
@@ -69,28 +71,36 @@ public class ShipControls : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		float frameRateAdjustment = Time.fixedDeltaTime / AVERAGEFRAMERATE;
+		if(rigidbody2D != null){
+			float frameRateAdjustment = Time.fixedDeltaTime / AVERAGEFRAMERATE;
 
-		applyAcceleration (frameRateAdjustment);
+			applyAcceleration (frameRateAdjustment);
 
-		float hArrowKeyInput = Input.GetAxis("Horizontal");
-		if(hArrowKeyInput > 0){
-			angleSpeed = -maxAngleSpeed;
-			rigidbody2D.angularVelocity = angleSpeed * frameRateAdjustment;
+			float hArrowKeyInput = Input.GetAxis("Horizontal");
+			if(hArrowKeyInput > 0){
+				angleSpeed = -maxAngleSpeed;
+				rigidbody2D.angularVelocity = angleSpeed * frameRateAdjustment;
+			}
+			else if(hArrowKeyInput < 0){
+				angleSpeed = maxAngleSpeed;
+				rigidbody2D.angularVelocity = angleSpeed * frameRateAdjustment;
+			}
+			rigidbody2D.angularVelocity *= 0.92f;
+
+
+			checkForNeedToFlip ();
 		}
-		else if(hArrowKeyInput < 0){
-			angleSpeed = maxAngleSpeed;
-			rigidbody2D.angularVelocity = angleSpeed * frameRateAdjustment;
-		}
-		rigidbody2D.angularVelocity *= 0.92f;
+	}
 
-
-		checkForNeedToFlip ();
+	public void destroyShip(){
+		Destroy (GetComponent<SpriteRenderer>());
+		//rigidbody2D.velocity = Vector2.zero;
+		Destroy(GetComponent<Rigidbody2D>());
+		thrusterAnimation.stopThrusting ();
 	}
 
 	private void applyAcceleration(float frameRateAdjustment){
 		Vector2 thrustVector = new Vector2 (XAccel, YAccel) * (frameRateAdjustment);
-		
 		rigidbody2D.velocity += thrustVector;
 	}
 

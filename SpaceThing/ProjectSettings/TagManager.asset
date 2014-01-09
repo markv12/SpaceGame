@@ -16,11 +16,11 @@ TagManager:
   Builtin Layer 5: 
   Builtin Layer 6: 
   Builtin Layer 7: 
-  User Layer 8: Bombs
-  User Layer 9: Player
-  User Layer 10: Enemies
-  User Layer 11: Pickups
-  User Layer 12: Ground
+  User Layer 8: MiniMap
+  User Layer 9: Background
+  User Layer 10: 
+  User Layer 11: 
+  User Layer 12: 
   User Layer 13: 
   User Layer 14: 
   User Layer 15: 
@@ -64,4 +64,8 @@ TagManager:
   - name: UI
     userID: 5
     uniqueID: 149272721
+    locked: 0
+  - name: 
+    userID: 6
+    uniqueID: 64706137
     locked: 0
