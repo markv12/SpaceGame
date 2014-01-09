@@ -32,7 +32,7 @@ public class MenuScript : MonoBehaviour
 						buttonWidth,
 						buttonHeight
 						),
-						"Start!"
+						""
 					)
 				)
 			{

@@ -15,7 +15,7 @@ QualitySettings:
     shadowCascades: 1
     shadowDistance: 15
     blendWeights: 1
-    textureQuality: 3
+    textureQuality: 1
     anisotropicTextures: 0
     antiAliasing: 0
     softParticles: 0
