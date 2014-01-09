@@ -45,7 +45,7 @@ public class MenuScript : MonoBehaviour
 					new Rect(
 					Screen.width / 2 - (buttonWidth / 2),
 					(Screen.height*0.75f) - (buttonHeight / 2),
-					buttonWidth,
+					buttonWidth* Application.GetStreamProgressForLevel("GravityGame"),
 					buttonHeight
 					),
 					"Loading..."

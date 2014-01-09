@@ -25,6 +25,6 @@ public class PlanetGravity : MonoBehaviour {
 		Vector3 direction = (transform.position - pos);
 		acc += (gravityFactor*direction)/ direction.sqrMagnitude; 
 		Vector3 adjustedAcceleration = acc * (Time.fixedDeltaTime / AVERAGEFRAMERATE);
-		return new Vector3 (adjustedAcceleration.x,adjustedAcceleration.y,0);
+		return adjustedAcceleration;
 	}
 }

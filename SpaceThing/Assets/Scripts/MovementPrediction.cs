@@ -24,17 +24,11 @@ public class MovementPrediction : MonoBehaviour {
 			GameObject newDot = (GameObject)Instantiate (dotSprite);
 			float dotScale = 1f-((1f/numDots)*i);
 			newDot.transform.localScale = new Vector3(dotScale,dotScale,1);
+			newDot.transform.parent=foreground;
 			dots.Add(newDot);
 		}
-		foreach(GameObject dot in dots){
-			dot.transform.parent = foreground;
-		}
 
-
-		gravityScripts = new List<PlanetGravity> ();
-		foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
-			gravityScripts.Add(planet.GetComponent<PlanetGravity>());
-		} 
+		getPlanetGravityScripts ();
 	}
 	
 	// Update is called once per frame
@@ -46,6 +40,13 @@ public class MovementPrediction : MonoBehaviour {
 
 		for (int i=0; i < dots.Count; i++){
 			dots[i].transform.position = predictions[i];
+		}
+	}
+
+	private void getPlanetGravityScripts(){
+		gravityScripts = new List<PlanetGravity> ();
+		foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
+			gravityScripts.Add(planet.GetComponent<PlanetGravity>());
 		}
 	}
 

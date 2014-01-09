@@ -761,7 +761,7 @@ AudioSource:
   m_GameObject: {fileID: 691208978}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: a1e776487ac874e47a77a32e86452e87, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bc8a71955dcb74520b74d7295fedfc3d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: .600000024
   m_Pitch: 1
@@ -1259,8 +1259,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xSmooth: 30
   ySmooth: 30
-  maxXAndY: {x: 0, y: 0}
-  minXAndY: {x: 0, y: 0}
 --- !u!92 &1746869987
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1355,8 +1353,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xSmooth: 30
   ySmooth: 30
-  maxXAndY: {x: 0, y: 0}
-  minXAndY: {x: 0, y: 0}
 --- !u!92 &1770856183
 Behaviour:
   m_ObjectHideFlags: 0
