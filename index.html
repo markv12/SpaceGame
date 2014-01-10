@@ -70,20 +70,23 @@
 				ga('create', 'UA-46700657-1', 'markv12.github.io');
 				ga('send', 'pageview');
 
-			</script>
+		</script>
+		<script type="text/javascript" src="advertisement.js"></script>
+
 
 	</head>
 	<body>
-		<div class="content">
-			<div id="unityPlayer">
-				<div class="missing">
-					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
-						<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
-					</a>
+		<div class="wrapper">
+			<div class="content">
+				<div id="unityPlayer">
+					<div class="missing">
+						<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+							<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+						</a>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div id="ad">
+			<div id="ad">
 				<script type="text/javascript"><!--
 					google_ad_client = "ca-pub-3228609102652970";
 					/* Electric Teat Ad */
@@ -96,8 +99,21 @@
 					src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 				</script>
 			</div>
-		<p id='controls'>Left, Right, X, and Space, all you need</p>
-		<br />
-        <p id='version'>v0.0.8</p>
+			<p id='controls'>Left, Right, X, and Space, all you need</p>
+			<div class='message'></div>
+			<p id='version'>v0.0.8</p>
+			
+			<script type="text/javascript">
+				if (document.getElementById("tester") == undefined)
+				{
+					$('div.message').html('<p class="no">You have <strong>AdBlock</strong> enabled! So do I! woot!</p>');
+				}
+				else
+				{
+					$('div.message').css('display', 'none');
+				}
+			</script>
+			
+		</div>
 	</body>
 </html>
