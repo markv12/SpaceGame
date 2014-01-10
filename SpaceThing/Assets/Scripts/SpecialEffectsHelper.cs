@@ -58,7 +58,7 @@ public class SpecialEffectsHelper : MonoBehaviour
 		Destroy(
 			newParticleSystem.gameObject,
 			newParticleSystem.startLifetime
-			);
+		);
 		
 		return newParticleSystem;
 	}

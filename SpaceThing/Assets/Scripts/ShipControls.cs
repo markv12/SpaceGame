@@ -18,11 +18,13 @@ public class ShipControls : MonoBehaviour {
 	private float angleSpeed=0;
 
 	private ThrusterAnimation thrusterAnimation;
+	private AudioSource shipAudioSource;
 
 	void Start () {
 		XAccel = 0;
 		YAccel = 0;
 		thrusterAnimation = GameObject.FindGameObjectWithTag ("Thruster").GetComponent<ThrusterAnimation> ();
+		shipAudioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -97,6 +99,11 @@ public class ShipControls : MonoBehaviour {
 		//rigidbody2D.velocity = Vector2.zero;
 		Destroy(GetComponent<Rigidbody2D>());
 		thrusterAnimation.stopThrusting ();
+	}
+
+	public void die(){
+		destroyShip ();
+		shipAudioSource.Play ();
 	}
 
 	private void applyAcceleration(float frameRateAdjustment){

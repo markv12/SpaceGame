@@ -14,7 +14,6 @@ public class MenuScript : MonoBehaviour
 	
 	void Start()
 	{
-		// Load a skin for the buttons
 		skin = Resources.Load("StartButton") as GUISkin;
 	}
 	

@@ -3,9 +3,11 @@ using System.Collections;
 
 public class GoalPortal : MonoBehaviour {
 
+	public string levelName;
+
 	private IEnumerator WaitThenExit(float seconds) {
 		yield return new WaitForSeconds(seconds);
-		Application.LoadLevel("GravityGame");
+		Application.LoadLevel(levelName);
 	}
 
 
