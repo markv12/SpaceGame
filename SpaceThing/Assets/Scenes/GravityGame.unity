@@ -1701,7 +1701,6 @@ GameObject:
   - 114: {fileID: 2145976667}
   - 114: {fileID: 2145976665}
   - 114: {fileID: 2145976668}
-  - 114: {fileID: 2145976669}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -1759,15 +1758,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flameCollisionEffect: {fileID: 19800000, guid: 01d8b78cda31042cb8c1c1cc73f39003,
     type: 2}
---- !u!114 &2145976669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2145976664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c3d3edcabb742a788f56ead0886760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravityOn: 1
+  shipExplosionEffect: {fileID: 0}

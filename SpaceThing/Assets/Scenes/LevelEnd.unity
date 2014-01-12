@@ -2376,6 +2376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a206f6e631665419dbcfe7252e65ca29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onGate: 1
 --- !u!61 &1580791017
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2905,8 +2906,8 @@ GameObject:
   - 114: {fileID: 2145976667}
   - 114: {fileID: 2145976665}
   - 114: {fileID: 2145976668}
-  - 114: {fileID: 2145976669}
   - 114: {fileID: 2145976670}
+  - 114: {fileID: 2145976669}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -2974,10 +2975,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2145976664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c3d3edcabb742a788f56ead0886760, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f6b60dea8f3f42e8adea04c3a2d58c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityOn: 0
 --- !u!114 &2145976670
 MonoBehaviour:
   m_ObjectHideFlags: 0

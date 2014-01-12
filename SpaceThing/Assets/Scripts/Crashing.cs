@@ -11,9 +11,8 @@ public class Crashing : MonoBehaviour {
 
 	private IEnumerator WaitThenRestart(float seconds) {
 		yield return new WaitForSeconds(seconds);
-		Application.LoadLevel(Application.loadedLevel);
+		GameState.Instance.LoadLevel(Application.loadedLevel);
 	}
-
 
 	void OnCollisionEnter2D(Collision2D collision){
 		if(Mathf.Abs(transform.position.z - collision.transform.position.z)<3f){

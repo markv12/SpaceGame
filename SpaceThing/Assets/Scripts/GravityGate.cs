@@ -3,9 +3,16 @@ using System.Collections;
 
 public class GravityGate : MonoBehaviour {
 
+	public bool onGate=true;
+
 	void OnTriggerExit2D(Collider2D collider)
 	{
-		PlanetGravity.gravityOn = true;
+		if(onGate){
+			GameState.Instance.turnGravityOn();
+		}
+		else{
+			GameState.Instance.turnGravityOff();
+		}
 	}
 }
 

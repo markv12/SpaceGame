@@ -15,6 +15,8 @@ public class MenuScript : MonoBehaviour
 	void Start()
 	{
 		skin = Resources.Load("StartButton") as GUISkin;
+		DontDestroyOnLoad(GameState.Instance);
+		GameState.Instance.startState();
 	}
 	
 	void OnGUI()
@@ -36,7 +38,7 @@ public class MenuScript : MonoBehaviour
 				)
 			{
 				// On Click, load the first level.
-				Application.LoadLevel("Level1");
+				GameState.Instance.LoadLevel("Level1");
 			}
 		}
 		else{
