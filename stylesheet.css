@@ -64,7 +64,7 @@ div#unityPlayer {
 	cursor: default;
 	height: 600px;
 	width: 960px;
-	float: left;
+	float: right;
 }
 
 #version{
@@ -83,11 +83,9 @@ div {
 }
 
 #ad {
-		float: right;
+		float: left;
 		margin-top: 10px;
 		padding-top: 20px;
-		width: 165px;
-		height: 620px;
 		text-shadow: 5px 5px 15px #2c2a1b;
 	}
 #ad img {
