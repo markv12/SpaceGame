@@ -14,14 +14,12 @@ public class OutofBoundsKill : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		miniMap = GameObject.FindGameObjectWithTag ("MiniMap").GetComponent<Camera>();
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		foreground = GameObject.FindGameObjectWithTag("Foreground").transform;
 	}
 	
 	void FixedUpdate () {
-		Vector3 pos = miniMap.WorldToViewportPoint(player.position);
-		if (pos.x < -0.1f || pos.x > 1.1f || pos.y < -0.1f || pos.y > 1.1f) {
+		if (GameState.Instance.outOfBounds) {
 			ChasePlayer.isChasing = true;
 			if(numAntibodies <= maxAntibodies){
 				GameObject antibodyInstance = (GameObject)Instantiate (antibody);

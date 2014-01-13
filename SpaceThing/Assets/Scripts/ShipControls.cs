@@ -21,6 +21,7 @@ public class ShipControls : MonoBehaviour {
 	private AudioSource shipAudioSource;
 
 	void Start () {
+		GameState.Instance.playerActive = true;
 		XAccel = 0;
 		YAccel = 0;
 		thrusterAnimation = GameObject.FindGameObjectWithTag ("Thruster").GetComponent<ThrusterAnimation> ();
@@ -29,7 +30,7 @@ public class ShipControls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(rigidbody2D != null){
+		if(GameState.Instance.playerActive){
 			calculateAcceleration ();
 
 			if(Input.GetButtonDown("Jump")){
@@ -73,7 +74,7 @@ public class ShipControls : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		if(rigidbody2D != null){
+		if(GameState.Instance.playerActive){
 			float frameRateAdjustment = Time.fixedDeltaTime / AVERAGEFRAMERATE;
 
 			applyAcceleration (frameRateAdjustment);
@@ -94,21 +95,37 @@ public class ShipControls : MonoBehaviour {
 		}
 	}
 
-	public void destroyShip(){
-		Destroy (GetComponent<SpriteRenderer>());
-		//rigidbody2D.velocity = Vector2.zero;
-		Destroy(GetComponent<Rigidbody2D>());
+	public void deactivateShip(){
+		GameState.Instance.playerActive = false;
+		GetComponent<SpriteRenderer> ().enabled = false;
+		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+		GetComponent<Rigidbody2D> ().angularVelocity = 0f;
+		GameState.Instance.exitOpenSpace();
 		thrusterAnimation.stopThrusting ();
+		if(flipped){
+			flip();
+		}
+	}
+
+	public void activateShip(){
+		GameState.Instance.playerActive = true;
+		GetComponent<SpriteRenderer> ().enabled = true;
+		GameState.Instance.exitOpenSpace();
 	}
 
 	public void die(){
-		destroyShip ();
+		deactivateShip ();
 		shipAudioSource.Play ();
 	}
 
 	private void applyAcceleration(float frameRateAdjustment){
 		Vector2 thrustVector = new Vector2 (XAccel, YAccel) * (frameRateAdjustment);
 		rigidbody2D.velocity += thrustVector;
+
+		if(!GameState.Instance.InOpenSpace){
+			rigidbody2D.velocity*=0.98f;
+		}
+
 	}
 
 	private void checkForNeedToFlip(){

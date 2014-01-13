@@ -5,9 +5,10 @@ using System.Collections.Generic;
 public class MovementPrediction : MonoBehaviour {
 
 	public GameObject dotSprite;
-	public int numDots = 16;
+	public int numDots = 10;
 
-	private List<GameObject> dots;
+	private List<GameObject> primaryDots;
+	private List<GameObject> averageDots;
 	private Transform player;
 	private List<PlanetGravity> gravityScripts; 
 	private Transform foreground;
@@ -17,24 +18,35 @@ public class MovementPrediction : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		foreground = GameObject.FindGameObjectWithTag("Foreground").transform;
 
-		dots = new List<GameObject>();
-
-		for (int i=0; i < numDots; i++)
-		{
-			GameObject newDot = (GameObject)Instantiate (dotSprite);
-			float dotScale = 1f-((1f/numDots)*i);
-			newDot.transform.localScale = new Vector3(dotScale,dotScale,1);
-			newDot.transform.parent=foreground;
-			dots.Add(newDot);
-		}
+		generateDots();
 
 		getPlanetGravityScripts ();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(player.rigidbody2D != null){
+		if(GameState.Instance.playerActive){
 			makePredictions();
+		}
+	}
+
+	private void generateDots(){
+		primaryDots = new List<GameObject>();
+		averageDots = new List<GameObject>();
+		for (int i=0; i < numDots; i++)
+		{
+			GameObject newDot = (GameObject)Instantiate (dotSprite);
+			float dotScale = 1f-((1f/numDots)*i);
+			newDot.transform.localScale = new Vector3(dotScale,dotScale,1);
+			newDot.transform.parent=foreground;
+			primaryDots.Add(newDot);
+		}
+		for (int i=0; i < numDots-1; i++)
+		{
+			GameObject newDot = (GameObject)Instantiate (dotSprite);
+			newDot.transform.localScale = primaryDots[i].transform.lossyScale;
+			newDot.transform.parent=foreground;
+			averageDots.Add(newDot);
 		}
 	}
 
@@ -42,9 +54,12 @@ public class MovementPrediction : MonoBehaviour {
 		Vector2 pVelocity = player.rigidbody2D.velocity/3.5f;
 		Vector3 pVelocity3D = new Vector3 (pVelocity.x, pVelocity.y,0);
 		
-		List<Vector3> predictions = calculateFuturePositions(player.transform.position, pVelocity3D, dots.Count);
-		for (int i=0; i < dots.Count; i++){
-			dots[i].transform.position = predictions[i];
+		List<Vector3> predictions = calculateFuturePositions(player.transform.position, pVelocity3D, primaryDots.Count);
+		for (int i=0; i < primaryDots.Count; i++){
+			primaryDots[i].transform.position = predictions[i];
+		}
+		for (int i=0; i < primaryDots.Count-1; i++){
+			averageDots[i].transform.position = (predictions[i]+predictions[i+1])/2f;
 		}
 	}
 

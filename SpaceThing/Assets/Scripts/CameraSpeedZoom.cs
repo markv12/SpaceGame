@@ -16,7 +16,7 @@ public class CameraSpeedZoom : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(player != null){
+		if(GameState.Instance.playerActive){
 			zoomWithPlayer();
 		}
 	}

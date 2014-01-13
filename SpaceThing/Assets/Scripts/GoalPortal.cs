@@ -16,7 +16,7 @@ public class GoalPortal : MonoBehaviour {
 		ShipControls ship = collider.gameObject.GetComponent<ShipControls>();
 		if (ship != null && GameState.Instance.isLevelStarted)
 		{
-			ship.destroyShip();
+			ship.deactivateShip();
 			StartCoroutine(WaitThenExit(1.5f));
 
 		}

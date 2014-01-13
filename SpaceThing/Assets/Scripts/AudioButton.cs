@@ -6,8 +6,7 @@ public class AudioButton : MonoBehaviour {
 	public Texture2D onIcon;
 	public Texture2D offIcon;
 
-	private bool isAudioOn = true;
-
+	private static bool isAudioOn = true;
 	private System.Collections.Generic.List<GameObject> musicSources;
 
 	void OnGUI () {
@@ -30,10 +29,12 @@ public class AudioButton : MonoBehaviour {
 	void Start () {
 		musicSources = new System.Collections.Generic.List<GameObject>();
 		musicSources.AddRange (GameObject.FindGameObjectsWithTag("MusicSource"));
-	}
-	// Update is called once per frame
-	void Update () {
-	
+		if(isAudioOn){
+			musicSources.ForEach(audioOn);
+		}
+		else{
+			musicSources.ForEach(audioOff);
+		}
 	}
 
 	private static void audioOff(GameObject toTurnOff){

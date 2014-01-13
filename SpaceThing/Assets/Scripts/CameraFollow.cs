@@ -18,7 +18,7 @@ public class CameraFollow : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		if(player != null){
+		if(GameState.Instance.playerActive){
 			TrackPlayer();
 		}
 	}

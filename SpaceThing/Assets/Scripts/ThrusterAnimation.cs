@@ -26,13 +26,17 @@ public class ThrusterAnimation : MonoBehaviour {
 		thrusting = false;
 	}
 
-	void OnTriggerEnter2D(Collider2D collision){
-		spawnParticleEffect (transform.position);
+	/*void OnTriggerEnter2D(Collider2D collision){
+		if(collider.transform.position.z == transform.position.z){
+			spawnParticleEffect (transform.position);
+		}
 	}
 	void OnTriggerStay2D(Collider2D collision){
-		spawnParticleEffect (transform.position);
+		if(collider.transform.position.z == transform.position.z){
+			spawnParticleEffect (transform.position);
+		}
 
-	}
+	}*/
 
 	private void spawnParticleEffect(Vector3 position){
 		if(thrusting){
