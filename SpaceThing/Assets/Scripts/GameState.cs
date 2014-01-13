@@ -19,7 +19,6 @@ public class GameState : MonoBehaviour {
 	}
 	
 	public void startState(){
-		Debug.Log ("Game State Started");
 		instance.turnGravityOff ();
 	}
 
