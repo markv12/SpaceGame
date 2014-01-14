@@ -1,24 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class ShipControls : MonoBehaviour {
 
 	private const float ANGLETORADIANS = 0.0174532925f;
 	private const float AVERAGEFRAMERATE = 0.02f;
-
-	public float thrust = 0.35f;
-	public float maxAngleSpeed = 140f;
-
+	
 	private Vector2 movement;
 	private Vector3 rotation;
 
-	public float XAccel { get; set;}
-	public float YAccel { get; set;}
-	
 	private float angleSpeed=0;
 
 	private ThrusterAnimation thrusterAnimation;
 	private AudioSource shipAudioSource;
+
+	public float thrust = 0.35f;
+	public float maxAngleSpeed = 140f;
+
+	public float XAccel { get; set;}
+	public float YAccel { get; set;}
+
+	public delegate void ChangedEventHandler(object sender, EventArgs e);
+	public event ChangedEventHandler ShipActivated;
 
 	void Start () {
 		GameState.Instance.playerActive = true;
@@ -30,6 +34,7 @@ public class ShipControls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (1/Time.deltaTime);
 		if(GameState.Instance.playerActive){
 			calculateAcceleration ();
 
@@ -111,6 +116,18 @@ public class ShipControls : MonoBehaviour {
 		GameState.Instance.playerActive = true;
 		GetComponent<SpriteRenderer> ().enabled = true;
 		GameState.Instance.exitOpenSpace();
+		if(ShipActivated != null){
+			ShipActivated(this, EventArgs.Empty);
+		}
+	}
+
+	public void moveToLastCheckpoint(){
+		CheckPoint lastPoint = GameState.Instance.getLastCheckPoint();
+		Vector3 checkPointPosition = lastPoint.transform.position;
+		transform.position = new Vector3 (checkPointPosition.x, checkPointPosition.y, transform.position.z);
+		rigidbody2D.angularVelocity = 0f;
+		transform.rotation = lastPoint.transform.rotation;
+		transform.Rotate (0,0,90);
 	}
 
 	public void die(){

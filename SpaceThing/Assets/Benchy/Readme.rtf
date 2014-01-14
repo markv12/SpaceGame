@@ -1,0 +1,159 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265
+\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Light;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red42\green42\blue42;\red26\green26\blue26;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs30 \cf2 Welcome to Benchy Profiler! A simple benchmarking and profiling tool for Unity 3D Free users.\
+\
+\pard\pardeftab720\sa480
+\cf2 - Benchy Profiler can profile CSharp and UnityScript code without you writing any code!\
+- Save your current benchmarking session and re-load it for viewing later\
+- Compare sets of benchmarks against one another to measure improvement\
+- Benchy Profiler can microprofile critical sections of your project\
+- Powerful, useful, graphs showcasing expensive methods, call counts and more\
+- Data is exported in a format that you can use in downstream applications\
+- Compatible with Unity 3.x and 4.x\
+Disclaimer and terms of usage\
+==============\
+By using this software you accept that you do so at your own risk. Univerb Gaming Studios or it's developers are not liable for any loss or damage of data as a result of use or misuse of this product. Please remove this software if you are not happy with these conditions.\
+First time setup\
+==============\
+Please ensure you have set up your project for the full .net 2.0 instruction set. You can do so by navigating:\
+\pard\pardeftab720
+
+\f1\fs28 \cf3 Edit>Project Settings>Player and then change the API Compatibility Level from .Net 2.0 Subset to\'a0
+\b .Net 2.0\'a0\
+\
+\pard\pardeftab720\sa480
+
+\f0\b0\fs30 \cf2 How to upgrade your Benchy Profiler to a new version\
+==============\
+Upgrading Benchy is usually very painless. Simply:\
+1.) Save your current work and as good measure always have a fresh backup handy incase things go wrong\
+2.) CMD+ALT+U (Mac OSX) or CTRL+ALT+U (Windows) to unload Benchy from the scene (assuming it\'92s loaded in your current scene \
+3.) Import the latest package into the scene and ensure everything gets replaced\
+4.) CMD+ALT+R (Mac OSX) or CTRL+ALT+R (Windows) to reload Benchy Profiler into your scene\
+5.) You\'92re all set! Nothing more to do.\
+What if things go wrong during the upgrade?\
+==============\
+1.) Your first port of call is to close the current project and Unity without saving anything (if asked)\
+2.) Navigate to the \'91Library\'92 folder of the project that is having problems and locate the folder \'91ScriptAssemblies\'92\
+3.) Delete all the DLL and MDB files located in this folder\
+4.) Restart Unity and unload and then reload Benchy if required.\
+5.) If none of the above work, please restore a backup of your project as recommended in Step 1 of the upgrade process. Report the error to info@univerbstudios.co.za so that it may be addressed promptly.\
+What is new in 1.9.2?\
+===============\
+1.) Benchy Profiler now has the facility to specify folders which contain script you don\'92t want to profile. To use this new functionality please navigate to the Benchy->Tasks->New Project Setup window or use the shortcuts CMD+ALT+N for Mac OSX or CTRL+ALT+N for Windows\
+2.) Benchy Profiler automatically ignores empty method calls. This is because measuring them costs more than the method itself and the process of profiling a blank method is illogical.
+\f1\b\fs28 \cf3 \
+
+\f0\b0\fs30 \cf2 What is new in 1.9.1?\
+===============\
+1.) Quicker arm for record mechanism, helps catch even more startup routines for benchmarking
+\f1\b\fs28 \cf3 \
+
+\f0\b0\fs30 \cf2 What is new in 1.9?\
+===============\
+1.) Introduction of the FPS Tracer 2.0 view under the FPS performance tab. This new version improves on performance, accuracy and viewing of trace lane data.\
+2.) Benchy Profiler introduces Boo profiling functionality. Boo isn't a primary language I personally develop in - however support for now is fully functional from what I can tell from testing.\
+3.) The introduction of performance profiles is new. Previously you may have been confused as to how to use the various sliders correctly or in conjunction with one another. The introduction of this functionality now allows for 4 preset levels of profiling ranging from Ultra Light to Full (Full being performance heavy on lower spec PC's) as well as a 5th option, Custom. Custom allows the use of each individual slider to tune your profiling session to your taste / performance limit.\
+4.) The method profilers call stack now offers the ability to jump seamlessly to the line of code recorded using the default IDE of choice.\
+5.) Coupled with item 3, we've added the ability to interface into Script Inspector (2.x at time of writing).\
+6.) The GUI now clearly displays the current type of profiling being carried out, Auto Profiling versus Manual Profiling.\
+7.) Benchy Profiler now offers direct arm for recording. With this enabled you can set your editor to full screen and begin an auto profiling session using the command shortcut. In this mode profiling will begin automatically in the background with results ready for viewing when the editor is stopped. TIP: Select the performance profile (or custom) suited to your machine to achieve a balance of performance.\
+8.) The GUI has seen some changes to the order of controls and the various menus that they apply too. For example, FPS trace related functionality has been moved to the FPS Performance tab.\
+9.) Slider introduction to any value range based settings.\
+10.) Various improvements to performance as well as memory usage during profiling sessions.
+\f1\b\fs28 \cf3 \
+
+\f0\b0\fs30 \cf2 What is new in 1.8.7?\
+===============\
+1.) Benchy Profiler can now profile methods within structs.\
+2.) Bug fix limiting profiling when a class overrides the ToString() method.\
+3.) New class inclusions field available under the Benchy->Tasks->New Project Setup. Use this per project if you're specifically looking to profile a class within 2DToolkit or NGUI. Use sparingly for performance reasons.\
+4.) Legacy GUI elements that are planned for replacement in later versions have a display problem when classnames are very long. To address this issue as a temporary work around see the new 'Increase Hierarchy Size' option under the Script & Object analyser tab.
+\f1\b\fs28 \cf3 \
+
+\f0\b0\fs30 \cf2 What is new in 1.8.6?\
+===============\
+1.) Hierarchy optimisations and hot fix relating to the usage of delegate types.\
+2.) Additional enhancements to our user voice page located at univerbstudios.uservoice.com - feel free to add your own wish list items there too!\
+What is new in 1.8.5?\
+===============\
+1.) Even easier workflow, add Benchy Profiler to your scene, Press CTRL + ALT + A or CMD + ALT + A to jump directly into auto profiling mode. No need to load Benchy into the scene yourself - it's all taken care of for you\
+2.) Menu structure changes with better groupings. Definitely a lot easier to find what you're looking for quickly\
+3.) New project setup functionality for 3rd party libraries. This part of Benchy will grow as time goes on. You can find this via Window->Benchy->Tasks->New Project Setup or by pressing CTRL + ALT + N or CMD + ALT + N\
+4.) Bug fix around UnityEngine dependency when using certain types of const's
+\f1\b\fs28 \cf3 \
+
+\f0\b0\fs30 \cf2 What is new in 1.8?\
+==============\
+1.) Easier workflow, open your project, install the package and press CTRL + ALT + I or CMD + ALT + I (not L) and Benchy will load itself, start your game and auto profile your project - very neat!\
+2.) New method hierarchy code takes care of some more complicated scenarios including co-routine calls\
+3.) View the call stack from an item in the hierarchy simply by right clicking on it\
+4.) Menu restructured, looks better, works better\
+5.) Better graphing and spacing to get all the information you need to make a good optimisation
+\f1\b\fs28 \cf3 \
+
+\f0\b0\fs30 \cf2 What is new in 1.7?\
+==============\
+1.) Nasty bug around static classes and auto profiling has been fixed\
+2.) Improvements to the graphing work done for 1.6 with proper scrolling and spacing especially important for larger projects\
+3.) A new method profiler introduced with hierarchy layout and easy to read status lights showing problem areas quicker\
+4.) Benchy compare screen now links graphing so you view all data in relation to one another\
+5.) New shortcuts introduced to drive new features of Benchy without the menu, Cmd + Alt + I for the injector / auto profiling, Cmd + Alt + B for the main Benchy window, Cmd + Alt + S to save the session, Cmd + Alt + L to load a session from history, Cmd + Alt + C to open Benchy compare
+\f1\b\fs28 \cf3 \
+
+\f0\b0\fs30 \cf2 What is new in 1.6?\
+==============\
+Where to begin! Benchy 1.6 brings about the biggest change seen to date in terms of both a release and the products functionality.\
+1.) Benchy now has the capability of profiling code without you having to issue a Benchy.Begin or Benchy.End Statement. Although this is super useful, more targeting testing is still available as it's always been. To use this new functionality simply navigate to: Benchy -> Benchy Injector. Your project is then prepared and launched, ready for recording via the Benchy window.\
+2.) It is now possible to save and load Benchy sessions.\
+3.) As important as change two is - you are also able to compare sessions with one another via Benchy -> Analysis -> Benchy Compare. Awesome :)\
+4.) New graphing has been implemented on the FPS trace and Method profiling screens. This offers a clearer glimpse into what is happening within your code\
+5.) There is a major improvement in performance this release, excepting for the FPS trace which is still demanding on systems. We're looking into changing this portion of the software to improve on that.
+\f1\b\fs28 \cf3 \
+\pard\pardeftab720
+
+\f0\b0\fs30 \cf2 \
+\pard\pardeftab720\sa480
+\cf2 What is new in 1.5?\
+==============\
+1.) Bug fix when building project for final export. Although it's recommended you remove the benchy folders when compiling your final build some clients have requested we allow the product to build along side the main project.\
+2.) We have seperated Core and Editor code in this release.\
+3.) We have carried out extensive testing with 4.x Unity versions.\
+4.) We have fixed the FPS display issue as a result of the realtime warning flag.\
+5.) Benchy introduces a first version of runtime performance benchmarking. You can now use this very basic implementation to benchmark your final build on the target platform of choice.\
+What is new in 1.4?\
+==============\
+1.) The ability to unload Benchy from the scene added.\
+2.) Moved load and unload to Benchy->Tasks submenu.\
+3.) Shortcuts ctrl (cmd on mac) + alt works with (b) to display Benchy, (l) to load Benchy and (u) to unload Benchy.\
+What is new in 1.3.1?\
+==============\
+1.) Only a slight improvement this time and that's an increase on the class name viewing area on all screens. This has been increased to 200px for better viewing.\
+What is new in 1.3?\
+==============\
+1.) Improved performance and lower overhead\
+2.) New GUI layout and easier to use interface that saves your default options\
+3.) The eagerly awaited FPS Trace functionality. Trace FPS performance down to the method causing the slow down!\
+What is new in 1.2?\
+==============\
+1.) You now have the ability to micro profile sections of code within a profiling section by issuing the calls Benchy.Begin() and Benchy.End() with a description as the first parameter. Example: Benchy.Begin("This is a micro profiled section");\
+What was new in 1.1?\
+================\
+1.) You can now locate Benchy under the Window section of the menu bar. We've done this to clean up the menu structure and avoid clutter. You can launch Benchy via Window->Benchy->Launch Benchy\
+2.) Method profiling is now in milliseconds (a lot more useful - we agree)\
+3.) You now have the ability to profile live! What this means is - with the flip of a switch you can see your results in realtime while running your unity project\
+4.) We've added the ability to review a text only version of your profiled results\
+A quick how to:\
+===========\
+1.) Load the Benchy package in your scene\
+2.) Click on the menu bar, a new Menu system will appear called Benchy (via Window->Benchy->Launch Benchy)\
+3.) Click on load into scene\
+4.) Simply navigate to areas of code you'd like Benchy to analyze and put Benchy.Begin() before the code section, and Benchy.End() after\
+5.) Navigate to the Benchy menu and click, Load Benchy. You can dock or free float this menu in your projects\
+6.) Run your project and stop it after you feel you've executed all areas of your testing\
+7.) Click on the Benchy editor window and navigate to the section you're interested in, reviewing the results and making performance tweaks where required.\
+If you require additional support please don't hesitate to contact us via http://www.univerbstudios.co.za/}

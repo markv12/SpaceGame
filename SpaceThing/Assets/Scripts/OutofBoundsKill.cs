@@ -1,41 +1,51 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System;
 
 public class OutofBoundsKill : MonoBehaviour {
 
 	private Camera miniMap;
-	private Transform player;
+	private GameObject player;
 	private Transform foreground;
 
 	public GameObject antibody;
+	private List<GameObject> antibodies;
 
-	private int numAntibodies;
 	private int maxAntibodies = 170;
 	
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player").transform;
+		antibodies = new List<GameObject>();
+
+		player = GameObject.FindGameObjectWithTag ("Player");
+		player.GetComponent<ShipControls> ().ShipActivated += new ShipControls.ChangedEventHandler (ShipActivated);
+
 		foreground = GameObject.FindGameObjectWithTag("Foreground").transform;
 	}
 	
 	void FixedUpdate () {
 		if (GameState.Instance.outOfBounds) {
 			ChasePlayer.isChasing = true;
-			if(numAntibodies <= maxAntibodies){
-				GameObject antibodyInstance = (GameObject)Instantiate (antibody);
-				antibodyInstance.transform.parent = foreground;
-
-				Vector3 spawnPosition = new Vector3(player.position.x,player.position.y,800);
+			if(antibodies.Count <= maxAntibodies){
+				Vector3 spawnPosition = new Vector3(player.transform.position.x,player.transform.position.y,800);
 				Vector2 playerVelocity = player.rigidbody2D.velocity;
 				spawnPosition -= new Vector3(playerVelocity.x, playerVelocity.y, 0);
 
+				GameObject antibodyInstance = (GameObject)Instantiate (antibody);
+				antibodyInstance.transform.parent = foreground;
 				antibodyInstance.transform.position = spawnPosition;
-
-				numAntibodies++;
+				antibodies.Add(antibodyInstance);
 			}
 		}
 		else{
 			ChasePlayer.isChasing=false;
 		}
+	}
+
+	private void ShipActivated(object sender, EventArgs e) 
+	{
+		antibodies.ForEach (Destroy);
+		antibodies.Clear ();
 	}
 }

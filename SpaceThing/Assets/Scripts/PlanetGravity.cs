@@ -11,7 +11,7 @@ public class PlanetGravity : MonoBehaviour {
 	public static bool gravityOn = true;
 
 	void Start () {
-		player = GameObject.FindGameObjectWithTag("Player").rigidbody2D;
+		player = GameObject.FindGameObjectWithTag ("Player").rigidbody2D;
 	}
 	
 	// Update is called once per frame

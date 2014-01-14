@@ -15,7 +15,7 @@ public class MovementPrediction : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag("Player").transform;
+		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		foreground = GameObject.FindGameObjectWithTag("Foreground").transform;
 
 		generateDots();

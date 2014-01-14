@@ -72,14 +72,17 @@ public class GameState : MonoBehaviour {
 			CheckPoint checkPoint = checkpointObject.GetComponent<CheckPoint>();
 			instance.checkPoints.Add(checkPoint.checkPointNumber, checkPoint);
 		}
-		//Debug.Log ("Loaded " + checkPointObjects.Length + " points");
 	}
 
 	void Start(){
 		LoadCheckPoints ();
+		Application.targetFrameRate = 50;
+
 	}
+
 	void OnLevelWasLoaded(){
 		LoadCheckPoints ();
+		Application.targetFrameRate = 50;
 	}
 
 	public void enterOpenSpace(){
