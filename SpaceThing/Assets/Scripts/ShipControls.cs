@@ -34,7 +34,7 @@ public class ShipControls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (1/Time.deltaTime);
+		//Debug.Log (1/Time.deltaTime);
 		if(GameState.Instance.playerActive){
 			calculateAcceleration ();
 

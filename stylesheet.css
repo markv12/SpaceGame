@@ -83,16 +83,8 @@ div {
 }
 
 #ad {
-		float: left;
-		margin-top: 10px;
-		padding-top: 20px;
-		text-shadow: 5px 5px 15px #2c2a1b;
-	}
-#ad img {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 2%;
+	float: left;
+	margin: 15px;
 }
 #tester {
     display:none;

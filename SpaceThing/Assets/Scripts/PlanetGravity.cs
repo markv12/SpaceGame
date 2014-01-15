@@ -26,15 +26,13 @@ public class PlanetGravity : MonoBehaviour {
 		Vector3 gravitationalAcceleration;
 		if(gravityOn){
 			Vector3 pos = objectPosition;
-			Vector3 acc = Vector3.zero;
 			Vector3 direction = (transform.position - pos);
-			acc += (gravityFactor*direction)/ direction.sqrMagnitude; 
+			Vector3 acc = (gravityFactor*direction)/ direction.sqrMagnitude; 
 			gravitationalAcceleration = acc * (Time.fixedDeltaTime / AVERAGEFRAMERATE);
 		}
 		else{
 			gravitationalAcceleration = Vector3.zero;
 		}
-
 		return gravitationalAcceleration;
 	}
 }

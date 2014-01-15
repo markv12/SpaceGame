@@ -65,6 +65,17 @@ public class GameState : MonoBehaviour {
 		Application.LoadLevel (levelNumber);
 	}
 
+	void Start(){
+		LoadCheckPoints ();
+		Application.targetFrameRate = 50;
+		
+	}
+	
+	void OnLevelWasLoaded(){
+		LoadCheckPoints ();
+		Application.targetFrameRate = 50;
+	}
+
 	private void LoadCheckPoints(){
 		instance.checkPoints = new Dictionary<int, CheckPoint>();
 		GameObject[] checkPointObjects = GameObject.FindGameObjectsWithTag("Checkpoint");
@@ -72,17 +83,6 @@ public class GameState : MonoBehaviour {
 			CheckPoint checkPoint = checkpointObject.GetComponent<CheckPoint>();
 			instance.checkPoints.Add(checkPoint.checkPointNumber, checkPoint);
 		}
-	}
-
-	void Start(){
-		LoadCheckPoints ();
-		Application.targetFrameRate = 50;
-
-	}
-
-	void OnLevelWasLoaded(){
-		LoadCheckPoints ();
-		Application.targetFrameRate = 50;
 	}
 
 	public void enterOpenSpace(){
