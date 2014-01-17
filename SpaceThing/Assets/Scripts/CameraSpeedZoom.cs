@@ -48,6 +48,7 @@ public class CameraSpeedZoom : MonoBehaviour {
 				newView=currentFOV-fovResizeSmooth; 
 			}
 		}
+		//Debug.Log (newView);
 		transform.position = new Vector3 (transform.position.x,transform.position.y, -newView);
 	}
 
