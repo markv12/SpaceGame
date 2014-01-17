@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7825698c43cd545c593fbe0bbb67661b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progressBar: {fileID: 2800000, guid: 87139575c18464c58bbd46101a98584d, type: 3}
+  progressBarCover: {fileID: 2800000, guid: 9a18431e3895642f9b2bfc0be3ce42b3, type: 3}
 --- !u!4 &490952237
 Transform:
   m_ObjectHideFlags: 0

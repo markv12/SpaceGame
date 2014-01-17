@@ -4050,7 +4050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dotSprite: {fileID: 100000, guid: f160e801538e94d78b2922cc8fb36c60, type: 2}
-  numDots: 10
+  numDots: 7
 --- !u!4 &2145976666
 Transform:
   m_ObjectHideFlags: 0

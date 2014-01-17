@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class MovementPrediction : MonoBehaviour {
 
 	public GameObject dotSprite;
-	public int numDots = 10;
+	public int numDots = 5;
 
 	private List<GameObject> primaryDots;
 	private List<GameObject> averageDots;

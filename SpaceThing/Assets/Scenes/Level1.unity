@@ -2572,7 +2572,7 @@ Camera:
     height: 1
   near clip plane: .300000012
   far clip plane: 1100
-  field of view: 12
+  field of view: 13
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -2886,7 +2886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dotSprite: {fileID: 100000, guid: f160e801538e94d78b2922cc8fb36c60, type: 2}
-  numDots: 10
+  numDots: 8
 --- !u!4 &2145976666
 Transform:
   m_ObjectHideFlags: 0

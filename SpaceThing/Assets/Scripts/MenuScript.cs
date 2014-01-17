@@ -13,41 +13,47 @@ public class MenuScript : MonoBehaviour
 
 	public Texture2D progressBar;
 	public Texture2D progressBarCover;
-	
+
+	private float buttonPosX;
+	private float buttonPosY;
+
 	void Start()
 	{
+		buttonPosX = Screen.width / 2 - (buttonWidth / 2);
+		buttonPosY = (Screen.height * 0.75f) - (buttonHeight / 2);
+
 		skin = Resources.Load("StartButton") as GUISkin;
 		DontDestroyOnLoad(GameState.Instance);
 		GameState.Instance.startState();
 	}
 	
-	void OnGUI()
-	{
+	void OnGUI(){
 		GUI.skin = skin;
 		if (Application.CanStreamedLevelBeLoaded(1)){
 
 			// Draw a button to start the game
 			if (
-					GUI.Button(
-						new Rect(
-						Screen.width / 2 - (buttonWidth / 2),
-						(Screen.height*0.75f) - (buttonHeight / 2),
-						buttonWidth,
-						buttonHeight
-						),
-						""
-					)
+				GUI.Button(
+					new Rect(
+					buttonPosX,
+					buttonPosY,
+					buttonWidth,
+					buttonHeight
+					),
+					""
 				)
-			{
+			){
 				// On Click, load the first level.
 				GameState.Instance.LoadLevel(1);
 			}
 		}
 		else{
-			float scaleFactor = 0.25f;
+			float scaleFactor = 0.3f;
 			float progress = Application.GetStreamProgressForLevel(1);
 			float pWidth = progressBar.width*scaleFactor;
 			float pHeight = progressBar.height*scaleFactor;
+			float coverWidth = progressBarCover.width*scaleFactor;
+			float coverHeight = progressBarCover.height*scaleFactor;
 			float xPosition = Screen.width / 2 - (pWidth / 2);
 			float yPosition = (Screen.height*0.75f) - (pHeight / 2);
 
@@ -57,10 +63,11 @@ public class MenuScript : MonoBehaviour
 			                         pHeight),
 			                progressBar);
 
-			GUI.DrawTexture(new Rect(xPosition+5f*scaleFactor+(500*scaleFactor*progress),
+			GUI.DrawTexture(new Rect(xPosition+5f*scaleFactor+(coverWidth*progress),
 			                         yPosition+5f*scaleFactor,
-			                         500*scaleFactor - (500*progress),
-			                         150*scaleFactor), progressBarCover);
+			                         coverWidth - (coverWidth*progress),
+			                         coverHeight),
+			                progressBarCover);
 			GUI.Label(
 				new Rect(
 				Screen.width / 2 - (buttonWidth / 2),

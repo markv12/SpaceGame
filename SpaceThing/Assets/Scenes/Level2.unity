@@ -1479,10 +1479,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad1b210d3a8a496e80dbe1b6a25e438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fovNarrow: 40
+  fovNarrow: 50
   fovWide: 200
-  fovResizeSmooth: .550000012
-  zoomFactor: 12
+  fovResizeSmooth: 1.20000005
+  zoomFactor: 30
 --- !u!114 &531957966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1524,7 +1524,7 @@ Camera:
     height: 1
   near clip plane: .300000012
   far clip plane: 1100
-  field of view: 12
+  field of view: 13
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -2757,7 +2757,7 @@ Transform:
   m_GameObject: {fileID: 1841051894}
   m_LocalRotation: {x: 0, y: 0, z: .866025507, w: .499999911}
   m_LocalPosition: {x: 54.2667961, y: -17.2005997, z: 0}
-  m_LocalScale: {x: .349999994, y: .349999994, z: 1}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 1496986649}
   - {fileID: 106556996}
@@ -2853,8 +2853,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0493075e994c4705b89796d7e7e2dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: .349999994
-  maxAngleSpeed: 150
+  thrust: .400000006
+  maxAngleSpeed: 165
 --- !u!61 &1841051900
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3152,7 +3152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dotSprite: {fileID: 100000, guid: f160e801538e94d78b2922cc8fb36c60, type: 2}
-  numDots: 16
+  numDots: 8
 --- !u!4 &2145976666
 Transform:
   m_ObjectHideFlags: 0
