@@ -16,7 +16,7 @@ public class ChasePlayer : MonoBehaviour {
 	void FixedUpdate () {
 		if(isChasing){
 			Vector3 differenceVector = transform.position - player.position;
-			differenceVector = (differenceVector / differenceVector.magnitude) * -2f;
+			differenceVector = (differenceVector / differenceVector.magnitude) * -4f;
 
 			transform.position += differenceVector;
 		}

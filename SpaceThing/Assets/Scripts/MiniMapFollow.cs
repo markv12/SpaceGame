@@ -12,6 +12,7 @@ public class MiniMapFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		/*
 		float jumpAmount = camera.orthographicSize * 2;
 
 		Vector3 playerRelPosition = camera.WorldToViewportPoint(player.position);
@@ -33,5 +34,7 @@ public class MiniMapFollow : MonoBehaviour {
 		if(newPosition != Vector3.zero){
 			camera.transform.position = newPosition;
 		}
+		*/
+		camera.transform.position = new Vector3 (player.position.x, player.position.y, camera.transform.position.z);
 	}
 }

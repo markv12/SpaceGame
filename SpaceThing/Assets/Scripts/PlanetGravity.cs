@@ -2,8 +2,6 @@
 using System.Collections;
 
 public class PlanetGravity : MonoBehaviour {
-	private const float AVERAGEFRAMERATE = 0.02f;
-
 	private Rigidbody2D player;
 
 	public float gravityFactor = 8000f;
@@ -25,10 +23,9 @@ public class PlanetGravity : MonoBehaviour {
 	public Vector3 calculateGravity(Vector3 objectPosition){
 		Vector3 gravitationalAcceleration;
 		if(gravityOn){
-			Vector3 pos = objectPosition;
-			Vector3 direction = (transform.position - pos);
-			Vector3 acc = (gravityFactor*direction)/ direction.sqrMagnitude; 
-			gravitationalAcceleration = acc * (Time.fixedDeltaTime / AVERAGEFRAMERATE);
+			Vector3 direction = (transform.position - objectPosition);
+			Vector3 acc = (gravityFactor*direction)/ direction.sqrMagnitude;
+			gravitationalAcceleration = acc * (Time.fixedDeltaTime / GameState.AVERAGEFRAMERATE);
 		}
 		else{
 			gravitationalAcceleration = Vector3.zero;

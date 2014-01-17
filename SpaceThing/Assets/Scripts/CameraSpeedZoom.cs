@@ -5,10 +5,10 @@ public class CameraSpeedZoom : MonoBehaviour {
 
 	private Rigidbody2D player;
 
-	public float fovNarrow = 10f;
-	public float fovWide = 30f;
+	public float fovNarrow = 50f;
+	public float fovWide = 200f;
 	public float fovResizeSmooth = 0.35f;
-	public float zoomFactor = 3f;
+	public float zoomFactor = 12f;
 
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player").rigidbody2D;

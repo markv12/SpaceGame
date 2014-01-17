@@ -14,6 +14,8 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
+	public const float AVERAGEFRAMERATE = 0.025f;
+
 	public bool playerActive{
 		get; set;
 	}
@@ -40,6 +42,7 @@ public class GameState : MonoBehaviour {
 	}
 
 	private Dictionary<int, CheckPoint>checkPoints;
+
 
 	public CheckPoint getLastCheckPoint(){
 		return checkPoints[lastCheckPointNumber];

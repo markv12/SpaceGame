@@ -5,8 +5,7 @@ using System;
 public class ShipControls : MonoBehaviour {
 
 	private const float ANGLETORADIANS = 0.0174532925f;
-	private const float AVERAGEFRAMERATE = 0.02f;
-	
+
 	private Vector2 movement;
 	private Vector3 rotation;
 
@@ -16,7 +15,7 @@ public class ShipControls : MonoBehaviour {
 	private AudioSource shipAudioSource;
 
 	public float thrust = 0.35f;
-	public float maxAngleSpeed = 140f;
+	public float maxAngleSpeed = 150f;
 
 	public float XAccel { get; set;}
 	public float YAccel { get; set;}
@@ -80,7 +79,7 @@ public class ShipControls : MonoBehaviour {
 	void FixedUpdate ()
 	{
 		if(GameState.Instance.playerActive){
-			float frameRateAdjustment = Time.fixedDeltaTime / AVERAGEFRAMERATE;
+			float frameRateAdjustment = Time.fixedDeltaTime / GameState.AVERAGEFRAMERATE;
 
 			applyAcceleration (frameRateAdjustment);
 
@@ -93,7 +92,7 @@ public class ShipControls : MonoBehaviour {
 				angleSpeed = maxAngleSpeed;
 				rigidbody2D.angularVelocity = angleSpeed * frameRateAdjustment;
 			}
-			rigidbody2D.angularVelocity *= 0.92f;
+			rigidbody2D.angularVelocity *= 0.90f;
 
 
 			checkForNeedToFlip ();
