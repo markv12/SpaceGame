@@ -10,6 +10,7 @@ public class ShipControls : MonoBehaviour {
 	private Vector3 rotation;
 
 	private float angleSpeed=0;
+	//private int cyclesSinceLastBurst = 100;
 
 	private ThrusterAnimation thrusterAnimation;
 	private AudioSource shipAudioSource;
@@ -31,7 +32,6 @@ public class ShipControls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Debug.Log (1/Time.deltaTime);
 		if(GameState.Instance.playerActive){
 			calculateAcceleration ();
 
@@ -49,6 +49,7 @@ public class ShipControls : MonoBehaviour {
 	}
 
 	private void calculateAcceleration(){
+		//cyclesSinceLastBurst++;
 		if(Input.GetButton ("Thrust")){
 			//float xThrust = this.thrust*Mathf.Cos(transform.rotation.eulerAngles.z*ANGLETORADIANS);
 			if(flipped){
@@ -60,6 +61,16 @@ public class ShipControls : MonoBehaviour {
 			if(rigidbody2D.velocity.magnitude < 6){
 				this.shipAccel*=2;
 			}
+			/*
+			 * 
+			 * If player hasn't thrusted in a few cycles give boost
+			if(this.cyclesSinceLastBurst>100){
+				this.shipAccel*=40;
+				this.cyclesSinceLastBurst=0;
+			}
+			else{
+				this.cyclesSinceLastBurst/=2;
+			}*/
 		}
 		else{
 			shipAccel = 0;

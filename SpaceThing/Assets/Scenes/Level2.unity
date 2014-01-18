@@ -1435,7 +1435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9bb39f2ebae4c0ca1c969e73f337ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityFactor: 160
+  gravityFactor: 300
+  checkPointGroupNumber: 1
 --- !u!50 &514332717
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1850,7 +1851,7 @@ Transform:
   m_GameObject: {fileID: 994564297}
   m_LocalRotation: {x: 0, y: 0, z: .258819073, w: .965925813}
   m_LocalPosition: {x: 75.4376602, y: -13.4701424, z: 15}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 4, y: 6, z: 1}
   m_Children:
   - {fileID: 1397786400}
   - {fileID: 2023762331}
@@ -1938,6 +1939,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
       propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: checkPointGroupNumber
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2089,7 +2094,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9bb39f2ebae4c0ca1c969e73f337ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityFactor: 160
+  gravityFactor: 300
+  checkPointGroupNumber: 1
 --- !u!1 &1214021680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,7 +2138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9bb39f2ebae4c0ca1c969e73f337ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityFactor: 160
+  gravityFactor: 300
+  checkPointGroupNumber: 1
 --- !u!50 &1214021684
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2246,6 +2253,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
       propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: checkPointGroupNumber
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2387,8 +2398,8 @@ Transform:
   m_PrefabInternal: {fileID: 1649524259}
   m_GameObject: {fileID: 1397786399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 1.02999997, z: 1}
+  m_LocalPosition: {x: -2.0999999, y: 0, z: -1}
+  m_LocalScale: {x: 1.20000005, y: 1.04999995, z: 1}
   m_Children: []
   m_Father: {fileID: 994564298}
 --- !u!50 &1397786401
@@ -2679,7 +2690,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dd5b21701efe54e83af8a84db5085c75, type: 2}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: dd5b21701efe54e83af8a84db5085c75, type: 2}
+      propertyPath: checkPointNumber
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd5b21701efe54e83af8a84db5085c75, type: 2}
@@ -3019,6 +3034,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: checkPointGroupNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
   m_RootGameObject: {fileID: 1214021680}
@@ -3049,8 +3068,8 @@ Transform:
   m_PrefabInternal: {fileID: 1649524259}
   m_GameObject: {fileID: 2023762330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 1.02999997, z: 1}
+  m_LocalPosition: {x: 2.0999999, y: 0, z: -1}
+  m_LocalScale: {x: 1.20000005, y: 1.04999995, z: 1}
   m_Children: []
   m_Father: {fileID: 994564298}
 --- !u!50 &2023762332

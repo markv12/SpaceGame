@@ -74,7 +74,8 @@ div#unityPlayer {
 }
 
 #controls{
-	text-align:center;
+	text-align:left;
+	margin: 18%;
 	clear:both;
 }
 

@@ -8,6 +8,8 @@ public class PlanetGravity : MonoBehaviour {
 
 	public static bool gravityOn = true;
 
+	public int checkPointGroupNumber = 0;
+
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player").rigidbody2D;
 	}
@@ -22,7 +24,7 @@ public class PlanetGravity : MonoBehaviour {
 
 	public Vector3 calculateGravity(Vector3 objectPosition){
 		Vector3 gravitationalAcceleration;
-		if(gravityOn){
+		if(gravityOn && checkPointGroupNumber == GameState.Instance.lastCheckPointNumber){
 			Vector3 direction = (transform.position - objectPosition);
 			gravitationalAcceleration = (gravityFactor*direction*1f)/ direction.sqrMagnitude;
 		}
