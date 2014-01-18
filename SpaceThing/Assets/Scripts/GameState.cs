@@ -13,9 +13,7 @@ public class GameState : MonoBehaviour {
 			return instance;
 		}
 	}
-
-	public const float AVERAGEFRAMERATE = 0.025f;
-
+	
 	public bool playerActive{
 		get; set;
 	}

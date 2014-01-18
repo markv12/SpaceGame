@@ -35,10 +35,10 @@ public class ShipControls : MonoBehaviour {
 		if(GameState.Instance.playerActive){
 			calculateAcceleration ();
 
-			if(Input.GetButtonDown("Jump")){
+			if(Input.GetButtonDown("Thrust")){
 				thrusterAnimation.startThrusting();
 			}
-			if(Input.GetButtonUp("Jump")){
+			if(Input.GetButtonUp("Thrust")){
 				thrusterAnimation.stopThrusting();
 			}
 
@@ -49,7 +49,7 @@ public class ShipControls : MonoBehaviour {
 	}
 
 	private void calculateAcceleration(){
-		if(Input.GetButton ("Jump")){
+		if(Input.GetButton ("Thrust")){
 			//float xThrust = this.thrust*Mathf.Cos(transform.rotation.eulerAngles.z*ANGLETORADIANS);
 			if(flipped){
 				shipAccel = -this.thrust;
@@ -69,18 +69,17 @@ public class ShipControls : MonoBehaviour {
 	void FixedUpdate ()
 	{
 		if(GameState.Instance.playerActive){
-			float frameRateAdjustment = Time.fixedDeltaTime / GameState.AVERAGEFRAMERATE;
 
-			applyAcceleration (frameRateAdjustment);
+			applyAcceleration ();
 
 			float hArrowKeyInput = Input.GetAxis("Horizontal");
 			if(hArrowKeyInput > 0){
 				angleSpeed = -maxAngleSpeed;
-				rigidbody2D.angularVelocity = angleSpeed * frameRateAdjustment;
+				rigidbody2D.angularVelocity = angleSpeed;
 			}
 			else if(hArrowKeyInput < 0){
 				angleSpeed = maxAngleSpeed;
-				rigidbody2D.angularVelocity = angleSpeed * frameRateAdjustment;
+				rigidbody2D.angularVelocity = angleSpeed;
 			}
 			checkForNeedToFlip ();
 		}
@@ -102,8 +101,15 @@ public class ShipControls : MonoBehaviour {
 		GameState.Instance.playerActive = true;
 		GetComponent<SpriteRenderer> ().enabled = true;
 		GameState.Instance.exitOpenSpace();
+		checkThrustingSound ();
 		if(ShipActivated != null){
 			ShipActivated(this, EventArgs.Empty);
+		}
+	}
+
+	public void checkThrustingSound(){
+		if (Input.GetButton ("Thrust")) {
+			thrusterAnimation.startThrusting();
 		}
 	}
 
@@ -121,7 +127,7 @@ public class ShipControls : MonoBehaviour {
 		shipAudioSource.Play ();
 	}
 
-	private void applyAcceleration(float frameRateAdjustment){
+	private void applyAcceleration(){
 		//rigidbody2D.velocity += thrustVector;
 		rigidbody2D.AddForce (transform.right*shipAccel);
 

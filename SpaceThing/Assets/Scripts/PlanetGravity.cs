@@ -16,7 +16,7 @@ public class PlanetGravity : MonoBehaviour {
 	void FixedUpdate () {
 		if(player != null){
 			Vector3 frameAcceleration = calculateGravity (player.transform.position);
-			player.velocity += new Vector2 (frameAcceleration.x,frameAcceleration.y);
+			player.AddForce(new Vector2 (frameAcceleration.x,frameAcceleration.y));
 		}
 	}
 
@@ -24,8 +24,7 @@ public class PlanetGravity : MonoBehaviour {
 		Vector3 gravitationalAcceleration;
 		if(gravityOn){
 			Vector3 direction = (transform.position - objectPosition);
-			Vector3 acc = (gravityFactor*direction)/ direction.sqrMagnitude;
-			gravitationalAcceleration = acc * (Time.fixedDeltaTime / GameState.AVERAGEFRAMERATE);
+			gravitationalAcceleration = (gravityFactor*direction*1f)/ direction.sqrMagnitude;
 		}
 		else{
 			gravitationalAcceleration = Vector3.zero;
