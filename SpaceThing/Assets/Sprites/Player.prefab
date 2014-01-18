@@ -101,7 +101,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 100004}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 4
   m_GravityScale: 0
   m_FixedAngle: 0
   m_IsKinematic: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0493075e994c4705b89796d7e7e2dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: .400000006
+  thrust: 12
   maxAngleSpeed: 165
 --- !u!114 &11400004
 MonoBehaviour:

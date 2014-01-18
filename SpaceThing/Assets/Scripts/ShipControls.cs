@@ -17,16 +17,14 @@ public class ShipControls : MonoBehaviour {
 	public float thrust = 0.35f;
 	public float maxAngleSpeed = 150f;
 
-	public float XAccel { get; set;}
-	public float YAccel { get; set;}
+	public float shipAccel { get; set;}
 
 	public delegate void ChangedEventHandler(object sender, EventArgs e);
 	public event ChangedEventHandler ShipActivated;
 
 	void Start () {
 		GameState.Instance.playerActive = true;
-		XAccel = 0;
-		YAccel = 0;
+		shipAccel = 0;
 		thrusterAnimation = GameObject.FindGameObjectWithTag ("Thruster").GetComponent<ThrusterAnimation> ();
 		shipAudioSource = GetComponent<AudioSource>();
 	}
@@ -52,27 +50,19 @@ public class ShipControls : MonoBehaviour {
 
 	private void calculateAcceleration(){
 		if(Input.GetButton ("Jump")){
-			float xThrust = this.thrust*Mathf.Cos(transform.rotation.eulerAngles.z*ANGLETORADIANS);
-			float yThrust = this.thrust*Mathf.Sin(transform.rotation.eulerAngles.z*ANGLETORADIANS);
+			//float xThrust = this.thrust*Mathf.Cos(transform.rotation.eulerAngles.z*ANGLETORADIANS);
 			if(flipped){
-				this.XAccel = -xThrust;
-				this.YAccel = -yThrust;
+				shipAccel = -this.thrust;
 			}
 			else{
-				this.XAccel = xThrust;
-				this.YAccel = yThrust;
+				this.shipAccel = this.thrust;
 			}
-			this.XAccel-= (rigidbody2D.velocity.x/90f);
-			this.YAccel-= (rigidbody2D.velocity.y/90f);
-			
 			if(rigidbody2D.velocity.magnitude < 6){
-				this.XAccel*=2;
-				this.YAccel*=2;
+				this.shipAccel*=2;
 			}
 		}
 		else{
-			XAccel = 0;
-			YAccel = 0;
+			shipAccel = 0;
 		}
 	}
 
@@ -92,9 +82,6 @@ public class ShipControls : MonoBehaviour {
 				angleSpeed = maxAngleSpeed;
 				rigidbody2D.angularVelocity = angleSpeed * frameRateAdjustment;
 			}
-			rigidbody2D.angularVelocity *= 0.90f;
-
-
 			checkForNeedToFlip ();
 		}
 	}
@@ -135,8 +122,8 @@ public class ShipControls : MonoBehaviour {
 	}
 
 	private void applyAcceleration(float frameRateAdjustment){
-		Vector2 thrustVector = new Vector2 (XAccel, YAccel) * (frameRateAdjustment);
-		rigidbody2D.velocity += thrustVector;
+		//rigidbody2D.velocity += thrustVector;
+		rigidbody2D.AddForce (transform.right*shipAccel);
 
 		if(!GameState.Instance.InOpenSpace){
 			rigidbody2D.velocity*=0.98f;
