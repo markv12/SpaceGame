@@ -1,8 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
 		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+		<link type="text/css" rel="stylesheet" href="normalize.css"/>
 		<title>SpaceThing</title>
 		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
 		<script type="text/javascript">
@@ -72,33 +73,37 @@
 
 		</script>
 		<script type="text/javascript" src="advertisement.js"></script>
+		<script type="text/javascript" src="resizeUnity.js"></script>
 
 
 	</head>
-	<body>
+	<body onLoad="resizeUnity()" onResize="resizeUnity()">
 		<div class="wrapper">
-			<div id="ad">
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-					<!-- SideBarAd -->
-				<ins class="adsbygoogle"
-     				style="display:inline-block;width:160px;height:600px"
-     				data-ad-client="ca-pub-9098590399655966"
-     				data-ad-slot="9550918066">
-     			</ins>
-				<script>
-					(adsbygoogle = window.adsbygoogle || []).push({});
-				</script>
+			<div id="mainRow">
+				<div id="ad">
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- SideBarAd -->
+					<ins class="adsbygoogle"
+						style="display:inline-block;width:160px;height:600px"
+						data-ad-client="ca-pub-9098590399655966"
+						data-ad-slot="9550918066">
+					</ins>
+					<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
 				
-			</div>
-			<div class="content">
-				<div id="unityPlayer">
-					<div class="missing">
-						<a href="http://unity3d.com/webplayer/" title="Space Thing">
-							<img alt="Space Related Video Game" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
-						</a>
+				</div>
+				<div id="content">
+					<div id="unityPlayer">
+						<div class="missing">
+							<a href="http://unity3d.com/webplayer/" title="Space Thing">
+								<img alt="Space Related Video Game" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
+			<br/>
 			<p id='controls'>Left/Right: Turn 
 				<br/>Space: Rear Thruster
 				<br/>X: Flip

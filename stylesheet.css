@@ -20,6 +20,11 @@ body {
 	background: linear-gradient(to bottom, #333333 0%,#000000 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#000000',GradientType=0 ); /* IE6-9 */ 
 }
+
+#mainRow{
+	display: table-row;
+}
+
 a:link, a:visited {
 	color: #bfbfbf;
 }
@@ -27,19 +32,19 @@ a:active, a:hover {
 	color: #bfbfbf;
 }
 
-p.header {
-	font-size: small;
-}
-p.header span {
-	font-weight: bold;
-}
-p.footer {
-	font-size: x-small;
-}
-div.content {
-	margin: auto;
+#content {
 	width: 960px;
+	margin-top:20px;
+	display: table-cell;
+	vertical-align: top;
 }
+
+#ad {
+	margin: 20px;
+	display: table-cell;
+	vertical-align: top;
+}
+
 div.broken,
 div.missing {
 	margin: auto;
@@ -62,9 +67,6 @@ div.broken {
 }
 div#unityPlayer {
 	cursor: default;
-	height: 600px;
-	width: 960px;
-	float: right;
 }
 
 #version{
@@ -75,18 +77,10 @@ div#unityPlayer {
 
 #controls{
 	text-align:left;
-	margin: 18%;
+	margin-left:170px;
 	clear:both;
 }
 
-div {
-	margin-top: 3em;
-}
-
-#ad {
-	float: left;
-	margin: 20px;
-}
 #tester {
     display:none;
 }
