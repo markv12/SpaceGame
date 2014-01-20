@@ -1635,7 +1635,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: d0fc7546a47fc44ccac0ae60fb2b8282, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c23bbc6e40574d8aafb25b5434447b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &677135600
 GameObject:
@@ -2945,7 +2945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0493075e994c4705b89796d7e7e2dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 12
+  thrust: 15
   maxAngleSpeed: 130
 --- !u!61 &1841051900
 BoxCollider2D:
