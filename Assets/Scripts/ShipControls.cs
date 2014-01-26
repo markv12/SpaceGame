@@ -26,7 +26,13 @@ public class ShipControls : MonoBehaviour {
 	void Start () {
 		GameState.Instance.playerActive = true;
 		shipAccel = 0;
-		thrusterAnimation = GameObject.FindGameObjectWithTag ("Thruster").GetComponent<ThrusterAnimation> ();
+		foreach (Transform child in transform) {
+			ThrusterAnimation animation = child.GetComponent<ThrusterAnimation> ();
+			if(animation != null){
+				this.thrusterAnimation = animation;
+				break;
+			}
+		}
 		shipAudioSource = GetComponent<AudioSource>();
 	}
 	
@@ -50,13 +56,13 @@ public class ShipControls : MonoBehaviour {
 
 	private void calculateAcceleration(){
 		//cyclesSinceLastBurst++;
+		shipAccel = 0;
 		if(Input.GetButton ("Thrust")){
-			//float xThrust = this.thrust*Mathf.Cos(transform.rotation.eulerAngles.z*ANGLETORADIANS);
 			if(flipped){
-				shipAccel = -this.thrust;
+				shipAccel -= this.thrust;
 			}
 			else{
-				this.shipAccel = this.thrust;
+				this.shipAccel += this.thrust;
 			}
 			if(rigidbody2D.velocity.magnitude < 6){
 				this.shipAccel*=2;
@@ -72,8 +78,9 @@ public class ShipControls : MonoBehaviour {
 				this.cyclesSinceLastBurst/=2;
 			}*/
 		}
-		else{
-			shipAccel = 0;
+		if(Input.GetButton ("Brake")){
+			rigidbody2D.velocity = rigidbody2D.velocity*0.98f;
+
 		}
 	}
 

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+
 
 public class GameState : MonoBehaviour {
 
@@ -35,8 +37,22 @@ public class GameState : MonoBehaviour {
 		get; set;
 	}
 
-	public int lastCheckPointNumber {
-		get; set;
+	public delegate void ChangedEventHandler(object sender, EventArgs e);
+	public event ChangedEventHandler ActiveCheckpointChanged;
+
+	private int lastCheckPointNumber;
+	public int LastCheckPointNumber {
+		get{
+			return lastCheckPointNumber;
+		}
+		set{
+			if (value != lastCheckPointNumber){
+				lastCheckPointNumber = value;
+				if(ActiveCheckpointChanged != null){
+					ActiveCheckpointChanged(this, EventArgs.Empty);
+				}
+			}
+		}
 	}
 
 	private Dictionary<int, CheckPoint>checkPoints;
