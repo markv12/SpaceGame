@@ -35,8 +35,8 @@ public class MenuScript : MonoBehaviour
 			if (
 				GUI.Button(
 					new Rect(
-					buttonPosX,
-					buttonPosY,
+					Screen.width / 2 - (buttonWidth / 2),
+					(Screen.height * 0.75f) - (buttonHeight / 2),
 					buttonWidth,
 					buttonHeight
 					),
