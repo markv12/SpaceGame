@@ -15,7 +15,7 @@ public class GameState : MonoBehaviour {
 			return instance;
 		}
 	}
-	
+
 	public bool playerActive{
 		get; set;
 	}
@@ -40,12 +40,13 @@ public class GameState : MonoBehaviour {
 	public delegate void ChangedEventHandler(object sender, EventArgs e);
 	public event ChangedEventHandler ActiveCheckpointChanged;
 
-	private int lastCheckPointNumber;
+	private int lastCheckPointNumber = -1;
 	public int LastCheckPointNumber {
 		get{
 			return lastCheckPointNumber;
 		}
 		set{
+			//Debug.Log(value + " " + lastCheckPointNumber);
 			if (value != lastCheckPointNumber){
 				lastCheckPointNumber = value;
 				if(ActiveCheckpointChanged != null){
@@ -63,9 +64,9 @@ public class GameState : MonoBehaviour {
 	}
 
 	public void startState(){
-		instance.exitOpenSpace ();
-		instance.inOpenSpace = false;
-		instance.outOfBounds = false;
+		Instance.exitOpenSpace ();
+		Instance.inOpenSpace = false;
+		Instance.outOfBounds = false;
 	}
 
 	public void OnApplicationQuit(){
@@ -89,25 +90,26 @@ public class GameState : MonoBehaviour {
 	}
 	
 	void OnLevelWasLoaded(){
+		LastCheckPointNumber = -1;
 		LoadCheckPoints ();
 		Application.targetFrameRate = 50;
 	}
 
 	private void LoadCheckPoints(){
-		instance.checkPoints = new Dictionary<int, CheckPoint>();
+		Instance.checkPoints = new Dictionary<int, CheckPoint>();
 		GameObject[] checkPointObjects = GameObject.FindGameObjectsWithTag("Checkpoint");
 		foreach(GameObject checkpointObject in checkPointObjects){
 			CheckPoint checkPoint = checkpointObject.GetComponent<CheckPoint>();
-			instance.checkPoints.Add(checkPoint.checkPointNumber, checkPoint);
+			Instance.checkPoints.Add(checkPoint.checkPointNumber, checkPoint);
 		}
 	}
 
 	public void enterOpenSpace(){
-		instance.inOpenSpace = true;
+		Instance.inOpenSpace = true;
 		PlanetGravity.gravityOn = true;
 	}
 	public void exitOpenSpace(){
-		instance.inOpenSpace = false;
+		Instance.inOpenSpace = false;
 		PlanetGravity.gravityOn = false;
 	}
 }

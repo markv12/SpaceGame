@@ -16,7 +16,9 @@ public class CheckPoint : MonoBehaviour {
 			GameState.Instance.LastCheckPointNumber = checkPointNumber;
 		}
 		else{
-			GameState.Instance.LastCheckPointNumber = checkPointNumber-1;
+			if(GameState.Instance.LastCheckPointNumber>=1){
+				GameState.Instance.LastCheckPointNumber = checkPointNumber-1;
+			}
 		}
 
 		GameState.Instance.enterOpenSpace ();
@@ -29,7 +31,9 @@ public class CheckPoint : MonoBehaviour {
 			Vector3 relativePosition = getRelativePosition (transform, colliderPosition);
 
 			if(relativePosition.y>0){
-				GameState.Instance.LastCheckPointNumber = checkPointNumber-1;
+				if(GameState.Instance.LastCheckPointNumber>=1){
+					GameState.Instance.LastCheckPointNumber = checkPointNumber-1;
+				}
 			}
 			else{
 				GameState.Instance.LastCheckPointNumber = checkPointNumber;

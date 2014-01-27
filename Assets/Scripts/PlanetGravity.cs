@@ -12,12 +12,16 @@ public class PlanetGravity : MonoBehaviour {
 
 	public int checkPointGroupNumber = 0;
 
+	private GameState.ChangedEventHandler handler;
+	private bool isShuttingDown = false;
+
+
 	private SpriteRenderer gravityRing;
 
 	void Start () {
+		handler = new GameState.ChangedEventHandler (ActiveCheckpointChanged);
 		player = GameObject.FindGameObjectWithTag ("Player").rigidbody2D;
-		GameState.Instance.ActiveCheckpointChanged += new GameState.ChangedEventHandler (ActiveCheckpointChanged);
-
+		GameState.Instance.ActiveCheckpointChanged += handler;
 		foreach (Transform child in transform) {
 			SpriteRenderer renderer = child.GetComponent<SpriteRenderer> ();
 			if(renderer != null){
@@ -27,6 +31,18 @@ public class PlanetGravity : MonoBehaviour {
 		}
 
 	}
+
+	void OnDestroy () {
+		if(!isShuttingDown){
+			GameState.Instance.ActiveCheckpointChanged -= handler;
+		}
+	}
+
+	public void OnApplicationQuit(){
+		isShuttingDown = true;
+	}
+
+
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -49,6 +65,7 @@ public class PlanetGravity : MonoBehaviour {
 	}
 
 	private void ActiveCheckpointChanged(object sender, EventArgs e){
+		//Debug.Log (checkPointGroupNumber == GameState.Instance.LastCheckPointNumber);
 		if(checkPointGroupNumber == GameState.Instance.LastCheckPointNumber){
 			gravityRing.enabled=true;
 		}

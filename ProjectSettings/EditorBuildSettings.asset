@@ -5,12 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Level.unity
   - enabled: 1
     path: Assets/Scenes/StartMenu.unity
   - enabled: 1
     path: Assets/Scenes/TutorialLevel.unity
+  - enabled: 1
+    path: Assets/Scenes/MrgTesting.unity
   - enabled: 1
     path: Assets/Scenes/Level1.unity
   - enabled: 1
@@ -19,5 +19,3 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelEnd.unity
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
-  - enabled: 0
-    path: Assets/Scenes/GravityGame.unity
