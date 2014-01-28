@@ -73,23 +73,7 @@ public class MovementPrediction : MonoBehaviour {
 			gravityScripts.Add(planet.GetComponent<PlanetGravity>());
 		}
 	}
-
-	/* Attempting to draw curves between movement prediction sprites. 
-	void OnGUI(){
-		float width = HandleUtility.GetHandleSize(Vector3.zero) * 1f;
-		for (int i=0; i < dots.Count-1; i++){
-			Handles.DrawBezier (dots[i].transform.position, 
-			                    dots[i+1].transform.position, 
-			                    Vector3.up, 
-			                    -Vector3.up,
-			                    Color.red, 
-			                    null,
-			                    width);
-		}
-
-	}
-	*/
-
+	
 	private List<Vector3> calculateFuturePositions(Vector3 position, Vector3 velocity, int stepNum){
 		return calculateFuturePositions (position,velocity,stepNum,new List<Vector3>());
 	}
