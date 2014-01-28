@@ -6,12 +6,17 @@ public class ThrusterAnimation : MonoBehaviour {
 	private AudioSource thrusterAudioSource;
 
 	private bool thrusting = false;
-
 	private bool everyOther = false;
+
+	private float pitch;
+	private const float STARTINGPITCH = 0.3f;
+	private const float MAXPITCH = 1.3f;
+
 
 	void Start(){
 		thrusterAnimator = GetComponent<Animator>();
 		thrusterAudioSource = GetComponent<AudioSource>();
+		pitch = STARTINGPITCH;
 	}
 
 	public void startThrusting(){
@@ -24,6 +29,16 @@ public class ThrusterAnimation : MonoBehaviour {
 		thrusterAnimator.SetBool("thrusting", false);
 		thrusterAudioSource.Stop();
 		thrusting = false;
+		pitch = STARTINGPITCH;
+	}
+
+	void Update(){
+		if(thrusting){
+			thrusterAudioSource.pitch = pitch;
+			if(pitch < MAXPITCH){
+				pitch += 0.035f;
+			}
+		}
 	}
 
 	/*void OnTriggerEnter2D(Collider2D collision){
