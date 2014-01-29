@@ -23,22 +23,30 @@ public class ThrusterAnimation : MonoBehaviour {
 		thrusterAnimator.SetBool("thrusting", true);
 		thrusterAudioSource.Play();
 		thrusting = true;
+		pitch = STARTINGPITCH;
 	}
 
 	public void stopThrusting(){
 		thrusterAnimator.SetBool("thrusting", false);
-		thrusterAudioSource.Stop();
+		//thrusterAudioSource.Stop();
 		thrusting = false;
-		pitch = STARTINGPITCH;
 	}
 
 	void Update(){
 		if(thrusting){
-			thrusterAudioSource.pitch = pitch;
 			if(pitch < MAXPITCH){
 				pitch += 0.035f;
 			}
 		}
+		else{
+			if(pitch > 0){
+				pitch -= 0.08f;
+			}
+			else{
+				pitch = 0;
+			}
+		}
+		thrusterAudioSource.pitch = pitch;
 	}
 
 	/*void OnTriggerEnter2D(Collider2D collision){

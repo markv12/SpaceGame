@@ -8,26 +8,25 @@ public class PlanetGravity : MonoBehaviour {
 
 	public float gravityFactor = 8000f;
 
-	public static bool gravityOn = true;
+	public static bool globalGravityOn = true;
 
 	public int checkPointGroupNumber = 0;
 
 	private GameState.ChangedEventHandler handler;
 	private bool isShuttingDown = false;
 
-
-	private SpriteRenderer gravityRing;
+	private bool gravityOn = false;
+	private Transform gravityRing;
+	private const float maxRingDiameter = 1.3f;
+	private float currentRingDiameter = 0;
 
 	void Start () {
 		handler = new GameState.ChangedEventHandler (ActiveCheckpointChanged);
 		player = GameObject.FindGameObjectWithTag ("Player").rigidbody2D;
 		GameState.Instance.ActiveCheckpointChanged += handler;
 		foreach (Transform child in transform) {
-			SpriteRenderer renderer = child.GetComponent<SpriteRenderer> ();
-			if(renderer != null){
-				this.gravityRing = renderer;
-				break;
-			}
+			this.gravityRing = child;
+			break;
 		}
 
 	}
@@ -42,7 +41,28 @@ public class PlanetGravity : MonoBehaviour {
 		isShuttingDown = true;
 	}
 
+	void Update(){
+		if(gravityOn){
+			growRing();
+		}
+		else{
+			shrinkRing();
+		}
+	}
 
+	private void growRing(){
+		if(currentRingDiameter <= maxRingDiameter){
+			currentRingDiameter += 0.1f;
+			gravityRing.localScale = new Vector3(currentRingDiameter,currentRingDiameter,1);
+		}
+	}
+
+	private void shrinkRing(){
+		if(currentRingDiameter > 0){
+			currentRingDiameter -= 0.1f;
+			gravityRing.localScale = new Vector3(currentRingDiameter,currentRingDiameter,1);
+		}
+	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -54,7 +74,7 @@ public class PlanetGravity : MonoBehaviour {
 
 	public Vector3 calculateGravity(Vector3 objectPosition){
 		Vector3 gravitationalAcceleration;
-		if(gravityOn && checkPointGroupNumber == GameState.Instance.LastCheckPointNumber){
+		if(globalGravityOn && gravityOn){
 			Vector3 direction = (transform.position - objectPosition);
 			gravitationalAcceleration = (gravityFactor*direction*1f)/ direction.sqrMagnitude;
 		}
@@ -67,10 +87,10 @@ public class PlanetGravity : MonoBehaviour {
 	private void ActiveCheckpointChanged(object sender, EventArgs e){
 		//Debug.Log (checkPointGroupNumber == GameState.Instance.LastCheckPointNumber);
 		if(checkPointGroupNumber == GameState.Instance.LastCheckPointNumber){
-			gravityRing.enabled=true;
+			gravityOn = true;
 		}
 		else{
-			gravityRing.enabled=false;
+			gravityOn = false;
 		}
 	}
 }

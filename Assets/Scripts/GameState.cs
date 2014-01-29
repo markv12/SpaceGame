@@ -22,7 +22,7 @@ public class GameState : MonoBehaviour {
 
 	public bool isLevelStarted{
 		get{
-			return PlanetGravity.gravityOn;
+			return PlanetGravity.globalGravityOn;
 		}
 	}
 
@@ -106,10 +106,10 @@ public class GameState : MonoBehaviour {
 
 	public void enterOpenSpace(){
 		Instance.inOpenSpace = true;
-		PlanetGravity.gravityOn = true;
+		PlanetGravity.globalGravityOn = true;
 	}
 	public void exitOpenSpace(){
 		Instance.inOpenSpace = false;
-		PlanetGravity.gravityOn = false;
+		PlanetGravity.globalGravityOn = false;
 	}
 }
