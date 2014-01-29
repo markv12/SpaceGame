@@ -6,25 +6,23 @@ public class ShipControls : MonoBehaviour {
 
 	private const float ANGLETORADIANS = 0.0174532925f;
 
-	private Vector2 movement;
-	private Vector3 rotation;
-
 	private float angleSpeed=0;
+	public float thrust = 0.35f;
+	public float maxAngleSpeed = 150f;
+	
+	public float shipAccel { get; set;}
+
 	//private int cyclesSinceLastBurst = 100;
 
 	private ThrusterAnimation thrusterAnimation;
 	private AudioSource shipAudioSource;
-
-	public float thrust = 0.35f;
-	public float maxAngleSpeed = 150f;
-
-	public float shipAccel { get; set;}
 
 	public delegate void ChangedEventHandler(object sender, EventArgs e);
 	public event ChangedEventHandler ShipActivated;
 
 	void Start () {
 		GameState.Instance.playerActive = true;
+		GameState.Instance.ActiveCheckpointChanged += new GameState.ChangedEventHandler (ActiveCheckpointChanged);
 		shipAccel = 0;
 		foreach (Transform child in transform) {
 			ThrusterAnimation animation = child.GetComponent<ThrusterAnimation> ();
@@ -58,6 +56,7 @@ public class ShipControls : MonoBehaviour {
 		//cyclesSinceLastBurst++;
 		shipAccel = 0;
 		if(Input.GetButton ("Thrust")){
+			countFuel();
 			if(flipped){
 				shipAccel -= this.thrust;
 			}
@@ -81,6 +80,13 @@ public class ShipControls : MonoBehaviour {
 		if(Input.GetButton ("Brake")){
 			rigidbody2D.velocity = rigidbody2D.velocity*0.98f;
 
+		}
+	}
+
+	private void countFuel(){
+		if(GameState.Instance.InOpenSpace){
+			GameState.Instance.fuelUsed++;
+			GameState.Instance.fuelUsedLastCheckpoint++;
 		}
 	}
 
@@ -140,9 +146,15 @@ public class ShipControls : MonoBehaviour {
 		transform.Rotate (0,0,90);
 	}
 
+	private void ActiveCheckpointChanged(object sender, EventArgs e){
+		GameState.Instance.fuelUsedLastCheckpoint =0;
+	}
+
 	public void die(){
 		deactivateShip ();
 		shipAudioSource.Play ();
+		GameState.Instance.fuelUsed -= GameState.Instance.fuelUsedLastCheckpoint;
+		GameState.Instance.fuelUsedLastCheckpoint = 0;
 	}
 
 	private void applyAcceleration(){

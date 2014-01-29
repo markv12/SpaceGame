@@ -56,8 +56,10 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
-	private Dictionary<int, CheckPoint>checkPoints;
+	public float fuelUsed;
+	public float fuelUsedLastCheckpoint;
 
+	private Dictionary<int, CheckPoint>checkPoints;
 
 	public CheckPoint getLastCheckPoint(){
 		return checkPoints[lastCheckPointNumber];
@@ -67,6 +69,9 @@ public class GameState : MonoBehaviour {
 		Instance.exitOpenSpace ();
 		Instance.inOpenSpace = false;
 		Instance.outOfBounds = false;
+
+		fuelUsed = 0;
+		fuelUsedLastCheckpoint = 0;
 	}
 
 	public void OnApplicationQuit(){
@@ -87,6 +92,10 @@ public class GameState : MonoBehaviour {
 		LoadCheckPoints ();
 		Application.targetFrameRate = 50;
 		
+	}
+
+	void OnGUI () {
+		GUI.Label(new Rect (60, 10, 100, 20), "Fuel Used: " +fuelUsed);
 	}
 	
 	void OnLevelWasLoaded(){

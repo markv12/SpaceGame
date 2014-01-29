@@ -891,8 +891,8 @@ Transform:
   m_PrefabInternal: {fileID: 448540401}
   m_GameObject: {fileID: 569638998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 25}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 514332714}
 --- !u!212 &569639000
@@ -1102,6 +1102,10 @@ Prefab:
       propertyPath: checkPointNumber
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dd5b21701efe54e83af8a84db5085c75, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd5b21701efe54e83af8a84db5085c75, type: 2}
   m_RootGameObject: {fileID: 1313060269}
@@ -1154,8 +1158,8 @@ Transform:
   m_PrefabInternal: {fileID: 59214062}
   m_GameObject: {fileID: 761554898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 25}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 870333835}
 --- !u!1001 &795964191
@@ -1225,8 +1229,8 @@ Transform:
   m_PrefabInternal: {fileID: 196063560}
   m_GameObject: {fileID: 799062151}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 25}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 1074608334}
 --- !u!212 &799062153
@@ -2265,7 +2269,7 @@ Transform:
   m_GameObject: {fileID: 1313060269}
   m_LocalRotation: {x: 0, y: 0, z: -.642787695, w: .766044378}
   m_LocalPosition: {x: 46.8713036, y: 520.736572, z: 15}
-  m_LocalScale: {x: 8, y: 13, z: 1}
+  m_LocalScale: {x: 9, y: 13, z: 1}
   m_Children:
   - {fileID: 968575785}
   - {fileID: 1189735179}
@@ -2694,6 +2698,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 16
   maxAngleSpeed: 130
+  fuelUsed: 0
+  fuelUsedLastCheckpoint: 0
 --- !u!61 &1702772938
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2771,9 +2777,9 @@ AudioSource:
   m_GameObject: {fileID: 1760523821}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 115a1e187e0994c54bbf668a8d5b332c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8d1a795b48e59489d90d6a6c25ba896e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .600000024
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2875,8 +2881,8 @@ Transform:
   m_PrefabInternal: {fileID: 1425203394}
   m_GameObject: {fileID: 1764309410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 25}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 1101434817}
 --- !u!212 &1764309412
@@ -3115,8 +3121,8 @@ Transform:
   m_PrefabInternal: {fileID: 795964191}
   m_GameObject: {fileID: 2044078194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 25}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 354099649}
 --- !u!212 &2044078196
@@ -3166,8 +3172,8 @@ Transform:
   m_PrefabInternal: {fileID: 743913050}
   m_GameObject: {fileID: 2051122025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 25}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 1214021681}
 --- !u!212 &2051122027
