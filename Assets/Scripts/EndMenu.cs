@@ -5,7 +5,7 @@ public class EndMenu : MonoBehaviour {
 
 	void Update(){
 		if(Input.GetKeyDown ("x")){
-			GameState.Instance.LoadLevel(0);
+			CameraFade.StartAlphaFade( Color.black, false, 1f, 0f, () => { GameState.Instance.LoadLevel(0); });
 		}
 	}
 }

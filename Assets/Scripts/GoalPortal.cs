@@ -18,7 +18,7 @@ public class GoalPortal : MonoBehaviour {
 		{
 
 			ship.deactivateShip();
-			StartCoroutine(WaitThenExit(1.5f));
+			CameraFade.StartAlphaFade( Color.black, false, 1.25f, 0.4f, () => { GameState.Instance.LoadLevel(levelName); });
 
 		}
 	}

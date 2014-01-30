@@ -123,7 +123,6 @@ public class GameState : MonoBehaviour {
 			audioSource.clip = Resources.Load("Progenibeat") as AudioClip;
 			audioSource.loop = true;
 			DontDestroyOnLoad (audioSource);
-			audioSource.Play();
 		}
 	}
 	public void pauseMusic(){
@@ -131,9 +130,11 @@ public class GameState : MonoBehaviour {
 		audioSource.Pause ();
 	}
 
-	public void resumeMusic(){
+	public void playMusic(){
 		setupMusic ();
-		audioSource.Play ();
+		if(!audioSource.isPlaying){
+			audioSource.Play ();
+		}
 	}
 
 	public void enterOpenSpace(){

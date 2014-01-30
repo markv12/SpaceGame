@@ -17,7 +17,7 @@ public class AudioButton : MonoBehaviour {
 		}
 		else{
 			if (GUI.Button (new Rect (10,10,45,45), offIcon)){
-				GameState.Instance.resumeMusic();
+				GameState.Instance.playMusic();
 				isAudioOn = true;
 			}
 		}

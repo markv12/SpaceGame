@@ -50,11 +50,12 @@ public class MenuScript : MonoBehaviour
 		}
 
 		if(Input.GetKeyDown ("x")){
-			GameState.Instance.LoadLevel(1);
+			GameState.Instance.playMusic();
+			CameraFade.StartAlphaFade( Color.black, false, 2f, 0f, () => { GameState.Instance.LoadLevel(1); });
 		}
 		
 	}
-	
+
 	/*void OnGUI(){
 		GUI.skin = skin;
 		if (Application.CanStreamedLevelBeLoaded(1)){
