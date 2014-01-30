@@ -8,8 +8,9 @@ public class ShipControls : MonoBehaviour {
 
 	private float angleSpeed=0;
 	public float thrust = 0.35f;
-	public float maxAngleSpeed = 150f;
-	
+	public float maxAngleSpeed = 160f;
+	public float minAngleSpeed = 50f;
+
 	public float shipAccel { get; set;}
 
 	//private int cyclesSinceLastBurst = 100;
@@ -98,16 +99,43 @@ public class ShipControls : MonoBehaviour {
 
 			float hArrowKeyInput = Input.GetAxis("Horizontal");
 			if(hArrowKeyInput > 0){
-				angleSpeed = -maxAngleSpeed;
-				rigidbody2D.angularVelocity = angleSpeed;
+				applyClockwiseRotation();
+
 			}
 			else if(hArrowKeyInput < 0){
-				angleSpeed = maxAngleSpeed;
-				rigidbody2D.angularVelocity = angleSpeed;
+				applyCounterClockwiseRotation();
+			}
+			else{
+				angleSpeed = 0;
 			}
 			checkForNeedToFlip ();
 		}
 	}
+	private void applyClockwiseRotation(){
+		if(angleSpeed == 0){
+			angleSpeed = -minAngleSpeed;
+		}
+		else if(angleSpeed > -maxAngleSpeed){
+			angleSpeed -= 3;
+		}
+		else{
+			angleSpeed = -maxAngleSpeed;
+		}
+		rigidbody2D.angularVelocity = angleSpeed;
+	}
+	private void applyCounterClockwiseRotation(){
+		if(angleSpeed == 0){
+			angleSpeed = minAngleSpeed;
+		}
+		else if(angleSpeed < maxAngleSpeed){
+			angleSpeed += 3;
+		}
+		else{
+			angleSpeed = maxAngleSpeed;
+		}
+		rigidbody2D.angularVelocity = angleSpeed;
+	}
+
 
 	public void deactivateShip(){
 		GameState.Instance.playerActive = false;

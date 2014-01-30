@@ -47,6 +47,7 @@ public class ThrusterAnimation : MonoBehaviour {
 			}
 		}
 		thrusterAudioSource.pitch = pitch;
+		thrusterAudioSource.volume = pitch*0.4f;
 	}
 
 	/*void OnTriggerEnter2D(Collider2D collision){

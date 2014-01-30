@@ -8,9 +8,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 212: {fileID: 21200000}
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400000}
+  - 212: {fileID: 21200000}
   m_Layer: 0
   m_Name: CheckpointArea
   m_TagString: Checkpoint
@@ -60,9 +60,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106709}
-  m_LocalPosition: {x: -100, y: -240, z: 15}
-  m_LocalScale: {x: 9, y: 5, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.605175, y: 255.780273, z: -15}
+  m_LocalScale: {x: 9, y: 10, z: 1}
   m_Children:
   - {fileID: 400004}
   - {fileID: 400002}

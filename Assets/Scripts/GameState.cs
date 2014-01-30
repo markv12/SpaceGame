@@ -16,6 +16,8 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
+	private AudioSource audioSource;
+
 	public bool playerActive{
 		get; set;
 	}
@@ -72,6 +74,8 @@ public class GameState : MonoBehaviour {
 
 		fuelUsed = 0;
 		fuelUsedLastCheckpoint = 0;
+
+		setupMusic ();
 	}
 
 	public void OnApplicationQuit(){
@@ -111,6 +115,25 @@ public class GameState : MonoBehaviour {
 			CheckPoint checkPoint = checkpointObject.GetComponent<CheckPoint>();
 			Instance.checkPoints.Add(checkPoint.checkPointNumber, checkPoint);
 		}
+	}
+
+	private void setupMusic(){
+		if(audioSource == null){
+			audioSource = gameObject.AddComponent<AudioSource>();
+			audioSource.clip = Resources.Load("Progenibeat") as AudioClip;
+			audioSource.loop = true;
+			DontDestroyOnLoad (audioSource);
+			audioSource.Play();
+		}
+	}
+	public void pauseMusic(){
+		setupMusic ();
+		audioSource.Pause ();
+	}
+
+	public void resumeMusic(){
+		setupMusic ();
+		audioSource.Play ();
 	}
 
 	public void enterOpenSpace(){
