@@ -8,8 +8,8 @@ public class ShipControls : MonoBehaviour {
 
 	private float angleSpeed=0;
 	private float thrust = 16f;
-	private float maxAngleSpeed = 175f;
-	private float minAngleSpeed = 55f;
+	private float maxAngleSpeed = 200f;
+	private float minAngleSpeed = 50f;
 	private float speedWarmup = 2.5f;
 
 	public float shipAccel { get; set;}
@@ -48,9 +48,9 @@ public class ShipControls : MonoBehaviour {
 				thrusterAnimation.stopThrusting();
 			}
 
-			if(Input.GetKeyDown ("x")){
+			/*if(Input.GetKeyDown ("x")){
 				flip();
-			}
+			}*/
 		}
 	}
 
@@ -59,12 +59,12 @@ public class ShipControls : MonoBehaviour {
 		shipAccel = 0;
 		if(Input.GetButton ("Thrust")){
 			countFuel();
-			if(flipped){
+			/*if(flipped){
 				shipAccel -= this.thrust;
-			}
-			else{
+			}*/
+			//else{
 				this.shipAccel += this.thrust;
-			}
+			//}
 			if(rigidbody2D.velocity.magnitude < 6){
 				this.shipAccel*=2;
 			}
@@ -109,7 +109,7 @@ public class ShipControls : MonoBehaviour {
 			else{
 				angleSpeed = 0;
 			}
-			checkForNeedToFlip ();
+			//checkForNeedToFlip ();
 		}
 	}
 	private void applyClockwiseRotation(){
@@ -145,9 +145,9 @@ public class ShipControls : MonoBehaviour {
 		GetComponent<Rigidbody2D> ().angularVelocity = 0f;
 		GameState.Instance.exitOpenSpace();
 		thrusterAnimation.stopThrusting ();
-		if(flipped){
+		/*if(flipped){
 			flip();
-		}
+		}*/
 	}
 
 	public void activateShip(){
