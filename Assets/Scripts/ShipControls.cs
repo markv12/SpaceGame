@@ -7,9 +7,10 @@ public class ShipControls : MonoBehaviour {
 	private const float ANGLETORADIANS = 0.0174532925f;
 
 	private float angleSpeed=0;
-	public float thrust = 0.35f;
-	public float maxAngleSpeed = 160f;
-	public float minAngleSpeed = 50f;
+	private float thrust = 16f;
+	private float maxAngleSpeed = 175f;
+	private float minAngleSpeed = 55f;
+	private float speedWarmup = 2.5f;
 
 	public float shipAccel { get; set;}
 
@@ -116,7 +117,7 @@ public class ShipControls : MonoBehaviour {
 			angleSpeed = -minAngleSpeed;
 		}
 		else if(angleSpeed > -maxAngleSpeed){
-			angleSpeed -= 3;
+			angleSpeed -= speedWarmup;
 		}
 		else{
 			angleSpeed = -maxAngleSpeed;
@@ -128,7 +129,7 @@ public class ShipControls : MonoBehaviour {
 			angleSpeed = minAngleSpeed;
 		}
 		else if(angleSpeed < maxAngleSpeed){
-			angleSpeed += 3;
+			angleSpeed += speedWarmup;
 		}
 		else{
 			angleSpeed = maxAngleSpeed;

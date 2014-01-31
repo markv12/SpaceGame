@@ -467,10 +467,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad1b210d3a8a496e80dbe1b6a25e438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fovNarrow: 100
-  fovWide: 200
+  fovNarrow: 90
+  fovWide: 220
   fovResizeSmooth: 1.20000005
-  zoomFactor: 30
+  zoomFactor: 32
 --- !u!114 &445942391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1153,9 +1153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0493075e994c4705b89796d7e7e2dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 16
-  maxAngleSpeed: 160
-  minAngleSpeed: 40
 --- !u!61 &1095846300
 BoxCollider2D:
   m_ObjectHideFlags: 0
