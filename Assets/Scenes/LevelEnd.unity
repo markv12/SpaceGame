@@ -1630,7 +1630,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d21920caaca54dca992c5b1e3d5369c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: EndScreen
 --- !u!1 &1466909003
 GameObject:
   m_ObjectHideFlags: 0

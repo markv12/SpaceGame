@@ -15,8 +15,19 @@ public class GameState : MonoBehaviour {
 			return instance;
 		}
 	}
+	private AudioSource aSource;
+	private AudioSource audioSource{
+		get{
+			if(aSource == null){
+				aSource = gameObject.AddComponent<AudioSource>();
+				aSource.clip = Resources.Load("Progenibeat") as AudioClip;
+				aSource.loop = true;
+				DontDestroyOnLoad (aSource);
+			}
+			return aSource;
+		}
 
-	private AudioSource audioSource;
+	}
 
 	public bool playerActive{
 		get; set;
@@ -73,8 +84,6 @@ public class GameState : MonoBehaviour {
 
 		fuelUsed = 0;
 		fuelUsedLastCheckpoint = 0;
-
-		setupMusic ();
 	}
 
 	public void OnApplicationQuit(){
@@ -116,23 +125,26 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
-	private void setupMusic(){
-		if(audioSource == null){
-			audioSource = gameObject.AddComponent<AudioSource>();
-			audioSource.clip = Resources.Load("Progenibeat") as AudioClip;
-			audioSource.loop = true;
-			DontDestroyOnLoad (audioSource);
+	public void playMusic(){
+		if(!audioSource.isPlaying){
+			audioSource.Stop ();
+			audioSource.Play ();
 		}
 	}
+
 	public void pauseMusic(){
-		setupMusic ();
 		audioSource.Pause ();
 	}
 
-	public void playMusic(){
-		setupMusic ();
+	public void resumeMusic(){
 		if(!audioSource.isPlaying){
 			audioSource.Play ();
+		}
+	}
+
+	public bool musicPlaying{
+		get{
+			return audioSource.isPlaying;
 		}
 	}
 

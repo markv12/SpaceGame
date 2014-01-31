@@ -546,7 +546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d21920caaca54dca992c5b1e3d5369c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Level1
 --- !u!50 &271419475
 Rigidbody2D:
   m_ObjectHideFlags: 0

@@ -10,8 +10,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutorialLevel.unity
   - enabled: 1
-    path: Assets/Scenes/MrgTesting.unity
-  - enabled: 1
     path: Assets/Scenes/Level1.unity
   - enabled: 1
     path: Assets/Scenes/Level2.unity
@@ -19,3 +17,5 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelEnd.unity
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
+  - enabled: 1
+    path: Assets/Scenes/MrgTesting.unity
