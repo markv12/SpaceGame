@@ -9,8 +9,7 @@ public class Crashing : MonoBehaviour {
 		ship = GetComponent<ShipControls> ();
 	}
 
-	private IEnumerator WaitThenRestart(float seconds) {
-		yield return new WaitForSeconds(seconds);
+	private void activateAtLastCheckpoint() {
 		ship.moveToLastCheckpoint ();
 		ship.activateShip ();
 	}
@@ -22,7 +21,7 @@ public class Crashing : MonoBehaviour {
 			Vector2 collisionPoint = collision.contacts[0].point;
 
 			SpecialEffectsHelper.Instance.ShipExplosion (new Vector3(collisionPoint.x, collisionPoint.y));
-			StartCoroutine(WaitThenRestart (1f));
+			CameraFade.StartAlphaFade( Color.red, false, 1f, 0.3f, () => { activateAtLastCheckpoint();});
 		}
 	}
 }
