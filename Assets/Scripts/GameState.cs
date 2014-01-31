@@ -114,6 +114,7 @@ public class GameState : MonoBehaviour {
 		LastCheckPointNumber = -1;
 		LoadCheckPoints ();
 		Application.targetFrameRate = 50;
+		CameraFade.StartAlphaFade( Color.black, true, 1.2f, 0f, () => { });
 	}
 
 	private void LoadCheckPoints(){

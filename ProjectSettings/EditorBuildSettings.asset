@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartMenu.unity
   - enabled: 1
-    path: Assets/Scenes/TutorialLevel.unity
+    path: Assets/Scenes/Level0.unity
   - enabled: 1
     path: Assets/Scenes/Level1.unity
   - enabled: 1
@@ -17,5 +17,3 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelEnd.unity
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
-  - enabled: 1
-    path: Assets/Scenes/MrgTesting.unity
