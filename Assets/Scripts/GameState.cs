@@ -22,12 +22,6 @@ public class GameState : MonoBehaviour {
 		get; set;
 	}
 
-	public bool isLevelStarted{
-		get{
-			return PlanetGravity.globalGravityOn;
-		}
-	}
-
 	private bool inOpenSpace;
 	public bool InOpenSpace {
 		get{
@@ -64,7 +58,12 @@ public class GameState : MonoBehaviour {
 	private Dictionary<int, CheckPoint>checkPoints;
 
 	public CheckPoint getLastCheckPoint(){
-		return checkPoints[lastCheckPointNumber];
+		if(checkPoints.ContainsKey(LastCheckPointNumber)){
+			return checkPoints[lastCheckPointNumber];
+		}
+		else{
+			return checkPoints[0];
+		}
 	}
 
 	public void startState(){

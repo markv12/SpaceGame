@@ -17,12 +17,7 @@ public class Crashing : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision){
 		if(Mathf.Abs(transform.position.z - collision.transform.position.z)<3f && GameState.Instance.playerActive){
-			if(collision.gameObject.GetComponent<GoalPortal>()!=null){
-				ship.deactivateShip ();
-			}
-			else{
-				ship.die();
-			}
+			ship.die();
 
 			Vector2 collisionPoint = collision.contacts[0].point;
 

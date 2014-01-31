@@ -77,10 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad1b210d3a8a496e80dbe1b6a25e438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fovNarrow: 100
-  fovWide: 200
+  fovNarrow: 90
+  fovWide: 220
   fovResizeSmooth: 1.20000005
-  zoomFactor: 30
+  zoomFactor: 32
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

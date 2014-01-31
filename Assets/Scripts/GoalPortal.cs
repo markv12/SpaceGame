@@ -14,12 +14,10 @@ public class GoalPortal : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		ShipControls ship = collider.gameObject.GetComponent<ShipControls>();
-		if (ship != null && GameState.Instance.isLevelStarted)
-		{
-
+		if(ship != null){
 			ship.deactivateShip();
+			GameState.Instance.LastCheckPointNumber = -1;
 			CameraFade.StartAlphaFade( Color.black, false, 1.25f, 0.4f, () => { GameState.Instance.LoadLevel(levelName); });
-
 		}
 	}
 }
