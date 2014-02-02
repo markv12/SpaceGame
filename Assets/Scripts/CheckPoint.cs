@@ -42,7 +42,7 @@ public class CheckPoint : MonoBehaviour {
 
 			GameState.Instance.LastCheckPointNumber = checkPointNumber;
 			if(GameState.Instance.InOpenSpace){
-				collidedRigidbody.velocity/=3f;
+				collidedRigidbody.velocity/=4f;
 			}
 			GameState.Instance.exitOpenSpace ();
 			currentObject = collidedRigidbody;
@@ -54,7 +54,7 @@ public class CheckPoint : MonoBehaviour {
 		   && currentObject != null
 		   && GameState.Instance.playerActive
 		   && Input.GetButton("Auto")){
-			currentObject.AddForce(transform.up*60f);
+			currentObject.AddForce(transform.up*70f);
 		}
 	}
 

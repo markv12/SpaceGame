@@ -80,7 +80,7 @@ public class ShipControls : MonoBehaviour {
 			}*/
 		}
 		if(Input.GetButton ("Brake")){
-			rigidbody2D.velocity = rigidbody2D.velocity*0.98f;
+			rigidbody2D.velocity = rigidbody2D.velocity*0.975f;
 
 		}
 	}
@@ -189,7 +189,7 @@ public class ShipControls : MonoBehaviour {
 		rigidbody2D.AddForce (transform.right*shipAccel);
 
 		if(!GameState.Instance.InOpenSpace){
-			rigidbody2D.velocity*=0.99f;
+			rigidbody2D.velocity*=0.98f;
 		}
 
 	}
