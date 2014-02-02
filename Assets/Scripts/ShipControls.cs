@@ -7,7 +7,7 @@ public class ShipControls : MonoBehaviour {
 	private const float ANGLETORADIANS = 0.0174532925f;
 
 	private float angleSpeed=0;
-	private float thrust = 16f;
+	private float thrust = 17.5f;
 	private float maxAngleSpeed = 200f;
 	private float minAngleSpeed = 50f;
 	private float speedWarmup = 2.5f;
