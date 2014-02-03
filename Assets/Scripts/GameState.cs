@@ -107,7 +107,7 @@ public class GameState : MonoBehaviour {
 	}
 
 	void OnGUI () {
-		GUI.Label(new Rect (60, 10, 100, 20), "Fuel Used: " +fuelUsed);
+		GUI.Label(new Rect (10, 60, 100, 20), "Fuel Used: " +fuelUsed);
 	}
 	
 	void OnLevelWasLoaded(){
