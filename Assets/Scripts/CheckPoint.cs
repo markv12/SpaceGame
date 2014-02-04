@@ -39,8 +39,6 @@ public class CheckPoint : MonoBehaviour {
 				GameState.Instance.LastCheckPointNumber = checkPointNumber;
 			}
 
-
-			GameState.Instance.LastCheckPointNumber = checkPointNumber;
 			if(GameState.Instance.InOpenSpace){
 				collidedRigidbody.velocity/=4f;
 			}

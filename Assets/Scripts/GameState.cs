@@ -5,6 +5,8 @@ using System;
 
 
 public class GameState : MonoBehaviour {
+	private const String LEVELKEY = "currentLevel";
+	private const String FUELKEY = "fuelUsage";
 
 	private static GameState instance;
 	public static GameState Instance{
@@ -63,8 +65,8 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
-	public float fuelUsed;
-	public float fuelUsedLastCheckpoint;
+	public int fuelUsed;
+	public int fuelUsedLastCheckpoint;
 
 	private Dictionary<int, CheckPoint>checkPoints;
 
@@ -90,20 +92,35 @@ public class GameState : MonoBehaviour {
 		instance = null;
 	}
 
-	public void LoadLevel (string levelName){
-		exitOpenSpace ();
-		Application.LoadLevel (levelName);
+	public void loadStartScreen(){
+		Application.LoadLevel (0);
 	}
-
-	public void LoadLevel (int levelNumber){
-		exitOpenSpace ();
-		Application.LoadLevel (levelNumber);
+	public void loadNextLevel(){
+		Application.LoadLevel (Application.loadedLevel+1);
+		SaveState ();
 	}
 
 	void Start(){
 		LoadCheckPoints ();
-		Application.targetFrameRate = 50;
-		
+		Application.targetFrameRate = 60;	
+	}
+	
+	private void SaveState(){
+		PlayerPrefs.SetInt (LEVELKEY, Application.loadedLevel);
+		PlayerPrefs.SetInt (FUELKEY, fuelUsed);
+	}
+
+	public void loadState(){
+		if(!PlayerPrefs.HasKey(LEVELKEY) || PlayerPrefs.GetInt(LEVELKEY)==0){
+			PlayerPrefs.SetInt(LEVELKEY, 1);
+		}
+		Application.LoadLevel(PlayerPrefs.GetInt(LEVELKEY));
+
+		if(!PlayerPrefs.HasKey(FUELKEY)){
+			PlayerPrefs.SetInt(FUELKEY, 0);
+		}
+		fuelUsed = PlayerPrefs.GetInt (FUELKEY);
+
 	}
 
 	void OnGUI () {
@@ -111,7 +128,6 @@ public class GameState : MonoBehaviour {
 	}
 	
 	void OnLevelWasLoaded(){
-		LastCheckPointNumber = -1;
 		LoadCheckPoints ();
 		Application.targetFrameRate = 50;
 		CameraFade.StartAlphaFade( Color.black, true, 1.2f, 0f, () => { });

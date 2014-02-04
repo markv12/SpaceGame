@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// Title screen script
 /// </summary>
-public class MenuScript : MonoBehaviour
+public class StartMenu : MonoBehaviour
 {
 	private GUISkin skin;
 
@@ -51,7 +51,7 @@ public class MenuScript : MonoBehaviour
 
 		if(Input.GetKeyDown ("x")){
 			GameState.Instance.playMusic();
-			CameraFade.StartAlphaFade( Color.black, false, 2f, 0f, () => { GameState.Instance.LoadLevel(1); });
+			CameraFade.StartAlphaFade( Color.black, false, 2f, 0f, () => { GameState.Instance.loadState(); });
 		}
 		
 	}

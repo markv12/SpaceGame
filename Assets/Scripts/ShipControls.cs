@@ -25,6 +25,7 @@ public class ShipControls : MonoBehaviour {
 	void Start () {
 		GameState.Instance.playerActive = true;
 		GameState.Instance.ActiveCheckpointChanged += new GameState.ChangedEventHandler (ActiveCheckpointChanged);
+
 		shipAccel = 0;
 		foreach (Transform child in transform) {
 			ThrusterAnimation animation = child.GetComponent<ThrusterAnimation> ();

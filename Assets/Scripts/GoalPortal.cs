@@ -9,7 +9,7 @@ public class GoalPortal : MonoBehaviour {
 		if(ship != null){
 			ship.deactivateShip();
 			GameState.Instance.LastCheckPointNumber = -1;
-			CameraFade.StartAlphaFade( Color.black, false, 1.25f, 0.4f, () => { GameState.Instance.LoadLevel(Application.loadedLevel+1); });
+			CameraFade.StartAlphaFade( Color.black, false, 1.25f, 0.4f, () => { GameState.Instance.loadNextLevel(); });
 		}
 	}
 }
