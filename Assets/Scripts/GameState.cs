@@ -113,12 +113,18 @@ public class GameState : MonoBehaviour {
 	}
 	
 	private void SaveState(){
-		PlayerPrefs.SetInt (LEVELKEY, Application.loadedLevel);
-		PlayerPrefs.SetInt (FUELKEY, fuelUsed);
+		if(Application.loadedLevel>1){
+			PlayerPrefs.SetInt (LEVELKEY, Application.loadedLevel);
+			PlayerPrefs.SetInt (FUELKEY, fuelUsed);
+		}
+		else{
+			PlayerPrefs.SetInt (LEVELKEY, 2);
+			PlayerPrefs.SetInt (FUELKEY, 0);
+		}
 	}
 
 	public void loadState(){
-		if(!PlayerPrefs.HasKey(LEVELKEY) || PlayerPrefs.GetInt(LEVELKEY)==0 || PlayerPrefs.GetInt(LEVELKEY)==1){
+		if(!PlayerPrefs.HasKey(LEVELKEY)){
 			PlayerPrefs.SetInt(LEVELKEY, firstLevel);
 		}
 		Application.LoadLevel(PlayerPrefs.GetInt(LEVELKEY));

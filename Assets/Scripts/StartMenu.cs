@@ -51,7 +51,8 @@ public class StartMenu : MonoBehaviour
 
 		if(Input.GetKeyDown ("x")){
 			GameState.Instance.playMusic();
-			CameraFade.StartAlphaFade( Color.black, false, 2f, 0f, () => { GameState.Instance.loadState(); });
+			//CameraFade.StartAlphaFade( Color.black, false, 2f, 0f, () => { GameState.Instance.loadState(); });
+			CameraFade.StartAlphaFade( Color.black, false, 2f, 0f, () => { GameState.Instance.loadNextLevel(); });
 		}
 		
 	}
