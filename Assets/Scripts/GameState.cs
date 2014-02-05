@@ -93,8 +93,15 @@ public class GameState : MonoBehaviour {
 	}
 
 	public void loadStartScreen(){
-		Application.LoadLevel (0);
+		Application.LoadLevel (1);
 	}
+
+	public int firstLevel{
+		get{
+			return 2;
+		}
+	}
+
 	public void loadNextLevel(){
 		Application.LoadLevel (Application.loadedLevel+1);
 		SaveState ();
@@ -111,8 +118,8 @@ public class GameState : MonoBehaviour {
 	}
 
 	public void loadState(){
-		if(!PlayerPrefs.HasKey(LEVELKEY) || PlayerPrefs.GetInt(LEVELKEY)==0){
-			PlayerPrefs.SetInt(LEVELKEY, 1);
+		if(!PlayerPrefs.HasKey(LEVELKEY) || PlayerPrefs.GetInt(LEVELKEY)==0 || PlayerPrefs.GetInt(LEVELKEY)==1){
+			PlayerPrefs.SetInt(LEVELKEY, firstLevel);
 		}
 		Application.LoadLevel(PlayerPrefs.GetInt(LEVELKEY));
 

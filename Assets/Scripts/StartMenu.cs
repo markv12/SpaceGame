@@ -38,7 +38,7 @@ public class StartMenu : MonoBehaviour
 	}
 
 	void Update(){
-		if(Application.CanStreamedLevelBeLoaded(1)){
+		if(Application.CanStreamedLevelBeLoaded(GameState.Instance.firstLevel)){
 			if(progressBar.transform.localScale.x !=0){
 				progressBar.transform.localScale = new Vector3(0,0,0);
 				startMessage.transform.localScale = new Vector3(0.7f,0.7f,1f);
@@ -46,7 +46,7 @@ public class StartMenu : MonoBehaviour
 		}
 		else{
 			Vector3 currentScale = progressBarCover.transform.localScale;
-			progressBarCover.transform.localScale = new Vector3(1f-Application.GetStreamProgressForLevel (1), currentScale.y, currentScale.z);
+			progressBarCover.transform.localScale = new Vector3(1f-Application.GetStreamProgressForLevel (GameState.Instance.firstLevel), currentScale.y, currentScale.z);
 		}
 
 		if(Input.GetKeyDown ("x")){
