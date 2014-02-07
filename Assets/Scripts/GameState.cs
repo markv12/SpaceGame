@@ -49,7 +49,7 @@ public class GameState : MonoBehaviour {
 	public delegate void ChangedEventHandler(object sender, EventArgs e);
 	public event ChangedEventHandler ActiveCheckpointChanged;
 
-	private int lastCheckPointNumber = -1;
+	private int lastCheckPointNumber = 0;
 	public int LastCheckPointNumber {
 		get{
 			return lastCheckPointNumber;
@@ -137,7 +137,9 @@ public class GameState : MonoBehaviour {
 	}
 
 	void OnGUI () {
-		GUI.Label(new Rect (10, 60, 100, 20), "Fuel Used: " +fuelUsed);
+		if(fuelUsed >0){
+			GUI.Label(new Rect (10, 60, 100, 20), "Fuel Used: " +fuelUsed);
+		}
 	}
 	
 	void OnLevelWasLoaded(){
@@ -185,5 +187,15 @@ public class GameState : MonoBehaviour {
 	public void exitOpenSpace(){
 		Instance.inOpenSpace = false;
 		PlanetGravity.globalGravityOn = false;
+	}
+
+	public  void WaitThenCall(float seconds, Action toCall) {
+		StartCoroutine(WaitThenCallYield(seconds, toCall));
+	}
+	private IEnumerator WaitThenCallYield(float seconds, Action toCall){
+		yield return new WaitForSeconds(seconds);
+		if( toCall != null ){
+			toCall();
+		}
 	}
 }

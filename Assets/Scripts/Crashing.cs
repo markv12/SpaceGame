@@ -20,7 +20,11 @@ public class Crashing : MonoBehaviour {
 			Vector2 collisionPoint = collision.contacts[0].point;
 
 			SpecialEffectsHelper.Instance.ShipExplosion (new Vector3(collisionPoint.x, collisionPoint.y));
-			CameraFade.StartAlphaFade( new Color(0.2f,0,0,1), false, 1f, 0.3f, () => { activateAtLastCheckpoint();});
+			GameState.Instance.WaitThenCall(0.6f, () => { 
+				activateAtLastCheckpoint();
+			});
+			CameraFade.StartAlphaFade(new Color(0.2f,0,0,1), false, 0.8f, 0.3f);
+
 		}
 	}
 }

@@ -7,7 +7,7 @@ public class ShipControls : MonoBehaviour {
 	private const float ANGLETORADIANS = 0.0174532925f;
 
 	private float angleSpeed=0;
-	private float thrust = 17.5f;
+	private float thrust = 20f;
 	private float maxAngleSpeed = 200f;
 	private float minAngleSpeed = 50f;
 	private float speedWarmup = 2.5f;
@@ -187,12 +187,60 @@ public class ShipControls : MonoBehaviour {
 	}
 
 	private void applyAcceleration(){
+		if(shipAccel != 0){
+			Debug.Log(shipAccel);
+			Debug.Log( -50f * (float)Math.Cos (ContAngle (rigidbody2D.velocity, transform.right * shipAccel, transform.up)));
+		}
 		rigidbody2D.AddForce (transform.right*shipAccel);
 
 		if(!GameState.Instance.InOpenSpace){
 			rigidbody2D.velocity*=0.98f;
 		}
 
+	}
+
+	private float ContAngle(Vector3 fwd, Vector3 targetDir, Vector3 upDir) {
+		
+		var angle = Vector3.Angle(fwd, targetDir);
+		
+		
+		
+		//The AngleDir function is the one from the other thread.
+		
+		if (AngleDir(fwd, targetDir, upDir) == -1) {
+			
+			return 360 - angle;
+			
+		} else {
+			
+			return angle;
+			
+		}
+		
+	}
+
+	public static float AngleDir(Vector3 fwd, Vector3 targetDir, Vector3 upDir) {
+		
+		Vector3 perp = Vector3.Cross(fwd, targetDir);
+		
+		float dir = Vector3.Dot(perp, upDir);
+		
+		
+		
+		if (dir > 0.0f) {
+			
+			return 1.0f;
+			
+		} else if (dir < 0.0f) {
+			
+			return -1.0f;
+			
+		} else {
+			
+			return 0.0f;
+			
+		}
+		
 	}
 
 	private void checkForNeedToFlip(){
