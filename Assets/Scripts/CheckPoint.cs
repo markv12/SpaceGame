@@ -4,9 +4,7 @@ using System.Collections;
 public class CheckPoint : MonoBehaviour {
 
 	public int checkPointNumber= 0;
-
-	public Rigidbody2D currentObject;
-
+	
 	void OnTriggerExit2D(Collider2D collider)
 	{
 		Vector3 colliderPosition = collider.transform.position;
@@ -29,7 +27,6 @@ public class CheckPoint : MonoBehaviour {
 		if(collidedRigidbody !=null){
 			Vector3 colliderPosition = collider.transform.position;
 			Vector3 relativePosition = getRelativePosition (transform, colliderPosition);
-
 			if(relativePosition.y>0){
 				if(GameState.Instance.LastCheckPointNumber>=1){
 					GameState.Instance.LastCheckPointNumber = checkPointNumber-1;
@@ -43,19 +40,9 @@ public class CheckPoint : MonoBehaviour {
 				collidedRigidbody.velocity/=4f;
 			}
 			GameState.Instance.exitOpenSpace ();
-			currentObject = collidedRigidbody;
 		}
 	}
-	void FixedUpdate(){
-		if(!GameState.Instance.InOpenSpace 
-		   && GameState.Instance.LastCheckPointNumber == checkPointNumber 
-		   && currentObject != null
-		   && GameState.Instance.playerActive
-		   && Input.GetButton("Auto")){
-			currentObject.AddForce(transform.up*70f);
-		}
-	}
-
+	
 	public static Vector3 getRelativePosition(Transform origin, Vector3 position) {
 		Vector3 distance = position - origin.position;
 		Vector3 relativePosition = Vector3.zero;

@@ -29,6 +29,7 @@ public class PlanetGravity : MonoBehaviour {
 			break;
 		}
 
+		ActiveCheckpointChanged (null, null);
 	}
 
 	void OnDestroy () {
@@ -85,7 +86,6 @@ public class PlanetGravity : MonoBehaviour {
 	}
 
 	private void ActiveCheckpointChanged(object sender, EventArgs e){
-		//Debug.Log (checkPointGroupNumber == GameState.Instance.LastCheckPointNumber);
 		if(checkPointGroupNumber == GameState.Instance.LastCheckPointNumber){
 			gravityOn = true;
 		}

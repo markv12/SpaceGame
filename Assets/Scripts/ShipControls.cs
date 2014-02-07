@@ -7,7 +7,7 @@ public class ShipControls : MonoBehaviour {
 	private const float ANGLETORADIANS = 0.0174532925f;
 
 	private float angleSpeed=0;
-	private float thrust = 20f;
+	private float thrust = 19f;
 	private float maxAngleSpeed = 200f;
 	private float minAngleSpeed = 50f;
 	private float speedWarmup = 2.5f;
@@ -48,10 +48,6 @@ public class ShipControls : MonoBehaviour {
 			if(Input.GetButtonUp("Thrust")){
 				thrusterAnimation.stopThrusting();
 			}
-
-			if(Input.GetKeyDown ("x")){
-				flip();
-			}
 		}
 	}
 
@@ -60,12 +56,7 @@ public class ShipControls : MonoBehaviour {
 		shipAccel = 0;
 		if(Input.GetButton ("Thrust")){
 			countFuel();
-			if(flipped){
-				shipAccel -= this.thrust;
-			}
-			else{
-				this.shipAccel += this.thrust;
-			}
+			this.shipAccel += this.thrust;
 			if(rigidbody2D.velocity.magnitude < 6){
 				this.shipAccel*=2;
 			}
@@ -109,7 +100,6 @@ public class ShipControls : MonoBehaviour {
 			else{
 				angleSpeed = 0;
 			}
-			checkForNeedToFlip ();
 		}
 	}
 	private void applyClockwiseRotation(){
@@ -145,9 +135,6 @@ public class ShipControls : MonoBehaviour {
 		GetComponent<Rigidbody2D> ().angularVelocity = 0f;
 		GameState.Instance.exitOpenSpace();
 		thrusterAnimation.stopThrusting ();
-		if(flipped){
-			flip();
-		}
 	}
 
 	public void activateShip(){
@@ -188,83 +175,12 @@ public class ShipControls : MonoBehaviour {
 
 	private void applyAcceleration(){
 		if(shipAccel != 0){
-			Debug.Log(shipAccel);
-			Debug.Log( -50f * (float)Math.Cos (ContAngle (rigidbody2D.velocity, transform.right * shipAccel, transform.up)));
+			shipAccel += 0.08f*Vector3.Angle(rigidbody2D.velocity, transform.right);
 		}
 		rigidbody2D.AddForce (transform.right*shipAccel);
 
 		if(!GameState.Instance.InOpenSpace){
-			rigidbody2D.velocity*=0.98f;
-		}
-
-	}
-
-	private float ContAngle(Vector3 fwd, Vector3 targetDir, Vector3 upDir) {
-		
-		var angle = Vector3.Angle(fwd, targetDir);
-		
-		
-		
-		//The AngleDir function is the one from the other thread.
-		
-		if (AngleDir(fwd, targetDir, upDir) == -1) {
-			
-			return 360 - angle;
-			
-		} else {
-			
-			return angle;
-			
-		}
-		
-	}
-
-	public static float AngleDir(Vector3 fwd, Vector3 targetDir, Vector3 upDir) {
-		
-		Vector3 perp = Vector3.Cross(fwd, targetDir);
-		
-		float dir = Vector3.Dot(perp, upDir);
-		
-		
-		
-		if (dir > 0.0f) {
-			
-			return 1.0f;
-			
-		} else if (dir < 0.0f) {
-			
-			return -1.0f;
-			
-		} else {
-			
-			return 0.0f;
-			
-		}
-		
-	}
-
-	private void checkForNeedToFlip(){
-		float currentAngle = transform.rotation.eulerAngles.z;
-		if(currentAngle > 180){
-			currentAngle = currentAngle-360;
-		}
-		if(currentAngle <-90){
-			flip();
-			transform.Rotate (new Vector3(0,0,180));
-		}
-		else if(currentAngle >90){
-			flip();
-			transform.Rotate (new Vector3(0,0,180));
-		}
-	}
-
-	private void flip(){
-		transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y,0);
-	}
-
-	private bool flipped{
-		get{
-			return transform.localScale.x < 0; 
+			rigidbody2D.velocity*=0.985f;
 		}
 
 	}
