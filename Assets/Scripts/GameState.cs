@@ -104,7 +104,6 @@ public class GameState : MonoBehaviour {
 
 	public void loadNextLevel(){
 		Application.LoadLevel (Application.loadedLevel+1);
-		SaveState ();
 	}
 
 	void Start(){
@@ -136,14 +135,16 @@ public class GameState : MonoBehaviour {
 
 	}
 
-	void OnGUI () {
+	/*void OnGUI () {
 		if(fuelUsed >0){
 			GUI.Label(new Rect (10, 60, 100, 20), "Fuel Used: " +fuelUsed);
 		}
-	}
+	}*/
 	
 	void OnLevelWasLoaded(){
 		LoadCheckPoints ();
+		SaveState ();
+
 		Application.targetFrameRate = 50;
 		CameraFade.StartAlphaFade( Color.black, true, 1.2f, 0f, () => { });
 	}

@@ -6,24 +6,25 @@ using System.Collections;
 /// </summary>
 public class StartMenu : MonoBehaviour
 {
-	private GUISkin skin;
-
-	const int buttonWidth = 100;
-	const int buttonHeight = 60;
+	private const int buttonWidth = 100;
+	private const int buttonHeight = 60;
+	private enum Options { Start, Resume };
 
 	public GameObject progressBar;
 	public GameObject progressBarCover;
 	public GameObject startMessage;
+	public GameObject resumeMessage;
+	public GameObject selectionGraphic;
 
 	private float buttonPosX;
 	private float buttonPosY;
+	private Options selectedItem = Options.Start;
 
 	void Start()
 	{
 		buttonPosX = Screen.width / 2 - (buttonWidth / 2);
 		buttonPosY = (Screen.height * 0.75f) - (buttonHeight / 2);
 
-		skin = Resources.Load("StartButton") as GUISkin;
 		DontDestroyOnLoad(GameState.Instance);
 		GameState.Instance.startState();
 
@@ -41,7 +42,9 @@ public class StartMenu : MonoBehaviour
 		if(Application.CanStreamedLevelBeLoaded(GameState.Instance.firstLevel)){
 			if(progressBar.transform.localScale.x !=0){
 				progressBar.transform.localScale = new Vector3(0,0,0);
-				startMessage.transform.localScale = new Vector3(0.7f,0.7f,1f);
+				startMessage.transform.localScale = new Vector3(1f,1f,1f);
+				resumeMessage.transform.localScale = new Vector3(1f,1f,1f);
+				selectionGraphic.transform.localScale = new Vector3(1f,1f,1f);
 			}
 		}
 		else{
@@ -49,12 +52,26 @@ public class StartMenu : MonoBehaviour
 			progressBarCover.transform.localScale = new Vector3(1f-Application.GetStreamProgressForLevel (GameState.Instance.firstLevel), currentScale.y, currentScale.z);
 		}
 
-		if(Input.GetKeyDown ("x")){
+		if(Input.GetButtonDown ("Enter")){
 			GameState.Instance.playMusic();
-			//CameraFade.StartAlphaFade( Color.black, false, 2f, 0f, () => { GameState.Instance.loadState(); });
-			CameraFade.StartAlphaFade( Color.black, false, 2f, 0f, () => { GameState.Instance.loadNextLevel(); });
+
+			if(selectedItem == Options.Start){
+				CameraFade.StartAlphaFade( Color.black, false, 2f, 0f, () => { GameState.Instance.loadNextLevel(); });
+			}
+			else if(selectedItem == Options.Resume){
+				CameraFade.StartAlphaFade( Color.black, false, 2f, 0f, () => { GameState.Instance.loadState(); });
+			}
 		}
-		
+		else if(Input.GetButtonDown ("Brake")){
+			selectionGraphic.transform.position = resumeMessage.transform.position;
+			selectedItem = Options.Resume;
+
+		}
+		else if(Input.GetButtonDown ("Thrust")){
+			selectionGraphic.transform.position = startMessage.transform.position;	
+			selectedItem = Options.Start;
+		}
+
 	}
 
 	/*void OnGUI(){

@@ -182,7 +182,7 @@ public class ShipControls : MonoBehaviour {
 		rigidbody2D.AddForce (transform.right*shipAccel);
 
 		if(!GameState.Instance.InOpenSpace){
-			rigidbody2D.velocity*=0.985f;
+			rigidbody2D.velocity*=0.987f;
 		}
 
 	}
