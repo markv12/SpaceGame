@@ -55,6 +55,7 @@ public class GameState : MonoBehaviour {
 			return lastCheckPointNumber;
 		}
 		set{
+			//Debug.Log(value);
 			if (value != lastCheckPointNumber){
 				lastCheckPointNumber = value;
 				if(ActiveCheckpointChanged != null){

@@ -5,10 +5,11 @@ using System;
 public class ShipControls : MonoBehaviour {
 
 	private const float ANGLETORADIANS = 0.0174532925f;
+	private const float DIRECTIONCHANGEADJUST = 0.11f;
 
 	private float angleSpeed=0;
-	private float thrust = 19f;
-	private float maxAngleSpeed = 200f;
+	private float thrust = 18f;
+	private float maxAngleSpeed = 250f;
 	private float minAngleSpeed = 50f;
 	private float speedWarmup = 2.5f;
 
@@ -175,7 +176,8 @@ public class ShipControls : MonoBehaviour {
 
 	private void applyAcceleration(){
 		if(shipAccel != 0){
-			shipAccel += 0.08f*Vector3.Angle(rigidbody2D.velocity, transform.right);
+			float boost = DIRECTIONCHANGEADJUST*Vector3.Angle(rigidbody2D.velocity, transform.right);
+			shipAccel += boost;
 		}
 		rigidbody2D.AddForce (transform.right*shipAccel);
 
