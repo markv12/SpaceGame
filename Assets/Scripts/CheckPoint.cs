@@ -27,7 +27,7 @@ public class CheckPoint : MonoBehaviour {
 		if(collidedRigidbody !=null){
 			Vector3 colliderPosition = collider.transform.position;
 			Vector3 relativePosition = getRelativePosition (transform, colliderPosition);
-			if(relativePosition.y>0){
+			if(relativePosition.y > 0.5f){
 				if(GameState.Instance.LastCheckPointNumber>=1){
 					GameState.Instance.LastCheckPointNumber = checkPointNumber-1;
 				}

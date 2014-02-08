@@ -2553,7 +2553,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNumber: 2
-  currentObject: {fileID: 0}
 --- !u!61 &1313060272
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2737,7 +2736,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNumber: 0
-  currentObject: {fileID: 0}
 --- !u!61 &1383919158
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2819,7 +2817,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointNumber: 1
-  currentObject: {fileID: 0}
 --- !u!61 &1407253941
 BoxCollider2D:
   m_ObjectHideFlags: 0
