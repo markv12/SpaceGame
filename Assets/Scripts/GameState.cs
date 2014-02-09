@@ -17,19 +17,7 @@ public class GameState : MonoBehaviour {
 			return instance;
 		}
 	}
-	private AudioSource aSource;
-	private AudioSource audioSource{
-		get{
-			if(aSource == null){
-				aSource = gameObject.AddComponent<AudioSource>();
-				aSource.clip = Resources.Load("Progenibeat") as AudioClip;
-				aSource.loop = true;
-				DontDestroyOnLoad (aSource);
-			}
-			return aSource;
-		}
 
-	}
 
 	public bool playerActive{
 		get; set;
@@ -155,29 +143,6 @@ public class GameState : MonoBehaviour {
 		foreach(GameObject checkpointObject in checkPointObjects){
 			CheckPoint checkPoint = checkpointObject.GetComponent<CheckPoint>();
 			Instance.checkPoints.Add(checkPoint.checkPointNumber, checkPoint);
-		}
-	}
-
-	public void playMusic(){
-		if(!audioSource.isPlaying){
-			audioSource.Stop ();
-			audioSource.Play ();
-		}
-	}
-
-	public void pauseMusic(){
-		audioSource.Pause ();
-	}
-
-	public void resumeMusic(){
-		if(!audioSource.isPlaying){
-			audioSource.Play ();
-		}
-	}
-
-	public bool musicPlaying{
-		get{
-			return audioSource.isPlaying;
 		}
 	}
 

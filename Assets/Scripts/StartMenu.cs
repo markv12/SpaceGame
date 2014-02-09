@@ -53,7 +53,7 @@ public class StartMenu : MonoBehaviour
 		}
 
 		if(Input.GetButtonDown ("Enter")){
-			GameState.Instance.playMusic();
+			CentralAudio.Instance.playMusic();
 
 			if(selectedItem == Options.Start){
 				CameraFade.StartAlphaFade( Color.black, false, 2f, 0f, () => { GameState.Instance.loadNextLevel(); });
@@ -63,13 +63,19 @@ public class StartMenu : MonoBehaviour
 			}
 		}
 		else if(Input.GetButtonDown ("Brake")){
-			selectionGraphic.transform.position = resumeMessage.transform.position;
-			selectedItem = Options.Resume;
+			if(selectedItem != Options.Resume){
+				selectionGraphic.transform.position = resumeMessage.transform.position;
+				selectedItem = Options.Resume;
+				CentralAudio.Instance.playClick();
+			}
 
 		}
 		else if(Input.GetButtonDown ("Thrust")){
-			selectionGraphic.transform.position = startMessage.transform.position;	
-			selectedItem = Options.Start;
+			if(selectedItem != Options.Start){
+				selectionGraphic.transform.position = startMessage.transform.position;	
+				selectedItem = Options.Start;
+				CentralAudio.Instance.playClick();
+			}
 		}
 
 	}
