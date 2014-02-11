@@ -25,11 +25,7 @@ public class PauseMenu : MonoBehaviour
 	
 	public int lowFPS = 30;
 	public int highFPS = 50;
-	
-	public GameObject start;
-	
-	public string url = "unity.html";
-	
+
 	private Color statColor = new Color (0.8f,0.8f,1f);
 	
 	public string[] credits= {
@@ -157,9 +153,9 @@ public class PauseMenu : MonoBehaviour
 		                SystemInfo.graphicsMemorySize+"MB\n"+
 		                SystemInfo.graphicsDeviceVersion+"\n"+
 		                SystemInfo.graphicsDeviceVendor);
-		GUILayout.Label("Shadows: "+SystemInfo.supportsShadows);
-		GUILayout.Label("Image Effects: "+SystemInfo.supportsImageEffects);
-		GUILayout.Label("Render Textures: "+SystemInfo.supportsRenderTextures);
+		//GUILayout.Label("Shadows: "+SystemInfo.supportsShadows);
+		//GUILayout.Label("Image Effects: "+SystemInfo.supportsImageEffects);
+		//GUILayout.Label("Render Textures: "+SystemInfo.supportsRenderTextures);
 	}
 	
 	void Qualities() {
@@ -295,10 +291,6 @@ public class PauseMenu : MonoBehaviour
 		AudioListener.pause = false;
 		
 		currentPage = Page.None;
-		
-		if (start != null) {
-			start.active = true;
-		}
 	}
 	
 	bool IsGamePaused() {

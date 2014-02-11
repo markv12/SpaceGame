@@ -5,7 +5,7 @@ using System;
 public class ShipControls : MonoBehaviour {
 
 	private const float ANGLETORADIANS = 0.0174532925f;
-	private const float DIRECTIONCHANGEADJUST = 0.11f;
+	private const float DIRECTIONCHANGEADJUST = 0.1f;
 
 	private float angleSpeed=0;
 	private float thrust = 18f;

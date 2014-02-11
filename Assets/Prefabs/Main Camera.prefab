@@ -12,6 +12,7 @@ GameObject:
   - 92: {fileID: 9200000}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -94,6 +95,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xSmooth: 22
   ySmooth: 22
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae03b54bb36e4c7c9fe9667ade57999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin: {fileID: 0}
+  mat: {fileID: 0}
+  lowFPSColor: {r: 1, g: 0, b: 0, a: 1}
+  highFPSColor: {r: 0, g: 1, b: 0, a: 1}
+  lowFPS: 30
+  highFPS: 50
+  credits:
+  - MarkV12
+  - Scott Steffes
+  - 2014
+  crediticons: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
