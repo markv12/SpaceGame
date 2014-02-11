@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour
 	private float fps;
 	
 	private int toolbarInt = 0;
-	private string[]  toolbarstrings =  {"Audio","Quality","q","System"};
+	private string[]  toolbarstrings =  {"Audio","Quality","Stats","System"};
 	
 	
 	void Start() {
