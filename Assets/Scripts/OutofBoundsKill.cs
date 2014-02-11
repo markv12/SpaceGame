@@ -12,7 +12,7 @@ public class OutofBoundsKill : MonoBehaviour {
 	public GameObject antibody;
 	private List<GameObject> antibodies;
 
-	private int maxAntibodies = 170;
+	private int maxAntibodies = 150;
 	
 	// Use this for initialization
 	void Start () {
