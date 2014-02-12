@@ -5,7 +5,7 @@ using System;
 public class ShipControls : MonoBehaviour {
 
 	private const float ANGLETORADIANS = 0.0174532925f;
-	private const float DIRECTIONCHANGEADJUST = 0.1f;
+	private const float DIRECTIONCHANGEADJUST = 0.09f;
 
 	private float angleSpeed=0;
 	private float thrust = 18f;
@@ -182,7 +182,7 @@ public class ShipControls : MonoBehaviour {
 		rigidbody2D.AddForce (transform.right*shipAccel);
 
 		if(!GameState.Instance.InOpenSpace){
-			rigidbody2D.velocity*=0.987f;
+			rigidbody2D.velocity*=0.988f;
 		}
 
 	}

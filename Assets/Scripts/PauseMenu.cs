@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
 	public int lowFPS = 30;
 	public int highFPS = 50;
 
-	private Color statColor = new Color (0.8f,0.8f,1f);
+	private Color statColor = new Color (0.8f,0.9f,1f);
 	
 	public string[] credits= {
 		"MarkV12",
