@@ -5,12 +5,12 @@ using System;
 public class ShipControls : MonoBehaviour {
 
 	private const float ANGLETORADIANS = 0.0174532925f;
-	private const float DIRECTIONCHANGEADJUST = 0.09f;
+	private const float DIRECTIONCHANGEADJUST = 0.08f;
 
 	private float angleSpeed=0;
 	private float thrust = 18f;
 	private float maxAngleSpeed = 250f;
-	private float minAngleSpeed = 50f;
+	private float minAngleSpeed = 35f;
 	private float speedWarmup = 2.5f;
 
 	public float shipAccel { get; set;}
@@ -72,10 +72,10 @@ public class ShipControls : MonoBehaviour {
 				this.cyclesSinceLastBurst/=2;
 			}*/
 		}
-		if(Input.GetButton ("Brake")){
+		/*if(Input.GetButton ("Brake")){
 			rigidbody2D.velocity = rigidbody2D.velocity*0.975f;
 
-		}
+		}*/
 	}
 
 	private void countFuel(){
@@ -100,11 +100,12 @@ public class ShipControls : MonoBehaviour {
 			}
 			else{
 				angleSpeed = 0;
+				rigidbody2D.angularVelocity *= 0.90f;
 			}
 		}
 	}
 	private void applyClockwiseRotation(){
-		if(angleSpeed == 0){
+		if(angleSpeed >= 0){
 			angleSpeed = -minAngleSpeed;
 		}
 		else if(angleSpeed > -maxAngleSpeed){
@@ -116,7 +117,7 @@ public class ShipControls : MonoBehaviour {
 		rigidbody2D.angularVelocity = angleSpeed;
 	}
 	private void applyCounterClockwiseRotation(){
-		if(angleSpeed == 0){
+		if(angleSpeed <= 0){
 			angleSpeed = minAngleSpeed;
 		}
 		else if(angleSpeed < maxAngleSpeed){

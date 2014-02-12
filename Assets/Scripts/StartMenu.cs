@@ -27,15 +27,6 @@ public class StartMenu : MonoBehaviour
 
 		DontDestroyOnLoad(GameState.Instance);
 		GameState.Instance.startState();
-
-
-		float scaleFactor = 0.3f;
-		float pWidth = progressBar.transform.localScale.x;
-		float pHeight = progressBar.transform.localScale.y;
-		float coverWidth = progressBarCover.transform.localScale.x;
-		float coverHeight = progressBarCover.transform.localScale.y;
-		float xPosition = Screen.width / 2 - (pWidth / 2);
-		float yPosition = (Screen.height * 0.75f) - (pHeight / 2);
 	}
 
 	void Update(){
