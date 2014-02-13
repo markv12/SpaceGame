@@ -10,8 +10,8 @@ public class ShipControls : MonoBehaviour {
 	private float angleSpeed=0;
 	private float thrust = 18f;
 	private float maxAngleSpeed = 250f;
-	private float minAngleSpeed = 35f;
-	private float speedWarmup = 2.5f;
+	private float minAngleSpeed = 40f;
+	private float speedWarmup = 3f;
 
 	public float shipAccel { get; set;}
 
@@ -90,20 +90,31 @@ public class ShipControls : MonoBehaviour {
 
 			applyAcceleration ();
 
-			float hArrowKeyInput = Input.GetAxis("Horizontal");
-			if(hArrowKeyInput > 0){
-				applyClockwiseRotation();
+			applyASTTurning();
 
-			}
-			else if(hArrowKeyInput < 0){
-				applyCounterClockwiseRotation();
-			}
-			else{
-				angleSpeed = 0;
-				rigidbody2D.angularVelocity *= 0.90f;
+			//alignWithMouse();
+
+			if(Input.GetButtonDown("Flip")){
+				transform.Rotate(new Vector3(0,0,180));
 			}
 		}
 	}
+
+	private void applyASTTurning(){
+		float hArrowKeyInput = Input.GetAxis("Horizontal");
+		if(hArrowKeyInput >=1){
+			applyClockwiseRotation();
+			
+		}
+		else if(hArrowKeyInput <= -1){
+			applyCounterClockwiseRotation();
+		}
+		else{
+			angleSpeed = 0;
+			rigidbody2D.angularVelocity *= 0.95f;
+		}
+	}
+
 	private void applyClockwiseRotation(){
 		if(angleSpeed >= 0){
 			angleSpeed = -minAngleSpeed;
@@ -129,6 +140,40 @@ public class ShipControls : MonoBehaviour {
 		rigidbody2D.angularVelocity = angleSpeed;
 	}
 
+	private void alignWithMouse(){
+		Vector3 mousePosition = MouseWorldPosition ();
+		
+		/* Making ship a "circle" starting "hitbox" of it's smallest size component
+		 * so that projectile distance is always equivalent regardless of 
+		 * ship's nose direction.
+		 */
+		Vector3 shipToMouseVector = mousePosition - transform.position;
+		
+		//Final values!
+		Vector3 rangeIndicatorPosition = transform.position + (shipToMouseVector * (1.0f / 2.0f));
+		
+		float angleOfShipToMouseVector = Mathf.Atan (shipToMouseVector.y / shipToMouseVector.x);
+		if (shipToMouseVector.x >= 0f && shipToMouseVector.y < 0f) {
+			angleOfShipToMouseVector += 2f * Mathf.PI;
+		}
+		else if (shipToMouseVector.x < 0f) {
+			angleOfShipToMouseVector += Mathf.PI;
+		}
+		angleOfShipToMouseVector *= Mathf.Rad2Deg;
+
+		transform.localEulerAngles = new Vector3 (0,0,angleOfShipToMouseVector);
+	}
+
+	public Vector3 MouseWorldPosition() {
+		Vector3 cameraPosition = Camera.main.transform.position;
+		Vector3 playerPosition = transform.position;
+		
+		float cameraToShipDistance = Mathf.Abs (cameraPosition.z - playerPosition.z);
+		
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    
+		Vector3 point = ray.origin + (ray.direction * cameraToShipDistance);
+		return point;
+	}
 
 	public void deactivateShip(){
 		GameState.Instance.playerActive = false;
