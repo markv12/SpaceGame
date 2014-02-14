@@ -40,7 +40,7 @@ InputManager:
     m_Name: Thrust
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: mouse 0
     positiveButton: up
     altNegativeButton: space
     altPositiveButton: w
@@ -56,10 +56,10 @@ InputManager:
     m_Name: Enter
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: return
     positiveButton: enter
     altNegativeButton: 
-    altPositiveButton: return
+    altPositiveButton: space
     gravity: 1000
     dead: .00100000005
     sensitivity: 1000
