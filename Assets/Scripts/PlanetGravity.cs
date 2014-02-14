@@ -67,22 +67,14 @@ public class PlanetGravity : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(player != null){
-			Vector3 frameAcceleration = calculateGravity (player.transform.position);
-			player.AddForce(new Vector2 (frameAcceleration.x,frameAcceleration.y));
+		if(player != null && globalGravityOn && gravityOn){
+			player.AddForce(calculateGravity (player.transform.position));
 		}
 	}
 
 	public Vector3 calculateGravity(Vector3 objectPosition){
-		Vector3 gravitationalAcceleration;
-		if(globalGravityOn && gravityOn){
-			Vector3 direction = (transform.position - objectPosition);
-			gravitationalAcceleration = (gravityFactor*direction*1f)/ direction.sqrMagnitude;
-		}
-		else{
-			gravitationalAcceleration = Vector3.zero;
-		}
-		return gravitationalAcceleration;
+		Vector3 direction = (transform.position - objectPosition);
+		return (gravityFactor*direction)/ direction.sqrMagnitude;
 	}
 
 	private void ActiveCheckpointChanged(object sender, EventArgs e){
