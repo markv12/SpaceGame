@@ -128,8 +128,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 3.7305162, y: 2.97452283}
-  m_Center: {x: .240380868, y: -.0296147652}
+  m_Size: {x: 3.40563202, y: 2.8002255}
+  m_Center: {x: .0779418945, y: -.00471327081}
 --- !u!81 &8100000
 AudioListener:
   m_ObjectHideFlags: 1

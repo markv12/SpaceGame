@@ -15,16 +15,11 @@ public class StartMenu : MonoBehaviour
 	public GameObject startMessage;
 	public GameObject resumeMessage;
 	public GameObject selectionGraphic;
-
-	private float buttonPosX;
-	private float buttonPosY;
+	
 	private Options selectedItem = Options.Start;
 
 	void Start()
 	{
-		buttonPosX = Screen.width / 2 - (buttonWidth / 2);
-		buttonPosY = (Screen.height * 0.75f) - (buttonHeight / 2);
-
 		DontDestroyOnLoad(GameState.Instance);
 		GameState.Instance.startState();
 	}

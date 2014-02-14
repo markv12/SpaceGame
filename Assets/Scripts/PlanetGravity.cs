@@ -17,7 +17,7 @@ public class PlanetGravity : MonoBehaviour {
 
 	private bool gravityOn = false;
 	private Transform gravityRing;
-	private const float maxRingDiameter = 1.3f;
+	private const float maxRingDiameter = 2f;
 	private float currentRingDiameter = 0;
 
 	void Start () {
