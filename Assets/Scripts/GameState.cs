@@ -148,11 +148,11 @@ public class GameState : MonoBehaviour {
 
 	public void enterOpenSpace(){
 		Instance.inOpenSpace = true;
-		PlanetGravity.globalGravityOn = true;
+		GravityObject.globalGravityOn = true;
 	}
 	public void exitOpenSpace(){
 		Instance.inOpenSpace = false;
-		PlanetGravity.globalGravityOn = false;
+		GravityObject.globalGravityOn = false;
 	}
 
 	public  void WaitThenCall(float seconds, Action toCall) {

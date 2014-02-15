@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 
-public class PlanetGravity : MonoBehaviour {
+public class GravityObject : MonoBehaviour {
 	private Rigidbody2D player;
 
 	public float gravityFactor = 8000f;

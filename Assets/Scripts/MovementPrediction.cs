@@ -10,7 +10,7 @@ public class MovementPrediction : MonoBehaviour {
 	private List<GameObject> primaryDots;
 	private List<GameObject> averageDots;
 	private Transform player;
-	private List<PlanetGravity> gravityScripts; 
+	private List<GravityObject> gravityScripts; 
 	private Transform foreground;
 	
 	void Start () {
@@ -68,9 +68,9 @@ public class MovementPrediction : MonoBehaviour {
 	}
 
 	private void getPlanetGravityScripts(){
-		gravityScripts = new List<PlanetGravity> ();
+		gravityScripts = new List<GravityObject> ();
 		foreach (GameObject planet in GameObject.FindGameObjectsWithTag("Planet")) {
-			gravityScripts.Add(planet.GetComponent<PlanetGravity>());
+			gravityScripts.Add(planet.GetComponent<GravityObject>());
 		}
 	}
 	
@@ -84,7 +84,7 @@ public class MovementPrediction : MonoBehaviour {
 		else{
 			List<Vector3> gravityEffects = new List<Vector3> ();
 			//Benchy.Begin("Calculate Gravity Part");
-			foreach(PlanetGravity gravity in gravityScripts){
+			foreach(GravityObject gravity in gravityScripts){
 				gravityEffects.Add(gravity.calculateGravity(position));
 			}
 			//Benchy.End("Calculate Gravity Part");

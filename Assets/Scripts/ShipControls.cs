@@ -142,16 +142,9 @@ public class ShipControls : MonoBehaviour {
 
 	private void alignWithMouse(){
 		Vector3 mousePosition = MouseWorldPosition ();
-		
-		/* Making ship a "circle" starting "hitbox" of it's smallest size component
-		 * so that projectile distance is always equivalent regardless of 
-		 * ship's nose direction.
-		 */
+
 		Vector3 shipToMouseVector = mousePosition - transform.position;
-		
-		//Final values!
-		Vector3 rangeIndicatorPosition = transform.position + (shipToMouseVector * (1.0f / 2.0f));
-		
+
 		float angleOfShipToMouseVector = Mathf.Atan (shipToMouseVector.y / shipToMouseVector.x);
 		if (shipToMouseVector.x >= 0f && shipToMouseVector.y < 0f) {
 			angleOfShipToMouseVector += 2f * Mathf.PI;
