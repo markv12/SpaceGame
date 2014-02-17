@@ -15,7 +15,8 @@ public class SpecialEffectsHelper : MonoBehaviour
 	public ParticleSystem flameCollisionEffect;
 
 	public ParticleSystem shipExplosionEffect;
-	
+	public ParticleSystem shipSmokeEffect;
+
 	void Awake()
 	{
 		// Register the singleton
@@ -38,6 +39,7 @@ public class SpecialEffectsHelper : MonoBehaviour
 
 	public void ShipExplosion(Vector3 position)
 	{
+		instantiate(shipSmokeEffect, position);
 		instantiate(shipExplosionEffect, position);
 	}
 	

@@ -57,6 +57,7 @@ MonoBehaviour:
     type: 2}
   shipExplosionEffect: {fileID: 19800000, guid: ec1c2c6586a084d54bd7a80efc5efc88,
     type: 2}
+  shipSmokeEffect: {fileID: 19800000, guid: f78965a3461a74d2da8d55278a4d1cb0, type: 2}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

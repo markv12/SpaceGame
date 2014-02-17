@@ -93,8 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a1ff7ff4ce484f1aad8887efed74b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSmooth: 22
-  ySmooth: 22
+  xSmooth: 40
+  ySmooth: 40
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
