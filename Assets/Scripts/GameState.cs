@@ -67,6 +67,12 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
+	void Update(){
+		if (Input.GetKeyDown ("r")) {
+			Application.LoadLevelAdditive("PauseMenuScene");
+		}
+	}
+
 	public void startState(){
 		Instance.exitOpenSpace ();
 		Instance.inOpenSpace = false;

@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityFactor: 290
-  checkPointGroupNumber: 8
+  checkPointGroupNumber: 6
 --- !u!50 &62785981
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2965,7 +2965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityFactor: 290
-  checkPointGroupNumber: 8
+  checkPointGroupNumber: 5
 --- !u!50 &534867459
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -4994,6 +4994,10 @@ Prefab:
     - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
       propertyPath: m_Name
       value: gravitywell
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: checkPointGroupNumber
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
@@ -7132,6 +7136,10 @@ Prefab:
     - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
       propertyPath: m_Name
       value: gravitywell
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: checkPointGroupNumber
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
@@ -10418,20 +10426,20 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1542954597}
   - {fileID: 161589180}
+  - {fileID: 204437099}
+  - {fileID: 511073921}
+  - {fileID: 62785979}
+  - {fileID: 1651874175}
+  - {fileID: 1183348020}
+  - {fileID: 534867457}
+  - {fileID: 1018070474}
+  - {fileID: 1731842173}
+  - {fileID: 519033631}
+  - {fileID: 991288269}
   - {fileID: 2113408959}
   - {fileID: 167351650}
-  - {fileID: 511073921}
-  - {fileID: 534867457}
-  - {fileID: 991288269}
-  - {fileID: 204437099}
-  - {fileID: 62785979}
-  - {fileID: 519033631}
-  - {fileID: 1542954597}
-  - {fileID: 1183348020}
-  - {fileID: 1018070474}
-  - {fileID: 1651874175}
-  - {fileID: 1731842173}
   m_Father: {fileID: 826374335}
 --- !u!1 &1928439799
 GameObject:
