@@ -3,8 +3,8 @@
 --- !u!78 &1
 TagManager:
   tags:
-  - 
-  - Planet
+  - PauseMenu
+  - GravityWell
   - Thruster
   - Checkpoint
   - MiniMap

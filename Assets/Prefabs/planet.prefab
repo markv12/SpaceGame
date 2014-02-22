@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 9
   m_Name: planet
-  m_TagString: Planet
+  m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 580, y: 370, z: 0}
+  m_LocalPosition: {x: 557.689636, y: 624.881775, z: 0}
   m_LocalScale: {x: 9, y: 9, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityFactor: 290
-  checkPointGroupNumber: 5
+  checkPointGroupNumber: 6
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
