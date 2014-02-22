@@ -71,6 +71,12 @@ public class GameState : MonoBehaviour {
 		if (Input.GetKeyDown ("r")) {
 			Application.LoadLevelAdditive("PauseMenuScene");
 		}
+		if(Input.GetKeyDown("e")){
+			GameObject pMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+			if(pMenu != null){
+				Destroy(pMenu);
+			}
+		}
 	}
 
 	public void startState(){
