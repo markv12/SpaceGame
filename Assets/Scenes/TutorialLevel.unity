@@ -219,7 +219,7 @@ GameObject:
   - 50: {fileID: 62785981}
   - 114: {fileID: 62785980}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityFactor: 290
-  checkPointGroupNumber: 6
+  checkPointGroupNumber: 8
 --- !u!50 &62785981
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -612,7 +612,7 @@ SpriteRenderer:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 161589180}
@@ -621,7 +621,7 @@ GameObject:
   - 50: {fileID: 161589182}
   - 114: {fileID: 161589181}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -631,7 +631,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   m_GameObject: {fileID: 161589179}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -122.110947, y: 1308.32458, z: 0}
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   m_GameObject: {fileID: 161589179}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -659,7 +659,7 @@ Rigidbody2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 5000000, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   m_GameObject: {fileID: 161589179}
   m_Mass: 1e+06
   m_LinearDrag: 1e+06
@@ -675,7 +675,7 @@ CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 5800000, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   m_GameObject: {fileID: 161589179}
   m_Enabled: 1
   m_Material: {fileID: 0}
@@ -687,7 +687,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21200000, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   m_GameObject: {fileID: 161589179}
   m_Enabled: 1
   m_CastShadows: 0
@@ -719,7 +719,7 @@ GameObject:
   - 50: {fileID: 167351652}
   - 114: {fileID: 167351651}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -861,7 +861,7 @@ GameObject:
   - 50: {fileID: 204437101}
   - 114: {fileID: 204437100}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1264,6 +1264,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
       propertyPath: checkPointGroupNumber
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
@@ -1871,7 +1875,7 @@ SpriteRenderer:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100004, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404149131}
@@ -1887,7 +1891,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400004, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   m_GameObject: {fileID: 404149130}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: -1.62920685e-07}
   m_LocalPosition: {x: 0, y: 0, z: 1}
@@ -1899,7 +1903,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21200004, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   m_GameObject: {fileID: 404149130}
   m_Enabled: 1
   m_CastShadows: 0
@@ -2284,6 +2288,50 @@ Transform:
   - {fileID: 411390996}
   - {fileID: 1663030818}
   m_Father: {fileID: 352018201}
+--- !u!1001 &477895571
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1924652366}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -122.110947
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1308.32458
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+  m_RootGameObject: {fileID: 161589179}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &481577502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2520,7 +2568,7 @@ GameObject:
   - 50: {fileID: 511073923}
   - 114: {fileID: 511073922}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2735,7 +2783,7 @@ GameObject:
   - 50: {fileID: 519033633}
   - 114: {fileID: 519033632}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2876,7 +2924,7 @@ SpriteRenderer:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 534867457}
@@ -2885,7 +2933,7 @@ GameObject:
   - 50: {fileID: 534867459}
   - 114: {fileID: 534867458}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2895,7 +2943,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   m_GameObject: {fileID: 534867456}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 580, y: 370, z: 0}
@@ -2909,7 +2957,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   m_GameObject: {fileID: 534867456}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -2917,13 +2965,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityFactor: 290
-  checkPointGroupNumber: 6
+  checkPointGroupNumber: 8
 --- !u!50 &534867459
 Rigidbody2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 5000000, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   m_GameObject: {fileID: 534867456}
   m_Mass: 1e+06
   m_LinearDrag: 1e+06
@@ -2939,7 +2987,7 @@ CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 5800000, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   m_GameObject: {fileID: 534867456}
   m_Enabled: 1
   m_Material: {fileID: 0}
@@ -2951,7 +2999,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21200000, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   m_GameObject: {fileID: 534867456}
   m_Enabled: 1
   m_CastShadows: 0
@@ -4114,46 +4162,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 4713af3d1aded47c786c875a92fc04bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!1001 &703719535
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1924652366}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 580
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 370
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_RootGameObject: {fileID: 534867456}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &707574620
 GameObject:
   m_ObjectHideFlags: 0
@@ -4393,6 +4401,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
       propertyPath: checkPointGroupNumber
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
@@ -4935,6 +4947,10 @@ Prefab:
       propertyPath: checkPointGroupNumber
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
   m_RootGameObject: {fileID: 511073920}
@@ -4974,6 +4990,10 @@ Prefab:
     - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
       propertyPath: m_LocalRotation.w
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
@@ -5057,6 +5077,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
       propertyPath: checkPointGroupNumber
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
@@ -5152,6 +5176,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
       propertyPath: checkPointGroupNumber
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
@@ -5303,7 +5331,7 @@ GameObject:
   - 50: {fileID: 991288271}
   - 114: {fileID: 991288270}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5432,50 +5460,6 @@ Prefab:
   m_RootGameObject: {fileID: 1437157588}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1001 &1003340925
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1924652366}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -122.110947
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1308.32458
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-      propertyPath: checkPointGroupNumber
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_RootGameObject: {fileID: 161589179}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1018070473
 GameObject:
   m_ObjectHideFlags: 0
@@ -5489,7 +5473,7 @@ GameObject:
   - 50: {fileID: 1018070476}
   - 114: {fileID: 1018070475}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6157,7 +6141,7 @@ GameObject:
   - 50: {fileID: 1183348022}
   - 114: {fileID: 1183348021}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7110,6 +7094,50 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 99724915068f445b5976ecf474a231d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1001 &1399522307
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1924652366}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 580
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 370
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+  m_RootGameObject: {fileID: 534867456}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1407253938
 GameObject:
   m_ObjectHideFlags: 0
@@ -7498,6 +7526,10 @@ Prefab:
       propertyPath: checkPointGroupNumber
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
   m_RootGameObject: {fileID: 1018070473}
@@ -7669,7 +7701,7 @@ GameObject:
   - 50: {fileID: 1542954599}
   - 114: {fileID: 1542954598}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7809,7 +7841,7 @@ SpriteRenderer:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100002, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1545233631}
@@ -7825,7 +7857,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400002, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   m_GameObject: {fileID: 1545233630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
@@ -7838,7 +7870,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21200002, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   m_GameObject: {fileID: 1545233630}
   m_Enabled: 1
   m_CastShadows: 0
@@ -8182,6 +8214,10 @@ Prefab:
       propertyPath: checkPointGroupNumber
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
   m_RootGameObject: {fileID: 1731842172}
@@ -8226,6 +8262,10 @@ Prefab:
       propertyPath: checkPointGroupNumber
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
   m_RootGameObject: {fileID: 519033630}
@@ -8244,7 +8284,7 @@ GameObject:
   - 50: {fileID: 1651874177}
   - 114: {fileID: 1651874176}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8449,6 +8489,10 @@ Prefab:
       propertyPath: checkPointGroupNumber
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
   m_RootGameObject: {fileID: 991288268}
@@ -8616,7 +8660,7 @@ Prefab:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100006, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1676108445}
@@ -8632,7 +8676,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400006, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   m_GameObject: {fileID: 1676108444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -8644,7 +8688,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21200006, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   m_GameObject: {fileID: 1676108444}
   m_Enabled: 1
   m_CastShadows: 0
@@ -9000,7 +9044,7 @@ GameObject:
   - 50: {fileID: 1731842175}
   - 114: {fileID: 1731842174}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9954,6 +9998,10 @@ Prefab:
       propertyPath: checkPointGroupNumber
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
   m_RootGameObject: {fileID: 2113408958}
@@ -10066,7 +10114,7 @@ SpriteRenderer:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100006, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1878326416}
@@ -10082,7 +10130,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400006, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   m_GameObject: {fileID: 1878326415}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -10094,7 +10142,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21200006, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   m_GameObject: {fileID: 1878326415}
   m_Enabled: 1
   m_CastShadows: 0
@@ -10285,6 +10333,10 @@ Prefab:
       propertyPath: checkPointGroupNumber
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
+      propertyPath: m_Name
+      value: gravitywell
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
   m_RootGameObject: {fileID: 167351649}
@@ -10294,7 +10346,7 @@ Prefab:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100004, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1917823650}
@@ -10310,7 +10362,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400004, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   m_GameObject: {fileID: 1917823649}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: -1.62920685e-07}
   m_LocalPosition: {x: 0, y: 0, z: 1}
@@ -10322,7 +10374,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21200004, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 1003340925}
+  m_PrefabInternal: {fileID: 477895571}
   m_GameObject: {fileID: 1917823649}
   m_Enabled: 1
   m_CastShadows: 0
@@ -10366,11 +10418,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 534867457}
   - {fileID: 161589180}
   - {fileID: 2113408959}
   - {fileID: 167351650}
   - {fileID: 511073921}
+  - {fileID: 534867457}
   - {fileID: 991288269}
   - {fileID: 204437099}
   - {fileID: 62785979}
@@ -10778,7 +10830,7 @@ SpriteRenderer:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100002, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2065359167}
@@ -10794,7 +10846,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400002, guid: 08ce31324c9534652b9a2101305800c8, type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   m_GameObject: {fileID: 2065359166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
@@ -10807,7 +10859,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21200002, guid: 08ce31324c9534652b9a2101305800c8,
     type: 2}
-  m_PrefabInternal: {fileID: 703719535}
+  m_PrefabInternal: {fileID: 1399522307}
   m_GameObject: {fileID: 2065359166}
   m_Enabled: 1
   m_CastShadows: 0
@@ -10989,7 +11041,7 @@ GameObject:
   - 50: {fileID: 2113408961}
   - 114: {fileID: 2113408960}
   m_Layer: 9
-  m_Name: planet
+  m_Name: gravitywell
   m_TagString: GravityWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
