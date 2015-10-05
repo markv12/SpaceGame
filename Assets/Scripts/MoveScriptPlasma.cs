@@ -20,6 +20,6 @@ public class MoveScriptPlasma : MonoBehaviour {
 
 	void FixedUpdate() { 
 		// We don't move gameObject, we move its RigidBody2D
-		rigidbody2D.velocity = movement;
+		GetComponent<Rigidbody2D>().velocity = movement;
 	}
 }

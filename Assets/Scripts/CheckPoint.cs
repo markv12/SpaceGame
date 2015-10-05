@@ -23,7 +23,7 @@ public class CheckPoint : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		Rigidbody2D collidedRigidbody = collider.rigidbody2D;
+		Rigidbody2D collidedRigidbody = collider.GetComponent<Rigidbody2D>();
 		if(collidedRigidbody !=null){
 			Vector3 colliderPosition = collider.transform.position;
 			Vector3 relativePosition = getRelativePosition (transform, colliderPosition);

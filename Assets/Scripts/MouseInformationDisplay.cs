@@ -13,7 +13,7 @@ public class MouseInformationDisplay : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.guiText.text = "0.0";
+		gameObject.GetComponent<GUIText>().text = "0.0";
 	}
 	
 	// Update is called once per frame
@@ -26,7 +26,7 @@ public class MouseInformationDisplay : MonoBehaviour {
 		//To update string values:
 		PositionAndAngleInfo ();
 
-		gameObject.guiText.text = positionString + "\n" + shipToMouseString + "\n" + angleString;
+		gameObject.GetComponent<GUIText>().text = positionString + "\n" + shipToMouseString + "\n" + angleString;
 	}
 
 	public Vector3 MouseWorldPosition() {
@@ -42,7 +42,7 @@ public class MouseInformationDisplay : MonoBehaviour {
 	public void PositionAndAngleInfo() {
 		GameObject player = GameObject.Find ("Player");
 		Vector3 shipPosition = player.transform.position;//transform.position;
-		Vector3 shipSize = player.renderer.bounds.size;
+		Vector3 shipSize = player.GetComponent<Renderer>().bounds.size;
 		
 		// Actual mouse position, finally, turns out it's heavily influenced by camera's distance from player:
 		Vector3 mousePosition = MouseWorldPosition ();

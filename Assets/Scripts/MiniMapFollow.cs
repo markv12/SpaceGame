@@ -35,6 +35,6 @@ public class MiniMapFollow : MonoBehaviour {
 			camera.transform.position = newPosition;
 		}
 		*/
-		camera.transform.position = new Vector3 (player.position.x, player.position.y, camera.transform.position.z);
+		GetComponent<Camera>().transform.position = new Vector3 (player.position.x, player.position.y, GetComponent<Camera>().transform.position.z);
 	}
 }

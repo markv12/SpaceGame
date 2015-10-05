@@ -22,7 +22,7 @@ public class GravityObject : MonoBehaviour {
 
 	void Start () {
 		handler = new GameState.ChangedEventHandler (ActiveCheckpointChanged);
-		player = GameObject.FindGameObjectWithTag ("Player").rigidbody2D;
+		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Rigidbody2D>();
 		GameState.Instance.ActiveCheckpointChanged += handler;
 		foreach (Transform child in transform) {
 			this.gravityRing = child;

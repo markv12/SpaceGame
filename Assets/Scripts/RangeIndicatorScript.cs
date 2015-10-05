@@ -38,7 +38,7 @@ public class RangeIndicatorScript : MonoBehaviour {
 
 	public void DisplayIndicator() {
 		Vector3 shipPosition = GameObject.Find ("Player").transform.position;
-		Vector3 shipSize = renderer.bounds.size;
+		Vector3 shipSize = GetComponent<Renderer>().bounds.size;
 		
 		// Actual mouse position, finally, turns out it's heavily influenced by camera's distance from player:
 		Vector3 mousePosition = MouseWorldPosition ();

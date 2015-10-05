@@ -38,7 +38,7 @@ public class TestMethod : MonoBehaviour {
 	private const KeyCode rightKeyCode        = KeyCode.D;
 	
 	void FixedUpdate(){
-		Ray ray = Camera.mainCamera.ScreenPointToRay(Vector3.zero);
+		Ray ray = Camera.main.ScreenPointToRay(Vector3.zero);
 		Physics.Raycast(ray);
 	}
 }

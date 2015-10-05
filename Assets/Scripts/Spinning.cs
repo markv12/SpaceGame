@@ -7,6 +7,6 @@ public class Spinning : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		rigidbody2D.angularVelocity = speed;
+		GetComponent<Rigidbody2D>().angularVelocity = speed;
 	}
 }

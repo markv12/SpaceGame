@@ -49,7 +49,7 @@ public class MovementPrediction : MonoBehaviour {
 	}
 
 	private void makePredictions(){
-		Vector2 pVelocity = player.rigidbody2D.velocity/3.5f;
+		Vector2 pVelocity = player.GetComponent<Rigidbody2D>().velocity/3.5f;
 		Vector3 pVelocity3D = new Vector3 (pVelocity.x, pVelocity.y,0);
 
 		//Benchy.Begin("Whole Calculate Predictions");

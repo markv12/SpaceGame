@@ -11,7 +11,7 @@ public class CameraSpeedZoom : MonoBehaviour {
 	public float zoomFactor = 12f;
 
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player").rigidbody2D;
+		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame

@@ -29,7 +29,7 @@ public class OutofBoundsKill : MonoBehaviour {
 			ChasePlayer.isChasing = true;
 			if(antibodies.Count <= maxAntibodies){
 				Vector3 spawnPosition = new Vector3(player.transform.position.x,player.transform.position.y,800);
-				Vector2 playerVelocity = player.rigidbody2D.velocity;
+				Vector2 playerVelocity = player.GetComponent<Rigidbody2D>().velocity;
 				spawnPosition -= new Vector3(playerVelocity.x, playerVelocity.y, 0);
 
 				GameObject antibodyInstance = (GameObject)Instantiate (antibody);

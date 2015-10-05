@@ -58,7 +58,7 @@ public class ShipControls : MonoBehaviour {
 		if(Input.GetButton ("Thrust")){
 			countFuel();
 			this.shipAccel += this.thrust;
-			if(rigidbody2D.velocity.magnitude < 6){
+			if(GetComponent<Rigidbody2D>().velocity.magnitude < 6){
 				this.shipAccel*=2;
 			}
 			/*
@@ -111,7 +111,7 @@ public class ShipControls : MonoBehaviour {
 		}
 		else{
 			angleSpeed = 0;
-			rigidbody2D.angularVelocity *= 0.95f;
+			GetComponent<Rigidbody2D>().angularVelocity *= 0.95f;
 		}
 	}
 
@@ -125,7 +125,7 @@ public class ShipControls : MonoBehaviour {
 		else{
 			angleSpeed = -maxAngleSpeed;
 		}
-		rigidbody2D.angularVelocity = angleSpeed;
+		GetComponent<Rigidbody2D>().angularVelocity = angleSpeed;
 	}
 	private void applyCounterClockwiseRotation(){
 		if(angleSpeed <= 0){
@@ -137,7 +137,7 @@ public class ShipControls : MonoBehaviour {
 		else{
 			angleSpeed = maxAngleSpeed;
 		}
-		rigidbody2D.angularVelocity = angleSpeed;
+		GetComponent<Rigidbody2D>().angularVelocity = angleSpeed;
 	}
 
 	private void alignWithMouse(){
@@ -197,7 +197,7 @@ public class ShipControls : MonoBehaviour {
 		CheckPoint lastPoint = GameState.Instance.getLastCheckPoint();
 		Vector3 checkPointPosition = lastPoint.transform.position;
 		transform.position = new Vector3 (checkPointPosition.x, checkPointPosition.y, transform.position.z);
-		rigidbody2D.angularVelocity = 0f;
+		GetComponent<Rigidbody2D>().angularVelocity = 0f;
 		transform.rotation = lastPoint.transform.rotation;
 		transform.Rotate (0,0,90);
 	}
@@ -215,13 +215,13 @@ public class ShipControls : MonoBehaviour {
 
 	private void applyAcceleration(){
 		if(shipAccel != 0){
-			float boost = DIRECTIONCHANGEADJUST*Vector3.Angle(rigidbody2D.velocity, transform.right);
+			float boost = DIRECTIONCHANGEADJUST*Vector3.Angle(GetComponent<Rigidbody2D>().velocity, transform.right);
 			shipAccel += boost;
 		}
-		rigidbody2D.AddForce (transform.right*shipAccel);
+		GetComponent<Rigidbody2D>().AddForce (transform.right*shipAccel);
 
 		if(!GameState.Instance.InOpenSpace){
-			rigidbody2D.velocity*=0.988f;
+			GetComponent<Rigidbody2D>().velocity*=0.988f;
 		}
 
 	}
