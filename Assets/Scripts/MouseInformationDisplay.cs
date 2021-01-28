@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MouseInformationDisplay : MonoBehaviour {
@@ -9,11 +10,10 @@ public class MouseInformationDisplay : MonoBehaviour {
 	private string positionString;
 	private string angleString;
 	private string shipToMouseString;
-	private Random random = new Random ();
 
 	// Use this for initialization
 	void Start () {
-		gameObject.GetComponent<GUIText>().text = "0.0";
+		gameObject.GetComponent<Text>().text = "0.0";
 	}
 	
 	// Update is called once per frame
@@ -26,7 +26,7 @@ public class MouseInformationDisplay : MonoBehaviour {
 		//To update string values:
 		PositionAndAngleInfo ();
 
-		gameObject.GetComponent<GUIText>().text = positionString + "\n" + shipToMouseString + "\n" + angleString;
+		gameObject.GetComponent<Text>().text = positionString + "\n" + shipToMouseString + "\n" + angleString;
 	}
 
 	public Vector3 MouseWorldPosition() {
